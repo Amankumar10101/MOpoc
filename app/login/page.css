@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@100;300;500&display=swap');
+
+
+
+.login-main-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-section1,
+.login-section2 {
+    width: 50%;
+    height: 100vh;
+}
+
+.login-section1 {
+    background: #79C1DD;
+    box-shadow: 8px 0px 10px rgba(0, 0, 0, 0.14), 3px 0px 14px rgba(0, 0, 0, 0.12), 5px 0px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.login-section2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-mo-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    height: 15vh;
+
+    width: 90%;
+}
+
+/* .login-mo-logo {
+    background: transparent;
+    box-shadow: 8px 0px 10px rgba(0, 0, 0, 0.14), 3px 0px 14px rgba(0, 0, 0, 0.12), 5px 0px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+} */
+
+.login-heading {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 94.0969px;
+    line-height: 100px;
+    /* identical to box height, or 106% */
+
+
+    color: #000000;
+}
+
+.login-sub-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-signup {
+    color: #9D9D9D;
+    font-weight: 500;
+    text-transform: lowercase !important;
+}
+
+.login-fields {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 4;
+}
+
+.login-extensions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    width: 90%;
+}
+
+.login-icons {
+    color: #9D9D9D;
+    justify-content: left;
+}
+
+.login-privacy {
+    color: #9D9D9D;
+    color: #dedddd;
+    font-weight: 500;
+}
+
+/* .login-email {
+    margin-bottom: 10px;
+    /* width: 300px; */
+
+
+/* .login-password {
+    margin-bottom: 10px;
+}  */
+.login-form {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* height: 20vh; */
+}
