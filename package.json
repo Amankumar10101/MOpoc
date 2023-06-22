@@ -37,5 +37,13 @@
   "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
   "main": "next.config.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ud7811/MO-Frontend-React.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ud7811/MO-Frontend-React/issues"
+  },
+  "homepage": "https://github.com/ud7811/MO-Frontend-React#readme"
 }
