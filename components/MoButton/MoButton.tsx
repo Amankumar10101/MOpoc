@@ -10,20 +10,22 @@ const MyButton = styled(Button)((props) => ({
     textColor: props.variant==="text"? props.color? props.color:"#00B7FD": "white",
     textTransform: "none",
     paddingTop:"10px",
-    paddingBottom:"10px"
+    paddingBottom:"10px",
+    marginTop:"10px"
    
     // width: props.size? props.size: 50  ,
   }));
 
 function MoButton(props: ButtonInterface){
    
-    const {variant,type,width,color, name}=props;
+    const {variant,type,width,color, name, onClick}=props;
     
 
 return (
-    <MyButton sx={{
-        width:width+"px"
-    }} variant={variant} color="secondary"   type={type}>{name}</MyButton>
+    <MyButton onClick={onClick} sx={{
+        // width:width+"px"
+        width: "100%"
+    }} variant={variant}    type={type}>{name}</MyButton>
 )
 }
 

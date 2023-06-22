@@ -1,5 +1,5 @@
 export interface TextfieldInterface{
-    label?: string,
+    label: string,
     placeholder: string,
     name: string,
     rows?: number,
@@ -9,17 +9,20 @@ export interface TextfieldInterface{
   }
 export  interface FormElements {
     type: string,
-    label: string,
+    label?: string,
     name: string,
-    placeholder: string,
+    placeholder?: string,
     rows?: number,
-    className: string,
-    value: string,
-    width?: string
+    className?: string,
+    value?: string,
+    width?: string,
+    regex?:string,
+    showErrorMessage?:boolean,
+    errorMessage?: string,
 }
 export interface FormBuilder{
     className?: string,
-    formData: Array<Partial<FormElements>>
+    formData: Array<FormElements>
 }
 export interface DoughnutInterface{
     values: Array<number>;
@@ -50,4 +53,6 @@ export interface ButtonInterface{
     type: "button" | "submit" | "reset" | undefined,
     color?: string| undefined,
     width?: number| undefined,
+    onClick:  ()=>void,
+
 }
