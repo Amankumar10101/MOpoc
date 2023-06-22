@@ -1,0 +1,19 @@
+.create-account-form{
+    display :flex ;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+}
+.signup-about-form{
+    display :flex ;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+}
+.signup-page{
+    display: flex;
+    flex-direction:column ;
+    justify-content: center;
+    align-items: center;
+
+}

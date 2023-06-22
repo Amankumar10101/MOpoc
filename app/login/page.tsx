@@ -41,11 +41,14 @@ function Login() {
             // }
         ]
     }
+const handleChange=()=>
+{
 
+}
     return (
         <div className="login-main-page">
             <section className="login-section1">
-                <MoButton variant="outlined" type="button" name="SignUp" ></MoButton>
+                <MoButton variant="outlined" type="button" name="SignUp" onClick={handleChange} ></MoButton>
             </section>
             <section className="login-section2">
                 <div className="login-mo-logo">
@@ -55,9 +58,9 @@ function Login() {
                     <h1 className="login-heading">Hi there!</h1>
                     <h2 className="login-sub-heading">Welcome to M.O.</h2>
                     <MoFormBuilder {...formData} />
-                    <MoButton name="Forgot Password?" type="button" variant="text"></MoButton>
-                    <MoButton name="Login" width={326} type="button" variant="contained" />
-                    <h4 className="login-signup">Don’t have an account? <MoButton name="Sign up" type="button" variant="text" /></h4>
+                    <MoButton name="Forgot Password?" type="button" variant="text" onClick={handleChange}></MoButton>
+                    <MoButton name="Login" width={326} type="button" variant="contained" onClick={handleChange} />
+                    <h4 className="login-signup">Don’t have an account? <MoButton name="Sign up" type="button" variant="text" onClick={handleChange} /></h4>
                 </div>
                 <div className="login-extensions">
                         <div className="login-icons" >

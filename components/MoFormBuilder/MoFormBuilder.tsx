@@ -1,81 +1,89 @@
 import MoTextfields from "../MoTextfield/MoTextfields";
+import {useEffect, useState} from "react";
 import MoButton from "../MoButton/MoButton";
 import "./MoFormBuilder.css";
 import { FormElements, FormBuilder } from '../../app/interface';
 import axios from "axios";
+import MoCheckbox from "../MoCheckbox/MoCheckbox";
 
 
 function MoFormBuilder({ className, formData }: FormBuilder) {
 
     // console.log(props);
     // const { formData } = props;
-
+    const [errorMsg, setErrorMsg]= useState();
+    const [showErrorMsg, setShowErrorMsg]= useState(false);
 
     const handleChange = (name: string, value: string) => {
+    
         console.log(name);
         console.log(value);
         const controlIndex = formData.findIndex((control) => control.name === name);
         console.log(controlIndex);
         if (controlIndex !== -1) {
             formData[controlIndex].value = value;
+           
         }
-        console.log(formData);
+        
+
+        
+        // console.log(formData);
         //   let 
     }
-    // const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
-    //     event.preventDefault();
-    //     console.log(event.target);
-    //     const data = new FormData(event.target);
-    //     console.log(data.get('title'));
-    //     console.log(data.get('suggestion'));
-    //     console.log(data);
-    //     {formData.map((d: Partial<FormElements>) => {
-    //         const { name } = d;
 
-    //     })}
-    //     try {
-    //         // 👇️ const data: CreateUserResponse
-    //         axios.post(
-    //             'http://localhost:8080/user',
-    //             data,
-    //             {
-    //                 headers: {
-    //                     'Content-Type': 'application/json',
-    //                     Accept: 'application/json',
-    //                 },
-    //             },
-    //         ).then((response) => {
-    //             console.log(response);
-    //         }).catch(error => {
-    //             console.log(error.response);
+    const validateForm = () => {
+        // console.log(formData);
 
 
-    //         });
-    //     } catch (error) {
-    //         
-    //     }
-    // }
+        formData.map((e) => {
+            console.log("hello");
+            if (e.regex) {
+                let reg = RegExp(e.regex)
+                let value = e.value;
+                if (value && (reg.test(value))) {
+                    e.showErrorMessage = false;
+                    setShowErrorMsg(false);
+                } else {
+                    e.showErrorMessage = true;
+                    setShowErrorMsg(true);
+                }
+            }
+        })
+        console.log("formData", formData)
+        return formData.filter((control) => control.showErrorMessage).length === 0;
+    }
+    const handleSubmit = () => {
 
+        if (validateForm()) {
+            // post data
+        }
+    }
+
+    useEffect(() => {
+        console.log('useeffect1', formData);
+      }, [showErrorMsg]); // Only re-run the effect if count change
+      
+    
     return (
-        <form className={className}
-        // onSubmit={handleSubmit}
-        >
-            {formData.map((d: Partial<FormElements>) => {
-                const { className,width, type, name, placeholder, label } = d;
+        <form className={className}>
+            {formData.map((d: FormElements) => {
+                const { className, width, type, name, placeholder, label, showErrorMessage, errorMessage } = d;
                 switch (type) {
                     case "textbox": return (
                         <MoTextfields
-                        width={width}
+                            width={width}
                             className={className}
                             name={name}
                             label={label}
                             placeholder={placeholder}
                             onChange={handleChange}
+                            showErrorMessage={showErrorMessage}
+                            errorMessage={errorMessage}
                         ></MoTextfields>
-                    ); break;
+                    );
                     case "multiline": return (
                         <MoTextfields
-                        width={width}
+                            width={width}
                             className={className}
                             name={name}
                             label={label}
@@ -84,16 +92,13 @@ function MoFormBuilder({ className, formData }: FormBuilder) {
                             rows={d.rows}
                             onChange={handleChange}
                         />
-                    ); break;
-                    case "button": return (<MoButton variant="contained" type={type} name={name} />); break;
+                    );
+                    case "checkbox": return (<MoCheckbox label={label} name={name} onChange={handleChange}></MoCheckbox>);
+                    case "button": return (<MoButton variant="contained" type={type} name={name} onClick={handleSubmit} />);
                 }
             })}
         </form>
     )
-
-
-
-
 
 }
 export default MoFormBuilder;

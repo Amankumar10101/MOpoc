@@ -7,7 +7,7 @@ import MoTextfields from "../../components/MoTextfield/MoTextfields";
 // import "./purchaserDashboard.scss";
 import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
 import MoDoughnut from "../../components/MoDoghnut/MoDoughnut";
-
+import MoCheckbox from "../../components/MoCheckbox/MoCheckbox";
 
 function PurchaserDashboard() {
 
@@ -22,7 +22,8 @@ function PurchaserDashboard() {
 
     return (
         <div>
-            <MoFormBuilder {...formData} />
+            {/* <MoCheckbox/> */}
+            {/* <MoFormBuilder {...formData} /> */}
           
             <MoDoughnut
                 values={pieValues}
