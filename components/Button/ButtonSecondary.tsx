@@ -5,12 +5,12 @@ import { styled } from "@mui/material/styles";
 
 interface ButtonProps {
     name: string;
-    left: string;
-    top: string;
+    left?: string;
+    top?: string;
 }
 
 const Container = styled("div")<ButtonProps>`
-position: absolute;
+// position: absolute;
 left: ${(props) => props.left};
 top: ${(props) => props.top};
 `
@@ -23,7 +23,7 @@ const ButtonStyle = styled(Button)({
   alignItems: "center",
   padding: "10px",
   gap: "10px",
-  position: "absolute",
+  // position: "absolute",
   height: "32px",
   letterSpacing: "0.25px",
   color: "#00B7FD",
