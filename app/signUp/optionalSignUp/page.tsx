@@ -20,7 +20,7 @@ function OptionalSignUp() {
 
     return (
         <div 
-        // className="optional-signup-page"
+        className="optional-signup-page"
         >
             <Tab tabs={tabs}/>        
 

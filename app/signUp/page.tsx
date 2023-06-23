@@ -1,3 +1,4 @@
+
 'use client'
 
 import MoCard from "../../components/MoCard/MoCard";
@@ -26,7 +27,7 @@ console.log("change");
     return (
         <div className="signup-page">
             <h2 className="login-heading">Create Account</h2>      
-                    <MoFormBuilder {...formData()} />                  
+                    <MoFormBuilder {...formData(change)} />                  
         </div>
     )
 }
