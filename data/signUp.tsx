@@ -1,10 +1,12 @@
-
+import SkipFooter from "./../components/SkipFooter/SkipFooter";
 
 export const formData=(
+    onClick: ()=>void
 ) => {
 
     return({
     className: "create-account-form",
+    ActionComponent: SkipFooter,
     formData: [
         {
             type: "textbox",
@@ -29,7 +31,7 @@ export const formData=(
             "value": ""
         },
         {
-            "type": "textbox",
+            "type": "password",
             "name": "password",
             "placeholder": "Create a Password",
             "className": "login-password",
@@ -37,15 +39,6 @@ export const formData=(
             "width":"300px",
             "regex":"/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/",
             "errorMessage":"invalid password",
-            "value": ""
-        },
-        {
-            type: "textbox",
-            "name": "password",
-            "placeholder": "Renter Password",
-            "className": "login-password",
-            "label": "Reconfirm Password",
-            "width":"300px",
             "value": ""
         },
         {
@@ -61,11 +54,6 @@ export const formData=(
             "className": "login-password",
             "label": "I have read and agreed to the M.O. Terms of Services and Privacy Policy",
             "value": ""
-        },
-        {
-            "type": "button",
-            "name": "Create Account"
-
         }
     ]})
 }

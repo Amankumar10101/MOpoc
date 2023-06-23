@@ -1,3 +1,4 @@
+
 import MoTextfields from "../MoTextfield/MoTextfields";
 import {useEffect, useState} from "react";
 import MoButton from "../MoButton/MoButton";
@@ -5,9 +6,11 @@ import "./MoFormBuilder.css";
 import { FormElements, FormBuilder } from '../../app/interface';
 import axios from "axios";
 import MoCheckbox from "../MoCheckbox/MoCheckbox";
+import MoPassword from "../MoTextfield/MoPassword";
+import SkipFooter from "../SkipFooter/SkipFooter";
 
 
-function MoFormBuilder({ className, formData }: FormBuilder) {
+function MoFormBuilder({ className, ActionComponent, formData }: FormBuilder) {
 
     // console.log(props);
     // const { formData } = props;
@@ -63,7 +66,8 @@ function MoFormBuilder({ className, formData }: FormBuilder) {
         console.log('useeffect1', formData);
       }, [showErrorMsg]); // Only re-run the effect if count change
       
-    
+      
+   
     return (
         <form className={className}>
             {formData.map((d: FormElements) => {
@@ -93,10 +97,21 @@ function MoFormBuilder({ className, formData }: FormBuilder) {
                             onChange={handleChange}
                         />
                     );
+                    case "password": return(
+                        <MoPassword
+                            className={className}
+                            name={name}
+                            label={label}
+                            placeholder={placeholder}
+                            onChange={handleChange}
+                        />
+                    )
                     case "checkbox": return (<MoCheckbox label={label} name={name} onChange={handleChange}></MoCheckbox>);
                     case "button": return (<MoButton variant="contained" type={type} name={name} onClick={handleSubmit} />);
                 }
             })}
+            {/* <ActionComponent onClick={handleSubmit}/> */}
+            {/* {actionComponent } */}
         </form>
     )
 

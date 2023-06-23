@@ -1,3 +1,5 @@
+import { Component } from "react";
+
 export interface TextfieldInterface{
     label: string,
     placeholder: string,
@@ -22,6 +24,7 @@ export  interface FormElements {
 }
 export interface FormBuilder{
     className?: string,
+    ActionComponent?:React.ElementType,
     formData: Array<FormElements>
 }
 export interface DoughnutInterface{
@@ -48,11 +51,11 @@ export interface ProgressBarInterface{
      value: number
 }
 export interface ButtonInterface{
-    variant:"text" | "outlined" | "contained"| undefined ,
+    variant?:"text" | "outlined" | "contained"| undefined ,
     name?: string,
-    type: "button" | "submit" | "reset" | undefined,
+    type?: "button" | "submit" | "reset" | undefined,
     color?: string| undefined,
     width?: number| undefined,
-    onClick:  ()=>void,
+    onClick?:  ()=>void,
 
 }
