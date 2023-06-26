@@ -1,25 +1,13 @@
 "use client";
 import React, { FC } from "react";
 import { Typography, styled } from "@mui/material";
+// import styles from "../../styles/variables.module.scss";
 
-
-interface HeadlineProps {
+interface SubtitleProps {
   text: string;
   subtitle?: string;
 }
 
-const HeadlineComponent = styled(Typography)`
-  && {
-    // font-style: normal;
-    // font-weight: 700;
-    font-size: 1.75rem;
-    font-family: Roboto;
-    line-height: 2.25rem;
-    // display: flex;
-    // align-items: center;
-    color: '#585858';
-  }
-`;
 const SubtitleComponent = styled(Typography)`
   && {
     font-style: normal;
@@ -32,10 +20,9 @@ const SubtitleComponent = styled(Typography)`
   }
 `;
 
-const Headline: FC<HeadlineProps> = ({ text, subtitle }) => {
+const Headline: FC<SubtitleProps> = ({ text, subtitle }) => {
   return (
     <div>
-      <HeadlineComponent variant="body1">{text}</HeadlineComponent>
       <SubtitleComponent variant="body2" sx={{ marginTop: "5px" }}>
         {subtitle}
       </SubtitleComponent>

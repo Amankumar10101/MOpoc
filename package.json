@@ -24,12 +24,15 @@
     "chart.js": "^4.3.0",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.6",
+    "i18next": "^23.2.3",
     "lodash": "^4.17.21",
     "next": "13.4.6",
+    "next-i18next": "^14.0.0",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.44.3",
+    "react-i18next": "^13.0.1",
     "react-mui-fileuploader": "^0.5.2",
     "react-router-dom": "^6.12.1",
     "sass": "^1.63.4",
@@ -38,5 +41,13 @@
   "description": "This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).",
   "main": "next.config.js",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ud7811/MO-Frontend-React.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ud7811/MO-Frontend-React/issues"
+  },
+  "homepage": "https://github.com/ud7811/MO-Frontend-React#readme"
 }

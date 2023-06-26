@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material";
 import "./tab.css";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "@/app/styles/theme";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -19,6 +21,7 @@ const StyledTab = styled("div")({
   justifyContent: "center",
   alignItems: "center",
   padding: "0px",
+
   // position: "absolute",
   // width: "825px",
   // height: "32px",
@@ -29,20 +32,21 @@ const StyledTab = styled("div")({
 const TabsStyle = styled(Tabs)({
 
   "& .MuiTabs-scroller .MuiTabs-flexContainer .MuiButtonBase-root": {
-    color:'#B4B4B4',
+    color: '#B4B4B4',
     fontSize: '1.75rem',
     // fontFamily: 'Roboto',
-    textTransform:'unset',
-    borderBottom:'2px solid #74777A',
+    textTransform: 'unset',
+    borderBottom: '2px solid #74777A',
   },
-  "& .MuiTabs-scroller .MuiTabs-flexContainer .MuiButtonBase-root.Mui-selected":{
+  "& .MuiTabs-scroller .MuiTabs-flexContainer .MuiButtonBase-root.Mui-selected": {
     color: '#00B7FD',
-    fontWeight:'700',
+    fontWeight: '700',
   },
-  "& .MuiTabs-scroller .MuiTabs-indicator":{
+  "& .MuiTabs-scroller .MuiTabs-indicator": {
     backgroundColor: '#00B7FD',
-    height:'3px',
+    height: '3px',
   }
+
 })
 
 function TabPanel(props: TabPanelProps) {
@@ -58,7 +62,8 @@ function TabPanel(props: TabPanelProps) {
       className="tab-child-components"
     >
       {value === index && (
-        <Box className="tab-box" sx={{ p: 3 , width: "100%",}}>
+
+        <Box className="tab-box" sx={{ p: 3, width: "100%", }}>
 
           {children}
 
@@ -77,14 +82,14 @@ function a11yProps(index: number) {
 
 interface BasicTabsProps {
   isClicked: number,
-  setIsClicked:React.Dispatch<React.SetStateAction<number>>,
+  setIsClicked: React.Dispatch<React.SetStateAction<number>>,
   tabs: { label: string; component: React.ReactNode }[];
   width?: string,
   className?: string,
 }
 
 export default function BasicTabs(props: BasicTabsProps) {
-  const { isClicked,setIsClicked,className, width, tabs } = props;
+  const { isClicked, setIsClicked, className, width, tabs } = props;
   const [value, setValue] = React.useState(0);
 
 
@@ -92,41 +97,46 @@ export default function BasicTabs(props: BasicTabsProps) {
     setValue(newValue);
     console.log(newValue);
   };
-  React.useEffect(()=>{
-    if(isClicked && (value<tabs.length-1)){
-      setValue(value+1);
+  React.useEffect(() => {
+    if (isClicked && (value < tabs.length - 1)) {
+      setValue(value + 1);
       console.log(isClicked);
       setIsClicked(0);
     }
-    else{setIsClicked(0);}
-  },[isClicked]);
+    else { setIsClicked(0); }
+  }, [isClicked]);
   return (
-    <>
+    <ThemeProvider theme={theme}>
+      <>
 
-      <StyledTab sx={{ width: "100%" }} >
-        <Box className="signUp-tab-box" sx={{ width: "100%" }}>
-          <Box 
-          // sx={{ borderBottom: 2, borderColor: "#74777A" }}
-          >
-            <TabsStyle
-              className={className}
-              value={value}
-              onChange={handleChange}
-              aria-label="basic tabs example"
+        <StyledTab sx={{ width: "100%" }} >
+          <Box className="signUp-tab-box" sx={{ width: "100%" }}>
+            <Box
+            // sx={{ borderBottom: 2, borderColor: "#74777A" }}
+
             >
-              {tabs.map((tab, index) => (
-                <Tab key={index} label={tab.label} {...a11yProps(index)} />
-              ))}
-            </TabsStyle>
+              <TabsStyle
+                className={className}
+                value={value}
+                onChange={handleChange}
+                aria-label="basic tabs example"
+              >
+                {tabs.map((tab, index) => (
+                  <Tab key={index} label={tab.label} {...a11yProps(index)} />
+                ))}
+              </TabsStyle>
+            </Box>
+
           </Box>
 
-        </Box>
-      </StyledTab>
-      {tabs.map((tab: any, index: number) => (
-        <TabPanel key={index} value={value} index={index}>
-          {tab.component}
-        </TabPanel>
-      ))}
-    </>
+        </StyledTab>
+        {tabs.map((tab: any, index: number) => (
+          <TabPanel key={index} value={value} index={index}>
+            {tab.component}
+          </TabPanel>
+        ))}
+
+      </>
+    </ThemeProvider>
   );
 }

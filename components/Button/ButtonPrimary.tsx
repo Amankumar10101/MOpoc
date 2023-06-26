@@ -2,11 +2,13 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "@/app/styles/theme";
 
 interface ButtonProps {
   name: string;
-  left: string;
-  top: string;
+  left?: string;
+  top?: string;
 }
 
 const Container = styled("div")<ButtonProps>`
@@ -15,7 +17,8 @@ const Container = styled("div")<ButtonProps>`
   top: ${(props) => props.top};
 `;
 
-const ButtonStyle = styled(Button)({
+const ButtonStyle = styled(Button)(({theme}) => ({
+color: '#FFFFFF',
   boxSizing: "border-box",
   display: "flex",
   flexDirection: "row",
@@ -26,7 +29,6 @@ const ButtonStyle = styled(Button)({
   position: "absolute",
   height: "32px",
   letterSpacing: "0.25px",
-  color: "#FFFFFF",
   borderRadius: "5px",
   boxShadow: "none",
   textTransform: "none",
@@ -43,17 +45,54 @@ const ButtonStyle = styled(Button)({
     backgroundColor: "#00B7FD",
     color: "#FFFFFF",
   },
-});
+}));
+
+
+
+// const ButtonStyle = styled(Button)({
+//   boxSizing: "border-box",
+//   display: "flex",
+//   flexDirection: "row",
+//   justifyContent: "center",
+//   alignItems: "center",
+//   padding: "10px",
+//   gap: "10px",
+//   position: "absolute",
+//   height: "32px",
+//   letterSpacing: "0.25px",
+//   color: "#FFFFFF",
+//   borderRadius: "5px",
+//   boxShadow: "none",
+//   textTransform: "none",
+//   whiteSpace: "nowrap",
+//   fontSize: 14,
+//   lineHeight: "17px",
+
+//   fontStyle: "normal",
+//   "&:hover": {
+//     boxShadow: "none",
+//   },
+//   "&:active": {
+//     boxShadow: "none",
+//     backgroundColor: "#00B7FD",
+//     color: "#FFFFFF",
+//   },
+// });
 const ButtonPrimary: React.FC<ButtonProps> = ({ name, left, top }) => {
   return (
+    <ThemeProvider theme={theme}>
     <Container left={left} top={top} name={name}>
       <ButtonStyle
+      className="buttonStyle"
+     
         variant="contained"
-        sx={{ backgroundColor: "#00B7FD !important" }}
+        color="primary"
+        // sx={{ backgroundColor: "#00B7FD !important" }}
       >
         {name}
       </ButtonStyle>
     </Container>
+    </ThemeProvider>
   );
 };
 export default ButtonPrimary;
