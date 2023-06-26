@@ -9,7 +9,8 @@ import MoFormBuilder from "../../../components/MoFormBuilder/MoFormBuilder";
 import SkipFooter from "../../../components/SkipFooter/SkipFooter";
 import {Continue} from '../../interface';
 
-function About({onContinueClick}:Continue) {
+
+function Experience({onContinueClick}:Continue) {
 
     const formData = {
         "className": "signup-about-form",
@@ -17,38 +18,37 @@ function About({onContinueClick}:Continue) {
         "formData": [
             {
                 "type": "textbox",
-                "name": "name",
-                "placeholder": "Enter Name",
+                "name": "position",
+                "placeholder": "Select",
                 "className": "login-email",
                 "width": "300px",
-                "label": "Name",
-                "value": ""
-            },
-            {
-                "type": "multiline",
-                "name": "about",
-                "className": "login-email",
-                "placeholder": "Write few things about yourself",
-                "width": "300px",
-                "rows": 4,
-                "label": "About",
+                "label": "Position last held",
                 "value": ""
             },
             {
                 "type": "textbox",
-                "name": "portfolio",
-                "placeholder": "Enter Link",
+                "name": "company",
+                "className": "login-email",
+                "placeholder": "Search Institute",
+                "width": "300px",
+                "label": "Company",
+                "value": ""
+            },
+            {
+                "type": "textbox",
+                "name": "start date",
+                "placeholder": "Search Institute",
                 "className": "login-password",
-                "label": "Portfolio/Website Link",
+                "label": "Start Date",
                 "width": "300px",
                 "value": ""
             },
             {
                 "type": "textbox",
-                "name": "phone",
-                "placeholder": "Add phone number",
+                "name": "end date",
+                "placeholder": "Search Institute",
                 "className": "login-password",
-                "label": "Phone No.",
+                "label": "End Date",
                 "width": "300px",
                 "value": ""
             }
@@ -62,4 +62,4 @@ function About({onContinueClick}:Continue) {
 
 }
 
-export default About;
+export default Experience;

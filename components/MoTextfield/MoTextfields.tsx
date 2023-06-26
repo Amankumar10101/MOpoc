@@ -1,5 +1,5 @@
-// @ts-nocheck
 
+//@ts-nocheck
 import Input from '@mui/material/Input';
 import InputBase from '@mui/material/InputBase';
 import { alpha, styled } from '@mui/material/styles';
@@ -73,10 +73,10 @@ const {label,width, multiline, placeholder, name, showErrorMessage, errorMessage
           {label}
         </InputLabel>}
         
-        {multiline? <BootstrapInput helperText="Incorrect entry." className={props.className}  name={name} multiline rows={props.rows} placeholder={placeholder} id="bootstrap-input" onChange={(event)=>props.onChange(name,event?.target?.value)} />:
-        <BootstrapInput helperText="Incorrect entry." className={props.className}  onChange={(event)=>props.onChange(name,event?.target?.value)} name={name} placeholder={placeholder} id="bootstrap-input"  />
+        {multiline? <BootstrapInput  className={props.className}  name={name} multiline rows={props.rows} placeholder={placeholder} id="bootstrap-input" onChange={(event)=>props.onChange(name,event?.target?.value)} />:
+        <BootstrapInput  className={props.className}  onChange={(event)=>props.onChange(name,event?.target?.value)} name={name} placeholder={placeholder} id="bootstrap-input"  />
         }
-        {showErrorMessage && <span className='form-error-msg'><WarningIcon fontSize='smaller'/>{errorMessage}</span>}
+        {showErrorMessage && <span className='form-error-msg'><WarningIcon fontSize='small'/>{errorMessage}</span>}
       </FormControl>
       
   )

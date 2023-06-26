@@ -1,7 +1,9 @@
+
 import Button from "@mui/material/Button";
 import { ButtonHTMLAttributes, useEffect, useState } from "react";
 import { ButtonInterface } from '../../app/interface';
 import { alpha, styled } from '@mui/material/styles';
+import './skipFooter.css';
 
 const MyButton = styled(Button)((props) => ({
     backgroundColor: props.variant === "contained" ? props.color ? props.color : "#00B7FD" : "transparent",
@@ -21,13 +23,25 @@ function SkipFooter(props: ButtonInterface) {
 
 
     return (
-        <MyButton
-            onClick={onClick}
-            sx={{
-                // width:width+"px"
-                width: "100%"
+        <div className="signUp-action-button">
+            <MyButton
+                // onClick={onClick("name")}
+                variant="contained"
+                sx={{
+                    // width:width+"px"
+                    width: "10%"
 
-            }} >Continue</MyButton>
+                }} >Back</MyButton>
+            <MyButton
+                onClick={onClick}
+                variant="contained"
+                sx={{
+                    // width:width+"px"
+                    width: "10%"
+
+                }} >Continue</MyButton>
+        </div>
+
     )
 }
 

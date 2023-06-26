@@ -1,17 +1,15 @@
 'use client'
 
-import MoCard from "../../../components/MoCard/MoCard";
-// import data from "../../data/purchaserDashboard.json";
-// import formData from "../../data/formBuilderData.json";
-import MoTextfields from "../../../components/MoTextfield/MoTextfields";
 import "../page.css";
 import MoFormBuilder from "../../../components/MoFormBuilder/MoFormBuilder";
+import SkipFooter from "../../../components/SkipFooter/SkipFooter";
+import {Continue} from '../../interface';
 
-
-function Address() {
+function Address({onContinueClick}:Continue) {
 
     const formData = {
         "className": "signup-about-form",
+        ActionComponent: SkipFooter,
         "formData": [
             {
                 "type": "textbox",
@@ -48,17 +46,12 @@ function Address() {
                 "label": "Phone No.",
                 "width": "300px",
                 "value": ""
-            },
-            {
-                "type": "button",
-                "name": "Enter Address"
-
             }
         ]
     }
 
     return (
-        <MoFormBuilder {...formData} />
+        <MoFormBuilder onContinueClick={onContinueClick} {...formData} />
     )
 
 

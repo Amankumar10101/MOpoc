@@ -19,17 +19,30 @@ const StyledTab = styled("div")({
   justifyContent: "center",
   alignItems: "center",
   padding: "0px",
-  position: "absolute",
-  width: "825px",
-  height: "32px",
-  left: "70px",
-  top: "128px",
+  // position: "absolute",
+  // width: "825px",
+  // height: "32px",
+  // left: "70px",
+  // top: "8px",
 });
 
 const TabsStyle = styled(Tabs)({
-    fontWeight: '700',
-fontSize: '14px',
-color: '#00B7FD',
+
+  "& .MuiTabs-scroller .MuiTabs-flexContainer .MuiButtonBase-root": {
+    color:'#B4B4B4',
+    fontSize: '1.75rem',
+    // fontFamily: 'Roboto',
+    textTransform:'unset',
+    borderBottom:'2px solid #74777A',
+  },
+  "& .MuiTabs-scroller .MuiTabs-flexContainer .MuiButtonBase-root.Mui-selected":{
+    color: '#00B7FD',
+    fontWeight:'700',
+  },
+  "& .MuiTabs-scroller .MuiTabs-indicator":{
+    backgroundColor: '#00B7FD',
+    height:'3px',
+  }
 })
 
 function TabPanel(props: TabPanelProps) {
@@ -45,18 +58,10 @@ function TabPanel(props: TabPanelProps) {
       className="tab-child-components"
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography
-            sx={{
-              fontStyle: "normal",
-              fontWeight: "700",
-              fontSize: "14px",
-              lineHeight: "20px",
-              color: "rgba(88, 88, 88, 0.7)",
-            }}
-          >
-            {children}
-          </Typography>
+        <Box className="tab-box" sx={{ p: 3 , width: "100%",}}>
+
+          {children}
+
         </Box>
       )}
     </div>
@@ -71,37 +76,57 @@ function a11yProps(index: number) {
 }
 
 interface BasicTabsProps {
+  isClicked: number,
+  setIsClicked:React.Dispatch<React.SetStateAction<number>>,
   tabs: { label: string; component: React.ReactNode }[];
+  width?: string,
+  className?: string,
 }
 
 export default function BasicTabs(props: BasicTabsProps) {
-  const { tabs } = props;
+  const { isClicked,setIsClicked,className, width, tabs } = props;
   const [value, setValue] = React.useState(0);
+
 
   const handleChange: any = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
+    console.log(newValue);
   };
-
+  React.useEffect(()=>{
+    if(isClicked && (value<tabs.length-1)){
+      setValue(value+1);
+      console.log(isClicked);
+      setIsClicked(0);
+    }
+    else{setIsClicked(0);}
+  },[isClicked]);
   return (
-    <StyledTab>
-      <Box sx={{ width: "100%" }}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <TabsStyle
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
+    <>
+
+      <StyledTab sx={{ width: "100%" }} >
+        <Box className="signUp-tab-box" sx={{ width: "100%" }}>
+          <Box 
+          // sx={{ borderBottom: 2, borderColor: "#74777A" }}
           >
-            {tabs.map((tab, index) => (
-              <Tab key={index} label={tab.label} {...a11yProps(index)} />
-            ))}
-          </TabsStyle>
+            <TabsStyle
+              className={className}
+              value={value}
+              onChange={handleChange}
+              aria-label="basic tabs example"
+            >
+              {tabs.map((tab, index) => (
+                <Tab key={index} label={tab.label} {...a11yProps(index)} />
+              ))}
+            </TabsStyle>
+          </Box>
+
         </Box>
-        {tabs.map((tab: any, index: number) => (
-          <TabPanel key={index} value={value} index={index}>
-            {tab.component}
-          </TabPanel>
-        ))}
-      </Box>
-    </StyledTab>
+      </StyledTab>
+      {tabs.map((tab: any, index: number) => (
+        <TabPanel key={index} value={value} index={index}>
+          {tab.component}
+        </TabPanel>
+      ))}
+    </>
   );
 }
