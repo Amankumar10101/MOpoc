@@ -10,7 +10,6 @@ interface ButtonProps {
 }
 
 const Container = styled("div")<ButtonProps>`
-// position: absolute;
 left: ${(props) => props.left};
 top: ${(props) => props.top};
 `

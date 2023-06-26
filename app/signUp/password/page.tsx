@@ -3,6 +3,7 @@ import Headline from '@/components/Typography/Headline'
 import React, { useEffect, useState } from 'react'
 import Image from "next/image";
 import ButtonSecondary from '@/components/Button/ButtonSecondary';
+import ButtonPrimary from '@/components/Button/ButtonPrimary';
 
 function password() {
   const [apiData,setApiData] = useState([]);
@@ -25,7 +26,7 @@ function password() {
   },[])
     return (
     <>
-      <div style={{ backgroundColor: '#FFF'}}>
+      <div style={{ backgroundColor: '#FFF',height:'100%'}}>
         {/* <Image style={{ marginTop: '1.57vw', paddingLeft: '1.56vw' }} src="/Image/Mo-logo.png" alt="logo" width={96.88} height={42} /> */}
         <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
           <div style={{ marginTop: '4.38rem' }}>
@@ -40,7 +41,7 @@ function password() {
             
             <p style={{ color: '#74777A', fontFamily: 'Roboto', fontSize: '1.375rem', lineHeight: '1.75rem' }}>Click on link to reset your password</p>
             
-            <ButtonSecondary name='Resend Email' />
+            <ButtonPrimary name='Resend Email'  />
             
             
           </div>

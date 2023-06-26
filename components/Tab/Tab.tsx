@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material";
 import "./tab.css";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "@/app/styles/theme";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -24,12 +26,19 @@ const StyledTab = styled("div")({
   height: "32px",
   left: "70px",
   top: "128px",
+  
 });
 
 const TabsStyle = styled(Tabs)({
-    fontWeight: '700',
-fontSize: '14px',
-color: '#00B7FD',
+  fontSize: '0.875rem',
+  fontFamily: 'Roboto',
+  fontWeight: '700',
+  lineHeight: '1.25rem',
+ 
+  '& .MuiTabs-indicator': {
+    height: '3px',
+    backgroundColor: '#00B7FD',
+  },
 })
 
 function TabPanel(props: TabPanelProps) {
@@ -49,7 +58,7 @@ function TabPanel(props: TabPanelProps) {
           <Typography
             sx={{
               fontStyle: "normal",
-              fontWeight: "700",
+              fontWeight: theme.typography.fontWeightBold,
               fontSize: "14px",
               lineHeight: "20px",
               color: "rgba(88, 88, 88, 0.7)",
@@ -83,6 +92,7 @@ export default function BasicTabs(props: BasicTabsProps) {
   };
 
   return (
+    <ThemeProvider theme={theme}>
     <StyledTab>
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -103,5 +113,6 @@ export default function BasicTabs(props: BasicTabsProps) {
         ))}
       </Box>
     </StyledTab>
+    </ThemeProvider>
   );
 }

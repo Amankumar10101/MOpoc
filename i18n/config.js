@@ -1,21 +1,65 @@
 import i18n from 'i18next';
-import { initReactI18next } from 'next-i18next';
+
+// import { initReactI18next } from 'next-i18next';
+
+import { useTranslation, initReactI18next } from "react-i18next";
+
+
+
+
 
 i18n.use(initReactI18next).init({
-  fallbackLng: 'en',
-  lng: 'en',
+
   resources: {
+
     en: {
-      translations: require('./locales/en/translations.json')
+
+      translation: require('./locales/en/translations.json')
+
     },
+
     es: {
-      translations: require('./locales/es/translations.json')
+
+      translation: require('./locales/es/translations.json')
+
     }
+
   },
-  ns: ['translations'],
-  defaultNS: 'translations'
+
+  lng: "en"
+
 });
+
+
+
 
 i18n.languages = ['en', 'es'];
 
-export default i18n;
+
+
+
+export const getTranslation = () => {
+
+  const { t } = useTranslation();
+
+  return t;
+
+}
+
+
+
+
+
+export const changeLanguageToEs = () => {
+
+  const lang = () => {
+
+    return 'es';
+
+  };
+
+ 
+
+  i18n.changeLanguage(lang());  
+
+}

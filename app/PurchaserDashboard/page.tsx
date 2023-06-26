@@ -5,8 +5,8 @@ import SidePanel from '../../components/Menu/SidePanel';
 import Tab from '../../components/Tab/Tab';
 import ButtonPrimary from '../../components/Button/ButtonPrimary';
 import About from '../signUp/about/about';
-import { useTranslation } from 'next-i18next';
-// import '../../i18n/config'
+import { getTranslation, changeLanguageToEs} from '../../i18n/config';
+
 
 
 
@@ -16,7 +16,8 @@ import { useTranslation } from 'next-i18next';
 
 const PurchaserDashboard: FC = () => {
 
-    const { t } = useTranslation();
+    const  t  = getTranslation();
+    // changeLanguageToEs();
 
     const tabs = [
         {label: 'new', component: <ButtonPrimary key='button' name={'New'} left={''} top={''} />},
