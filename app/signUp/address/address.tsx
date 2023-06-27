@@ -3,9 +3,9 @@
 import "../page.css";
 import MoFormBuilder from "../../../components/MoFormBuilder/MoFormBuilder";
 import SkipFooter from "../../../components/SkipFooter/SkipFooter";
-import {Continue} from '../../interface';
+import {ActionComponent} from '../../interface';
 
-function Address({onContinueClick}:Continue) {
+function Address({onContinueClick,onBackClick}:ActionComponent) {
 
     const formData = {
         "className": "signup-about-form",
@@ -51,7 +51,7 @@ function Address({onContinueClick}:Continue) {
     }
 
     return (
-        <MoFormBuilder onContinueClick={onContinueClick} {...formData} />
+        <MoFormBuilder onBackClick={onBackClick} onContinueClick={onContinueClick} {...formData} />
     )
 
 

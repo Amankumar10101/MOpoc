@@ -8,9 +8,10 @@ import axios from "axios";
 import MoCheckbox from "../MoCheckbox/MoCheckbox";
 import MoPassword from "../MoTextfield/MoPassword";
 import SkipFooter from "../SkipFooter/SkipFooter";
+import MoLink from "../MoLink/MoLink";
 
 
-function MoFormBuilder({ onContinueClick, className, ActionComponent, formData }: FormBuilder) {
+function MoFormBuilder({ onBackClick, onContinueClick, className, ActionComponent, formData }: FormBuilder) {
 
     // console.log(props);
     // const { formData } = props;
@@ -56,11 +57,11 @@ function MoFormBuilder({ onContinueClick, className, ActionComponent, formData }
         return formData.filter((control) => control.showErrorMessage).length === 0;
     }
     const handleSubmit = () => {
-        
+
         if (validateForm()) {
             // post data
             console.log("done");
-            onContinueClick();
+            onContinueClick && onContinueClick();
         }
     }
 
@@ -73,7 +74,7 @@ function MoFormBuilder({ onContinueClick, className, ActionComponent, formData }
     return (<>
         <form className={className}>
             {formData.map((d: FormElements) => {
-                const { className, width, type, name, placeholder, label, showErrorMessage, errorMessage } = d;
+                const { className, width, type, name, placeholder, label, showErrorMessage, errorMessage, link } = d;
                 switch (type) {
                     case "textbox": return (
                         <MoTextfields
@@ -107,15 +108,16 @@ function MoFormBuilder({ onContinueClick, className, ActionComponent, formData }
                             placeholder={placeholder}
                             onChange={handleChange}
                         />
-                    )
+                    );
+                    case "link": return (<MoLink name={name} link={link} />)
                     case "checkbox": return (<MoCheckbox label={label} name={name} onChange={handleChange}></MoCheckbox>);
-                    case "button": return (<MoButton variant="contained" type={type} name={name} onClick={handleSubmit} />);
+                    case "button": return (<MoButton variant="contained" width="100%" type={type} name={name} onClick={handleSubmit} />);
                 }
             })}
 
-            {/* {actionComponent } */}
+
         </form>
-        {ActionComponent && <ActionComponent onClick={handleSubmit} />}
+        {ActionComponent && <ActionComponent onBackClick={onBackClick} onContinueClick={handleSubmit} />}
     </>
     )
 

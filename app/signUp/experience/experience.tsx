@@ -7,10 +7,10 @@ import MoTextfields from "../../../components/MoTextfield/MoTextfields";
 import "../page.css";
 import MoFormBuilder from "../../../components/MoFormBuilder/MoFormBuilder";
 import SkipFooter from "../../../components/SkipFooter/SkipFooter";
-import {Continue} from '../../interface';
+import {ActionComponent} from '../../interface';
 
 
-function Experience({onContinueClick}:Continue) {
+function Experience({onContinueClick,onBackClick}:ActionComponent) {
 
     const formData = {
         "className": "signup-about-form",
@@ -56,7 +56,7 @@ function Experience({onContinueClick}:Continue) {
     }
 
     return (
-        <MoFormBuilder onContinueClick={onContinueClick} {...formData} />
+        <MoFormBuilder onBackClick={onBackClick} onContinueClick={onContinueClick} {...formData} />
     )
 
 

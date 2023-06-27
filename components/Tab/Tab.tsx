@@ -83,13 +83,15 @@ function a11yProps(index: number) {
 interface BasicTabsProps {
   isClicked: number,
   setIsClicked: React.Dispatch<React.SetStateAction<number>>,
+  isBackClicked: number,
+  setIsBackClicked: React.Dispatch<React.SetStateAction<number>>,
   tabs: { label: string; component: React.ReactNode }[];
   width?: string,
   className?: string,
 }
 
 export default function BasicTabs(props: BasicTabsProps) {
-  const { isClicked, setIsClicked, className, width, tabs } = props;
+  const { isClicked, setIsClicked, isBackClicked, setIsBackClicked, className, width, tabs } = props;
   const [value, setValue] = React.useState(0);
 
 
@@ -103,8 +105,13 @@ export default function BasicTabs(props: BasicTabsProps) {
       console.log(isClicked);
       setIsClicked(0);
     }
-    else { setIsClicked(0); }
-  }, [isClicked]);
+    else if (isBackClicked && (value > 0)) {
+      setValue(value - 1);
+      console.log(isBackClicked);
+      setIsBackClicked(0);
+    }
+    else  { setIsClicked(0); setIsBackClicked(0); }
+  }, [isClicked,isBackClicked]);
   return (
     <ThemeProvider theme={theme}>
       <>

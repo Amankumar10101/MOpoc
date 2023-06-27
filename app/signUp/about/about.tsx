@@ -7,9 +7,9 @@ import MoTextfields from "../../../components/MoTextfield/MoTextfields";
 import "../page.css";
 import MoFormBuilder from "../../../components/MoFormBuilder/MoFormBuilder";
 import SkipFooter from "../../../components/SkipFooter/SkipFooter";
-import {Continue} from '../../interface';
+import {ActionComponent} from '../../interface';
 
-function About({onContinueClick}:Continue) {
+function About({onContinueClick,onBackClick}:ActionComponent) {
 
     const formData = {
         "className": "signup-about-form",
@@ -56,7 +56,7 @@ function About({onContinueClick}:Continue) {
     }
 
     return (
-        <MoFormBuilder onContinueClick={onContinueClick} {...formData} />
+        <MoFormBuilder onContinueClick={onContinueClick} onBackClick={onBackClick} {...formData} />
     )
 
 

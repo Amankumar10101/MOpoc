@@ -19,13 +19,13 @@ const MyButton = styled(Button)((props) => ({
 
 function SkipFooter(props: ButtonInterface) {
 
-    const { onClick } = props;
+    const { onContinueClick,onBackClick } = props;
 
 
     return (
         <div className="signUp-action-button">
             <MyButton
-                // onClick={onClick("name")}
+                onClick={onBackClick}
                 variant="contained"
                 sx={{
                     // width:width+"px"
@@ -33,7 +33,7 @@ function SkipFooter(props: ButtonInterface) {
 
                 }} >Back</MyButton>
             <MyButton
-                onClick={onClick}
+                onClick={onContinueClick}
                 variant="contained"
                 sx={{
                     // width:width+"px"
