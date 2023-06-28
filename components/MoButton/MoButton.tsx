@@ -22,9 +22,12 @@ function MoButton(props: ButtonInterface){
     
 
 return (
-    <MyButton onClick={onClick} sx={{
+    <MyButton 
+    onClick={onClick}
+     sx={{
         // width:width+"px"
-        width: "100%"
+        width: width,
+        
     }} variant={variant}    type={type}>{name}</MyButton>
 )
 }

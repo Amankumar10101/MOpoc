@@ -1,10 +1,12 @@
 [
     {
         "imageURL" : "",
+        "label" : "Provider",
         "title" : "Provider"
     },
     {
             "imageURL" : "",
+            "label": "Purchaser",
             "title" : "Purchaser"
         
     }

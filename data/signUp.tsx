@@ -1,7 +1,6 @@
 import SkipFooter from "./../components/SkipFooter/SkipFooter";
 
 export const formData=(
-    onClick: ()=>void
 ) => {
 
     return({
@@ -54,6 +53,10 @@ export const formData=(
             "className": "login-password",
             "label": "I have read and agreed to the M.O. Terms of Services and Privacy Policy",
             "value": ""
+        },
+        {
+            "type": "button",
+            "name": "Create Account",
         }
     ]})
 }

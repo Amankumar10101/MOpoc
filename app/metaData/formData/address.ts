@@ -1,5 +1,8 @@
+import SkipFooter from "../../../components/SkipFooter/SkipFooter";
+
 export const addressData = {
     "className": "signup-about-form",
+    ActionComponent: SkipFooter,
     "formData": [
         {
             "type": "textbox",
@@ -36,11 +39,6 @@ export const addressData = {
             "label": "Phone No.",
             "width": "300px",
             "value": ""
-        },
-        {
-            "type": "button",
-            "name": "Enter Address"
-
         }
     ]
 }

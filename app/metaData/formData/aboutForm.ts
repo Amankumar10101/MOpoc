@@ -1,5 +1,8 @@
-export const aboutForm = {
+import SkipFooter from "../../../components/SkipFooter/SkipFooter";
+
+export const aboutData = {
     "className": "signup-about-form",
+    ActionComponent: SkipFooter,
     "formData": [
         {
             "type": "textbox",
@@ -37,11 +40,6 @@ export const aboutForm = {
             "label": "Phone No.",
             "width": "300px",
             "value": ""
-        },
-        {
-            "type": "button",
-            "name": "Create Account"
-
         }
     ]
 }

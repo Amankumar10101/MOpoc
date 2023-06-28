@@ -1,6 +1,6 @@
 
 import MoTextfields from "../MoTextfield/MoTextfields";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import MoButton from "../MoButton/MoButton";
 import "./MoFormBuilder.css";
 import { FormElements, FormBuilder } from '../../app/interface';
@@ -8,28 +8,29 @@ import axios from "axios";
 import MoCheckbox from "../MoCheckbox/MoCheckbox";
 import MoPassword from "../MoTextfield/MoPassword";
 import SkipFooter from "../SkipFooter/SkipFooter";
+import MoLink from "../MoLink/MoLink";
 
 
-function MoFormBuilder({ className, ActionComponent, formData }: FormBuilder) {
+function MoFormBuilder({ onBackClick, onContinueClick, className, ActionComponent, formData }: FormBuilder) {
 
     // console.log(props);
     // const { formData } = props;
-    const [errorMsg, setErrorMsg]= useState();
-    const [showErrorMsg, setShowErrorMsg]= useState(false);
+    const [errorMsg, setErrorMsg] = useState();
+    const [showErrorMsg, setShowErrorMsg] = useState(false);
 
     const handleChange = (name: string, value: string) => {
-    
+
         console.log(name);
         console.log(value);
         const controlIndex = formData.findIndex((control) => control.name === name);
         console.log(controlIndex);
         if (controlIndex !== -1) {
             formData[controlIndex].value = value;
-           
-        }
-        
 
-        
+        }
+
+
+
         // console.log(formData);
         //   let 
     }
@@ -59,19 +60,21 @@ function MoFormBuilder({ className, ActionComponent, formData }: FormBuilder) {
 
         if (validateForm()) {
             // post data
+            console.log("done");
+            onContinueClick && onContinueClick();
         }
     }
 
     useEffect(() => {
         console.log('useeffect1', formData);
-      }, [showErrorMsg]); // Only re-run the effect if count change
-      
-      
-   
-    return (
+    }, [showErrorMsg]); // Only re-run the effect if count change
+
+
+
+    return (<>
         <form className={className}>
             {formData.map((d: FormElements) => {
-                const { className, width, type, name, placeholder, label, showErrorMessage, errorMessage } = d;
+                const { className, width, type, name, placeholder, label, showErrorMessage, errorMessage, link } = d;
                 switch (type) {
                     case "textbox": return (
                         <MoTextfields
@@ -97,7 +100,7 @@ function MoFormBuilder({ className, ActionComponent, formData }: FormBuilder) {
                             onChange={handleChange}
                         />
                     );
-                    case "password": return(
+                    case "password": return (
                         <MoPassword
                             className={className}
                             name={name}
@@ -105,14 +108,17 @@ function MoFormBuilder({ className, ActionComponent, formData }: FormBuilder) {
                             placeholder={placeholder}
                             onChange={handleChange}
                         />
-                    )
+                    );
+                    case "link": return (<MoLink name={name} link={link} />)
                     case "checkbox": return (<MoCheckbox label={label} name={name} onChange={handleChange}></MoCheckbox>);
-                    case "button": return (<MoButton variant="contained" type={type} name={name} onClick={handleSubmit} />);
+                    case "button": return (<MoButton variant="contained" width="100%" type={type} name={name} onClick={handleSubmit} />);
                 }
             })}
-            {/* <ActionComponent onClick={handleSubmit}/> */}
-            {/* {actionComponent } */}
+
+
         </form>
+        {ActionComponent && <ActionComponent onBackClick={onBackClick} onContinueClick={handleSubmit} />}
+    </>
     )
 
 }

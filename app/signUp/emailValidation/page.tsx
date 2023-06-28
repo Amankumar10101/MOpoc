@@ -1,11 +1,12 @@
 'use client'
-import Headline from '@/components/Typography/Headline'
+
+import Headline from '../../../components/Typography/Headline'
 import React, { useEffect, useState } from 'react'
-import Image from "next/image";
-import ButtonSecondary from '@/components/Button/ButtonSecondary';
-import ButtonPrimary from '@/components/Button/ButtonPrimary';
 import { Users } from '@/api/endpoint';
 import { fetchdata } from '@/api/api';
+
+import '../page.css';
+
 
 function password() {
   const [apiData,setApiData] = useState<void>();
@@ -28,7 +29,10 @@ function password() {
   },[])
     return (
     <>
-      <div style={{ backgroundColor: '#FFF',height:'100%'}}>
+
+      <div style={{ backgroundColor: '#FFF'}}>
+
+
         {/* <Image style={{ marginTop: '1.57vw', paddingLeft: '1.56vw' }} src="/Image/Mo-logo.png" alt="logo" width={96.88} height={42} /> */}
         <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
           <div style={{ marginTop: '4.38rem' }}>
@@ -43,8 +47,10 @@ function password() {
             
             <p style={{ color: '#74777A', fontFamily: 'Roboto', fontSize: '1.375rem', lineHeight: '1.75rem' }}>Click on link to reset your password</p>
             
-            <ButtonPrimary name='Resend Email'  />
-            
+
+            {/* <ButtonSecondary name='Resend Email' /> */}
+
+
             
           </div>
         </div>

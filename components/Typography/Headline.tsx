@@ -1,7 +1,7 @@
 "use client";
 import React, { FC } from "react";
 import { Typography, styled } from "@mui/material";
-// import styles from "../../styles/variables.module.scss";
+
 
 interface HeadlineProps {
   text: string;

@@ -1,5 +1,9 @@
-import { Component } from "react";
+import { Component, ReactElement } from "react";
 
+export interface ActionComponent{
+    onContinueClick :()=>void;
+    onBackClick :()=>void;
+}
 export interface TextfieldInterface{
     label: string,
     placeholder: string,
@@ -21,10 +25,13 @@ export  interface FormElements {
     regex?:string,
     showErrorMessage?:boolean,
     errorMessage?: string,
+    link?: string
 }
 export interface FormBuilder{
+    onContinueClick ?:()=>void;
+    onBackClick?:()=>void;
     className?: string,
-    ActionComponent?:React.ElementType,
+    ActionComponent?:(props:ButtonInterface)=>ReactElement,
     formData: Array<FormElements>
 }
 export interface DoughnutInterface{
@@ -55,7 +62,9 @@ export interface ButtonInterface{
     name?: string,
     type?: "button" | "submit" | "reset" | undefined,
     color?: string| undefined,
-    width?: number| undefined,
-    onClick?:  ()=>void,
+    width?: string| undefined,
+    onContinueClick?:  ()=>void,
+    onClick?:()=>void,
+    onBackClick?: ()=>void,
 
 }

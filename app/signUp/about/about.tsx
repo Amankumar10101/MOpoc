@@ -1,13 +1,17 @@
 import "../page.css";
 import MoFormBuilder from "../../../components/MoFormBuilder/MoFormBuilder";
-import { aboutForm } from "@/app/metaData/formData/aboutForm";
+import { aboutData } from "@/app/metaData/formData/aboutForm";
+import {ActionComponent} from '../../interface';
 
-function About() {
 
-   
+function About({onContinueClick,onBackClick}:ActionComponent) {
+
+
+  
 
     return (
-        <MoFormBuilder {...aboutForm} />
+        <MoFormBuilder onContinueClick={onContinueClick} onBackClick={onBackClick} {...aboutData} />
+
     )
 
 
