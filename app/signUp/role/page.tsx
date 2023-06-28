@@ -39,7 +39,7 @@ const CardList: React.FC = () => {
                             <CardContainer container>
 
 
-                                <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+                                {/* <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                                     <StyledCard  >
                                         <Image  src='/Image/Hobbies Hobbies Fill.png' alt='Provider' width={128} height={184} style={{height: '66%', width: '63%'}}/>
                                     </StyledCard>
@@ -52,7 +52,7 @@ const CardList: React.FC = () => {
                                     <Image  src='/Image/Brazuca Planning.png' alt='Provider' width={128} height={184} style={{height: '66%', width: '63%'}}/>
                                     </StyledCard>
                                     <div>Purchaser</div>
-                                </div>
+                                </div> */}
 
                             </CardContainer>
                         </div>

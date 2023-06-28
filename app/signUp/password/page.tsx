@@ -4,16 +4,18 @@ import React, { useEffect, useState } from 'react'
 import Image from "next/image";
 import ButtonSecondary from '@/components/Button/ButtonSecondary';
 import ButtonPrimary from '@/components/Button/ButtonPrimary';
+import { Users } from '@/api/endpoint';
+import { fetchdata } from '@/api/api';
 
 function password() {
-  const [apiData,setApiData] = useState([]);
+  const [apiData,setApiData] = useState<void>();
 
   useEffect(() => {
     const fetchData = async() => {
       try{
-        const response = await fetch("")
-        const data = await response.json();
-        setApiData(data);
+        const response  = await fetchdata(Users.entries)
+        // const data = await response.json();
+        setApiData(response);
       }
       catch(error){
         console.error("Error fetching data from api")
@@ -36,7 +38,7 @@ function password() {
             <p style={{ color: '#74777A', fontFamily: 'Roboto', fontSize: '1.375rem', lineHeight: '1.75rem' }}>Hi! we've sent a link to your email</p>
 
             <div style={{ color: '#585858', fontFamily: 'Roboto', fontSize: '1.375rem', lineHeight: '1.75rem', fontWeight: '700' }}>
-              {apiData}
+              {/* {apiData} */}
             </div>
             
             <p style={{ color: '#74777A', fontFamily: 'Roboto', fontSize: '1.375rem', lineHeight: '1.75rem' }}>Click on link to reset your password</p>

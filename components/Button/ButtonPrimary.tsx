@@ -6,9 +6,15 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/app/styles/theme";
 
 interface ButtonProps {
-  name: string;
+  name?: string;
   left?: string;
   top?: string;
+  width?: string;
+  variant?: "text" | "outlined" | "contained";
+  type?: "button" | "submit" | "reset" | undefined;
+  onContinueClick?: ()=>void;
+  onBackClick?: ()=>void;
+  onClick?: ()=>void;
 }
 
 const Container = styled("div")<ButtonProps>`
@@ -78,16 +84,16 @@ color: '#FFFFFF',
 //     color: "#FFFFFF",
 //   },
 // });
-const ButtonPrimary: React.FC<ButtonProps> = ({ name, left, top }) => {
+const ButtonPrimary: React.FC<ButtonProps> = ({ name, left, top, variant, type, width, onClick }) => {
   return (
     <ThemeProvider theme={theme}>
     <Container left={left} top={top} name={name}>
       <ButtonStyle
       className="buttonStyle"
-     
-        variant="contained"
+     onClick={onClick}
+        variant={variant}
+        type={type}
         color="primary"
-        // sx={{ backgroundColor: "#00B7FD !important" }}
       >
         {name}
       </ButtonStyle>
