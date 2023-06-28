@@ -1,12 +1,12 @@
 'use client'
 
-import { useRouter } from 'next/navigation';
 import "./page.css";
 import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
 import { formData } from "../../data/signUp";
+import { useRouter } from 'next/navigation';
 
 
-function SignUp() {
+function SignUp() {   
 
     const router = useRouter();
 
@@ -20,6 +20,7 @@ function SignUp() {
         <div className="signup-page">
             <h3 className="signUp-heading">Create Account</h3>
             <MoFormBuilder onContinueClick={onContinueClick} {...formData()} />
+
         </div>
     )
 }

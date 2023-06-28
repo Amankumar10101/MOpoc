@@ -1,0 +1,1 @@
+export const baseURL = "https://api.publicapis.org/"
