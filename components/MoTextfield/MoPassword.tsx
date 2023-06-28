@@ -52,7 +52,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function MoPassword(props: Partial<TextfieldInterface>) {
+export default function MoPassword(props: TextfieldInterface) {
 
 
     // console.log(props.rows);

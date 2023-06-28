@@ -10,26 +10,25 @@ function password() {
   const [apiData,setApiData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async() => {
-      try{
-        const response = await fetch("")
-        const data = await response.json();
-        setApiData(data);
-      }
-      catch(error){
-        console.error("Error fetching data from api")
-      }
-    };
-    fetchData();
-    return() =>{
+    // const fetchData = async() => {
+    //   try{
+    //     const response = await fetch("")
+    //     const data = await response.json();
+    //     setApiData(data);
+    //   }
+    //   catch(error){
+    //     console.error("Error fetching data from api")
+    //   }
+    // };
+    // fetchData();
+    // return() =>{
 
-    }
+    // }
   },[])
     return (
     <>
 
       <div style={{ backgroundColor: '#FFF'}}>
-=======
 
         {/* <Image style={{ marginTop: '1.57vw', paddingLeft: '1.56vw' }} src="/Image/Mo-logo.png" alt="logo" width={96.88} height={42} /> */}
         <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>

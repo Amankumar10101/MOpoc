@@ -57,10 +57,10 @@ function MoFormBuilder({ onBackClick, onContinueClick, className, ActionComponen
         return formData.filter((control) => control.showErrorMessage).length === 0;
     }
     const handleSubmit = () => {
-
+        console.log("done");
         if (validateForm()) {
             // post data
-            console.log("done");
+            console.log(formData[0].value);
             onContinueClick && onContinueClick();
         }
     }

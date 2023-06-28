@@ -5,7 +5,6 @@ export const formData=(
 
     return({
     className: "create-account-form",
-    ActionComponent: SkipFooter,
     formData: [
         {
             type: "textbox",
@@ -24,7 +23,7 @@ export const formData=(
             "className": "login-email",
             "width":"300px",
             "label":"Email Id",
-            "regex":"/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/",
+            "regex":/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
             "showErrorMessage":  false,
             "errorMessage": "invalid email",
             "value": ""
@@ -36,8 +35,9 @@ export const formData=(
             "className": "login-password",
             "label": "Password",
             "width":"300px",
-            "regex":"/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/",
-            "errorMessage":"invalid password",
+           
+            // "regex":"/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/",
+            
             "value": ""
         },
         {

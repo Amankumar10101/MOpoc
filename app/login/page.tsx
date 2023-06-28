@@ -1,9 +1,6 @@
 'use client'
 
-import MoCard from "../../components/MoCard/MoCard";
-// import data from "../../data/purchaserDashboard.json";
-// import formData from "../../data/formBuilderData.json";
-import MoTextfields from "../../components/MoTextfield/MoTextfields";
+import { useRouter } from 'next/navigation';
 import "./login.css";
 import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
 import MoDoughnut from "../../components/MoDoghnut/MoDoughnut";
@@ -47,8 +44,12 @@ function Login() {
             }
         ]
     }
-    const handleChange = () => {
+    const router = useRouter();
 
+    const onContinueClick = () => {
+
+        router.push('/dashboard');
+       
     }
     return (
         <div className="login-main-page">
@@ -64,10 +65,10 @@ function Login() {
                 <div className="login-fields">
                     <h1 className="login-heading">Hi there!</h1>
                     <h2 className="login-sub-heading">Welcome to M.O.</h2>
-                    <MoFormBuilder {...formData} />
+                    <MoFormBuilder onContinueClick={onContinueClick} {...formData} />
 
 
-                    <h5 className="login-signup">Don’t have an account? <span className="signUp-link">SignUp!</span></h5>
+                    <h5 className="login-signup">Don’t have an account? <span onClick={()=> router.push('/signUp')} className="signUp-link">SignUp!</span></h5>
                 </div>
                 <div className="login-extensions">
                     <div className="login-icons" >

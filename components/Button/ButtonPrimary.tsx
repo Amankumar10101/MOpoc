@@ -9,16 +9,17 @@ interface ButtonProps {
   name: string;
   left?: string;
   top?: string;
+  width?: string;
 }
 
-const Container = styled("div")<ButtonProps>`
+const Container = styled("div") <ButtonProps>`
   position: absolute;
   left: ${(props) => props.left};
   top: ${(props) => props.top};
 `;
 
-const ButtonStyle = styled(Button)(({theme}) => ({
-color: '#FFFFFF',
+const ButtonStyle = styled(Button)(({ theme }) => ({
+  color: '#FFFFFF',
   boxSizing: "border-box",
   display: "flex",
   flexDirection: "row",
@@ -35,7 +36,6 @@ color: '#FFFFFF',
   whiteSpace: "nowrap",
   fontSize: 14,
   lineHeight: "17px",
-
   fontStyle: "normal",
   "&:hover": {
     boxShadow: "none",
@@ -47,51 +47,19 @@ color: '#FFFFFF',
   },
 }));
 
-
-
-// const ButtonStyle = styled(Button)({
-//   boxSizing: "border-box",
-//   display: "flex",
-//   flexDirection: "row",
-//   justifyContent: "center",
-//   alignItems: "center",
-//   padding: "10px",
-//   gap: "10px",
-//   position: "absolute",
-//   height: "32px",
-//   letterSpacing: "0.25px",
-//   color: "#FFFFFF",
-//   borderRadius: "5px",
-//   boxShadow: "none",
-//   textTransform: "none",
-//   whiteSpace: "nowrap",
-//   fontSize: 14,
-//   lineHeight: "17px",
-
-//   fontStyle: "normal",
-//   "&:hover": {
-//     boxShadow: "none",
-//   },
-//   "&:active": {
-//     boxShadow: "none",
-//     backgroundColor: "#00B7FD",
-//     color: "#FFFFFF",
-//   },
-// });
-const ButtonPrimary: React.FC<ButtonProps> = ({ name, left, top }) => {
+const ButtonPrimary: React.FC<ButtonProps> = ({ name, left, top, width }) => {
   return (
     <ThemeProvider theme={theme}>
-    <Container left={left} top={top} name={name}>
-      <ButtonStyle
-      className="buttonStyle"
-     
-        variant="contained"
-        color="primary"
-        // sx={{ backgroundColor: "#00B7FD !important" }}
-      >
-        {name}
-      </ButtonStyle>
-    </Container>
+      <Container left={left} top={top} name={name}>
+        <ButtonStyle
+          className="buttonStyle"
+
+          variant="contained"
+          color="primary"
+        >
+          {name}
+        </ButtonStyle>
+      </Container>
     </ThemeProvider>
   );
 };

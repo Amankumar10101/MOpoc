@@ -1,26 +1,24 @@
-
 'use client'
 
-import MoCard from "../../components/MoCard/MoCard";
-// import data from "../../data/purchaserDashboard.json";
-// import formData from "../../data/formBuilderData.json";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from 'next/navigation';
 import "./page.css";
 import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
-
 import { formData } from "../../data/signUp";
 
 
 function SignUp() {
 
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const onContinueClick = () => {
-        navigate("app/signUp/emailValidation");
+        console.log("clickedwdjhgyih");
+        router.push('/signUp/emailValidation');
+        console.log("clickedwdjhgyih");
+       
     }
     return (
         <div className="signup-page">
-            <h2 className="login-heading">Create Account</h2>
+            <h3 className="signUp-heading">Create Account</h3>
             <MoFormBuilder onContinueClick={onContinueClick} {...formData()} />
         </div>
     )

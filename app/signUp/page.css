@@ -15,6 +15,7 @@
     flex-direction:column ;
     justify-content: center;
     align-items: center;
+    padding-bottom: 70px;
 
 }
 .signUp-mo-logo-container {
@@ -27,4 +28,13 @@
 .signUp-mo-logo {
     object-fit: contain;
     width: 100px;
+}
+.signUp-heading{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 100px;
+    /* identical to box height, or 106% */
+    color: #585858;
 }
