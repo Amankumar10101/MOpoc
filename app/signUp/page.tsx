@@ -4,17 +4,35 @@ import "./page.css";
 import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
 import { formData } from "../../data/signUp";
 import { useRouter } from 'next/navigation';
+import {  FormElements } from "../interface";
 
 
-function SignUp() {   
+
+function SignUp() {
+
 
     const router = useRouter();
+    const role = "purchaser";
 
-    const onContinueClick = () => {
-        console.log("clickedwdjhgyih");
-        router.push('/signUp/emailValidation');
-        console.log("clickedwdjhgyih");
-       
+
+
+
+    const onContinueClick = (formData: FormElements[]) => {
+
+        const signUp: FormElements[] = formData.reduce((acc: any, { name, value }: FormElements) => {
+            if (name !== "policy" && name !== "Create Account") {
+                acc[name] = value;
+              }
+            return acc;
+            
+          
+        }, { role } as unknown as FormElements[]);
+        console.log('signup data', signUp)
+        console.log('formdata is', formData);
+
+        // router.push('/signUp/emailValidation');
+
+
     }
     return (
         <div className="signup-page">

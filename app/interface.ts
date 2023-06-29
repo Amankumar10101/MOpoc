@@ -1,7 +1,7 @@
 import { Component, ReactElement } from "react";
 
 export interface ActionComponent{
-    onContinueClick :()=>void;
+    onContinueClick :(formData: FormElements[])=>void;
     onBackClick :()=>void;
 }
 export interface TextfieldInterface{
@@ -24,7 +24,7 @@ export  interface FormElements {
     placeholder?: string,
     rows?: number,
     className?: string,
-    value?: string,
+    value?: string | boolean,
     width?: string,
     regex?:RegExp,
     showErrorMessage?:boolean,
@@ -32,7 +32,7 @@ export  interface FormElements {
     link?: string
 }
 export interface FormBuilder{
-    onContinueClick ?:()=>void;
+    onContinueClick ?:(formData: FormElements[])=>void;
     onBackClick?:()=>void;
     className?: string,
     ActionComponent?:(props:ButtonInterface)=>ReactElement,

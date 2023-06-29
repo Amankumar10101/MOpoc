@@ -86,25 +86,25 @@ const CardList: React.FC = () => {
 
     const [cards, setCards] = useState([])
 
-    useEffect(() => {
-        // setCards(cardData);
-    }, [])
+    useEffect(() => setCards(cardData), [])
 
     return (
         <div style={{ backgroundColor: '#FFF', height: '100%' }}>
-            <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '0.625vw' }}>
+            <div style={{ display: 'flex', justifyContent: 'center',paddingTop: '0.625vw' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <Headline text='Create your account' />
                     <div style={{ marginTop: '5.55vw', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                         <Headline text='I am a' />
-                        {/* {cards.map((card, index) => (
+                        <div style={{display:'flex', justifyContent:'center',marginTop:'1.63vw',marginLeft:'22vw'}}>
+                        {cards.map((card, index) => (
                             <CustomCard
                                 key={index}
                                 filename={card.filename}
                                 imageURL={card.imageURL}
                                 title={card.title}
                                 label={card.label} />
-                        ))} */}
+                        ))}
+                        </div>
                     </div>
                 </div>
             </div>

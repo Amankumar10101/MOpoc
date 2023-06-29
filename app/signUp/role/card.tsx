@@ -26,7 +26,9 @@ const StyledCard = styled(Card)(({ theme }: { theme: Theme }) => ({
   marginBottom: theme.spacing(6.25),
   display:'flex',
   justifyContent: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
+  cursor: 'pointer',
+  transition: 'transform 0.3s ease',
 
 }));
 

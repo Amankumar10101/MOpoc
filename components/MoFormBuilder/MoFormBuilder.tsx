@@ -1,13 +1,11 @@
-
+import "./MoFormBuilder.css";
 import MoTextfields from "../MoTextfield/MoTextfields";
 import { useEffect, useState } from "react";
 import MoButton from "../MoButton/MoButton";
 import "./MoFormBuilder.css";
 import { FormElements, FormBuilder } from '../../app/interface';
-import axios from "axios";
 import MoCheckbox from "../MoCheckbox/MoCheckbox";
 import MoPassword from "../MoTextfield/MoPassword";
-import SkipFooter from "../SkipFooter/SkipFooter";
 import MoLink from "../MoLink/MoLink";
 
 
@@ -18,32 +16,21 @@ function MoFormBuilder({ onBackClick, onContinueClick, className, ActionComponen
     const [errorMsg, setErrorMsg] = useState();
     const [showErrorMsg, setShowErrorMsg] = useState(false);
 
-    const handleChange = (name: string, value: string) => {
-
-        console.log(name);
-        console.log(value);
+    const handleChange = (name: string, value: string | boolean) => {
         const controlIndex = formData.findIndex((control) => control.name === name);
         console.log(controlIndex);
         if (controlIndex !== -1) {
             formData[controlIndex].value = value;
-
         }
-
-
-
-        // console.log(formData);
-        //   let 
     }
 
     const validateForm = () => {
-        // console.log(formData);
-
-
+     
         formData.map((e) => {
             console.log("hello");
             if (e.regex) {
                 let reg = RegExp(e.regex)
-                let value = e.value;
+                let value: any = e.value;
                 if (value && (reg.test(value))) {
                     e.showErrorMessage = false;
                     setShowErrorMsg(false);
@@ -61,7 +48,7 @@ function MoFormBuilder({ onBackClick, onContinueClick, className, ActionComponen
         if (validateForm()) {
             // post data
             console.log(formData[0].value);
-            onContinueClick && onContinueClick();
+            onContinueClick && onContinueClick(formData);
         }
     }
 
