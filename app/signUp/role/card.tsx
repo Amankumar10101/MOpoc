@@ -4,6 +4,7 @@ import cardData from '../../metaData/cardData/cardData.json'
 import Image from "next/image";
 
 interface CardProps{
+  filename: string
     imageURL: string;
     title: string;
     label: string;
@@ -12,6 +13,7 @@ const CardContainer = styled(Grid)(({ theme }: { theme: Theme }) => ({
   width: '39.5vw',
   marginTop: theme.spacing(1.31),
   display: 'flex',
+  
   justifyContent: 'space-between',
   // maxWidth: 300,
   maxWidth: '31.625rem',
@@ -29,13 +31,18 @@ const StyledCard = styled(Card)(({ theme }: { theme: Theme }) => ({
 }));
 
 const CustomCard: React.FC<CardProps> = (props:any) => {
+  // const getImageUrl = (filename) => {
+  //   return require(``).default
+  // }
   return (
+    <div >
     <CardContainer container>
 
 
-    <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+    <div style={{ display: 'flex', alignItems:'center',flexDirection: 'column' }}>
         <StyledCard  >
-            <Image  src={props.imageURL} alt={props.label} width={128} height={184} style={{height: '66%', width: '63%'}}/>
+            <Image  src={`/Image/${props.filename}`} alt={props.label} width={128} height={184} style={{height: '66%', width: '63%'}}/>
+            {/* <CardMedia component="img" height="140" image={getImageUrl(props.filename)} alt={props.label} /> */}
         </StyledCard>
         <div >{props.title}</div>
     </div>
@@ -49,6 +56,7 @@ const CustomCard: React.FC<CardProps> = (props:any) => {
     </div>  */}
 
 </CardContainer>
+</div>
   )
 }
 

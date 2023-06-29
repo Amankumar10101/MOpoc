@@ -60,7 +60,7 @@ import CustomCard from './card';
 //                         </div>
 //                     </div>
 
-                    
+
 //                 </div>
 //                 {/* <ButtonSecondary  name='Back' top='40rem' left='1.5625vw' /> */}
 
@@ -73,27 +73,37 @@ import CustomCard from './card';
 // };
 
 interface CardData {
+    filename: string;
     imageURL: string;
     label: string;
     title: string;
 }
 const CardList: React.FC = () => {
 
-    const [cards, setCards] = useState<CardData[]>([])
+    const [cards, setCards] = useState([])
 
     useEffect(() => {
         setCards(cardData);
-    },[])
+    }, [])
 
     return (
-        <div>
-            {cards.map((card,index) => (
-                <CustomCard
-                    key={index}
-                    imageURL={card.imageURL} 
-                    title={card.title} 
-                    label={card.label}             />
-            ))}
+        <div style={{ backgroundColor: '#FFF', height: '100%' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '0.625vw' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <Headline text='Create your account' />
+                    <div style={{ marginTop: '5.55vw', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+                        <Headline text='I am a' />
+                        {cards.map((card, index) => (
+                            <CustomCard
+                                key={index}
+                                filename={card.filename}
+                                imageURL={card.imageURL}
+                                title={card.title}
+                                label={card.label} />
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
