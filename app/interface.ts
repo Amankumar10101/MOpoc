@@ -5,13 +5,17 @@ export interface ActionComponent{
     onBackClick :()=>void;
 }
 export interface TextfieldInterface{
-    label: string,
-    placeholder: string,
-    name: string,
+    width?:string,
+    label?: string,
+    placeholder?: string,
+    name?: string,
     rows?: number,
+    inputType?:string,
     multiline?: boolean,
+    showErrorMessage?:boolean,
+    errorMessage?: string,
     className?:string,
-    onChange:  ( name : string,value: string)=>void,
+    onChange?:  ( name : string,value: string)=>void,
   }
 export  interface FormElements {
     type: string,
@@ -22,7 +26,7 @@ export  interface FormElements {
     className?: string,
     value?: string,
     width?: string,
-    regex?:string,
+    regex?:RegExp,
     showErrorMessage?:boolean,
     errorMessage?: string,
     link?: string

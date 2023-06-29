@@ -125,7 +125,7 @@ export default function BasicTabs(props: BasicTabsProps) {
               <TabsStyle
                 className={className}
                 value={value}
-                onChange={handleChange}
+                // onChange={handleChange}
                 aria-label="basic tabs example"
               >
                 {tabs.map((tab, index) => (

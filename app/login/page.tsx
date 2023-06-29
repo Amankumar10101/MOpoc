@@ -1,12 +1,10 @@
 'use client'
 
-
 import MoCard from "../../components/MoCard/MoCard";
-// import data from "../../data/purchaserDashboard.json";
-// import formData from "../../data/formBuilderData.json";
 import MoTextfields from "../../components/MoTextfield/MoTextfields";
-import "./login.css";
 
+import "./login.css";
+import { useRouter } from 'next/navigation';
 import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
 import MoButton from "@/components/MoButton/MoButton";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -19,8 +17,14 @@ import { loginData } from "../metaData/formData/login";
 function Login() {
 
 
-   
-  
+    const router = useRouter();
+
+    const onContinueClick = () => {
+
+        router.push('/dashboard');
+       
+    }
+
     return (
         <div className="login-main-page">
             {/* <section className="login-section1">
@@ -35,15 +39,11 @@ function Login() {
                 <div className="login-fields">
                     <h1 className="login-heading">Hi there!</h1>
                     <h2 className="login-sub-heading">Welcome to M.O.</h2>
-                <MoFormBuilder {...loginData} />
-                  
-                    <h4 className="login-signup">Don’t have an account? <MoButton name="Sign up" type="button" variant="text" 
-                    // onClick={handleChange}
-                     /></h4>
-                    <MoFormBuilder {...loginData} />
+
+                    <MoFormBuilder onContinueClick={onContinueClick} {...loginData} />
 
 
-                    <h5 className="login-signup">Don’t have an account? <span className="signUp-link">SignUp!</span></h5>
+                    <h5 className="login-signup">Don’t have an account? <span onClick={()=> router.push('/signUp')} className="signUp-link">SignUp!</span></h5>
                 </div>
                 <div className="login-extensions">
                     <div className="login-icons" >

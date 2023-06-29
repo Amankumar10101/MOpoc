@@ -10,8 +10,8 @@ import { MyTypography } from "../MoCard/MoCard";
 const MyFormControl = styled(FormControlLabel)((props) => ({
     
 "& .MuiTypography-body1": {
-    color: "brown",
-    // fontSize: "2rem"
+    color: "#585858",
+    fontSize: "0.8rem"
 },
 // "& MuiButtonBase-root.Mui-checked":{
 //     border: "1px solid green"

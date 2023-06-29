@@ -1,10 +1,13 @@
 'use client'
+
+
 // import { Grid, Card, CardContent, Typography, styled, Theme, CardMedia } from '@mui/material';
 import Headline from '@/components/Typography/Headline';
 import ButtonSecondary from '@/components/Button/ButtonSecondary';
 import { useEffect, useState } from 'react';
 import cardData from '../../metaData/cardData/cardData.json'
 import CustomCard from './card';
+
 // import Image from "next/image";
 // import MoButton from '@/components/MoButton/MoButton';
 
@@ -72,6 +75,7 @@ import CustomCard from './card';
 //     );
 // };
 
+
 interface CardData {
     filename: string;
     imageURL: string;
@@ -83,7 +87,7 @@ const CardList: React.FC = () => {
     const [cards, setCards] = useState([])
 
     useEffect(() => {
-        setCards(cardData);
+        // setCards(cardData);
     }, [])
 
     return (
@@ -93,18 +97,19 @@ const CardList: React.FC = () => {
                     <Headline text='Create your account' />
                     <div style={{ marginTop: '5.55vw', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                         <Headline text='I am a' />
-                        {cards.map((card, index) => (
+                        {/* {cards.map((card, index) => (
                             <CustomCard
                                 key={index}
                                 filename={card.filename}
                                 imageURL={card.imageURL}
                                 title={card.title}
                                 label={card.label} />
-                        ))}
+                        ))} */}
                     </div>
                 </div>
             </div>
         </div>
     )
 }
+
 export default CardList;

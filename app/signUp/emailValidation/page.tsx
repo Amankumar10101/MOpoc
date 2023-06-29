@@ -12,20 +12,22 @@ function password() {
   const [apiData,setApiData] = useState<void>();
 
   useEffect(() => {
-    const fetchData = async() => {
-      try{
-        const response  = await fetchdata(Users.entries)
-        // const data = await response.json();
-        setApiData(response);
-      }
-      catch(error){
-        console.error("Error fetching data from api")
-      }
-    };
-    fetchData();
-    return() =>{
 
-    }
+    // const fetchData = async() => {
+    //   try{
+    //     const response = await fetch("")
+    //     const data = await response.json();
+    //     setApiData(data);
+    //   }
+    //   catch(error){
+    //     console.error("Error fetching data from api")
+    //   }
+    // };
+    // fetchData();
+    // return() =>{
+
+    // }
+
   },[])
     return (
     <>

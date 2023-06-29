@@ -12,19 +12,20 @@ interface ButtonProps {
   width?: string;
   variant?: "text" | "outlined" | "contained";
   type?: "button" | "submit" | "reset" | undefined;
-  onContinueClick?: ()=>void;
-  onBackClick?: ()=>void;
-  onClick?: ()=>void;
+  onContinueClick?: () => void;
+  onBackClick?: () => void;
+  onClick?: () => void;
+
 }
 
-const Container = styled("div")<ButtonProps>`
+const Container = styled("div") <ButtonProps>`
   position: absolute;
   left: ${(props) => props.left};
   top: ${(props) => props.top};
 `;
 
-const ButtonStyle = styled(Button)(({theme}) => ({
-color: '#FFFFFF',
+const ButtonStyle = styled(Button)(({ theme }) => ({
+  color: '#FFFFFF',
   boxSizing: "border-box",
   display: "flex",
   flexDirection: "row",
@@ -41,7 +42,6 @@ color: '#FFFFFF',
   whiteSpace: "nowrap",
   fontSize: 14,
   lineHeight: "17px",
-
   fontStyle: "normal",
   "&:hover": {
     boxShadow: "none",
@@ -52,6 +52,7 @@ color: '#FFFFFF',
     color: "#FFFFFF",
   },
 }));
+
 
 
 
@@ -87,17 +88,18 @@ color: '#FFFFFF',
 const ButtonPrimary: React.FC<ButtonProps> = ({ name, left, top, variant, type, width, onClick }) => {
   return (
     <ThemeProvider theme={theme}>
-    <Container left={left} top={top} name={name}>
-      <ButtonStyle
-      className="buttonStyle"
-     onClick={onClick}
-        variant={variant}
-        type={type}
-        color="primary"
-      >
-        {name}
-      </ButtonStyle>
-    </Container>
+      <Container left={left} top={top} name={name}>
+        <ButtonStyle
+          className="buttonStyle"
+          onClick={onClick}
+          variant={variant}
+          type={type}
+          color="primary"
+        >
+          {name}
+        </ButtonStyle>
+      </Container>
+
     </ThemeProvider>
   );
 };
