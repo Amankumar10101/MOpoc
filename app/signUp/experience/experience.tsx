@@ -7,17 +7,17 @@ import MoTextfields from "../../../components/MoTextfield/MoTextfields";
 import "../page.css";
 import MoFormBuilder from "../../../components/MoFormBuilder/MoFormBuilder";
 import SkipFooter from "../../../components/SkipFooter/SkipFooter";
-import {ActionComponent} from '../../interface';
+import {IActionComponent} from '../../interface';
 
 
-function Experience({onContinueClick,onBackClick}:ActionComponent) {
+function Experience({onContinueClick,onBackClick}:IActionComponent) {
 
     const formData = {
         "className": "signup-about-form",
         ActionComponent: SkipFooter,
         "formData": [
             {
-                "type": "textbox",
+                "type": "select",
                 "name": "position",
                 "placeholder": "Select",
                 "className": "login-email",

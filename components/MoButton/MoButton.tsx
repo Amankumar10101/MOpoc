@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
 import { ButtonHTMLAttributes, useEffect, useState } from "react";
-import {ButtonInterface} from '../../app/interface';
+import {IButtonInterface} from '../../app/interface';
 import { alpha, styled } from '@mui/material/styles';
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/app/src/styles/theme";
@@ -17,7 +17,7 @@ const MyButton = styled(Button)((props) => ({
     // width: props.size? props.size: 50  ,
   }));
 
-function MoButton(props: ButtonInterface){
+function MoButton(props: IButtonInterface){
    
     const {variant,type,width,color, name, onClick}=props;
     

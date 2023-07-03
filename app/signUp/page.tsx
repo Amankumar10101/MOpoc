@@ -4,11 +4,11 @@ import "./page.css";
 import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
 import { formData } from "../../data/signUp";
 import { useRouter } from 'next/navigation';
-import {  FormElements } from "../interface";
-import axios from "axios";
-import { fetchdata, postData } from "../src/services/api";
+import { postData } from "../src/services/api";
 import { Users } from "../src/services/endpoint";
 import { setItemInStorage } from "../src/utils/storageUtils";
+import { IFormElements } from "../src/interfaces/components/FormBuilder/FormElements";
+
 
 
 
@@ -21,14 +21,15 @@ function SignUp() {
 
 
 
-    const onContinueClick = (formData: FormElements[]) => {
+    const onContinueClick = (formData: IFormElements[]) => {
 
-        const formPost: FormElements[] = formData.reduce((acc: any, { name, value }: FormElements) => {
+
+        const formPost: IFormElements[] = formData.reduce((acc: any, { name, value }: IFormElements) => {
          if (name){
             acc[name] = value;
          }  
             return acc;
-        }, { role } as unknown as FormElements[]);
+        }, { role } as unknown as IFormElements[]);
         // console.log()
 
         
@@ -48,8 +49,7 @@ function SignUp() {
         
         };
       
-        
-       
+   
         // router.push('/signUp/emailValidation');
 
 

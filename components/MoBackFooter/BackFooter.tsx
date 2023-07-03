@@ -1,15 +1,9 @@
 
 import Button from "@mui/material/Button";
-<<<<<<< HEAD
-import { ButtonInterface } from '../../app/interface';
-import { styled } from '@mui/material/styles';
-import './skipFooter.scss';
-=======
 import { ButtonHTMLAttributes, useEffect, useState } from "react";
-import { IButtonInterface } from '../../app/interface';
+import {IButtonInterface } from '../../app/interface';
 import { alpha, styled } from '@mui/material/styles';
-import './skipFooter.css';
->>>>>>> 7468a4de3458e8cc251b39338a16ad2a20544d61
+import './BackFooter.css';
 
 const MyButton = styled(Button)((props) => ({
     backgroundColor: props.variant === "contained" ? props.color ? props.color : "#00B7FD" : "transparent",
@@ -19,34 +13,28 @@ const MyButton = styled(Button)((props) => ({
     paddingTop: "10px",
     paddingBottom: "10px",
     marginTop: "10px"
+
+    // width: props.size? props.size: 50  ,
 }));
 
-function SkipFooter(props: IButtonInterface) {
+function BackFooter(props: IButtonInterface) {
 
-    const { onContinueClick, onBackClick } = props;
+    const { onBackClick } = props;
 
 
     return (
-        <div className="signUp-action-button">
+        <div className="reset-action-button">
             <MyButton
                 onClick={onBackClick}
-                variant="contained"
+                variant="outlined"
                 sx={{
                     // width:width+"px"
                     width: "10%"
 
                 }} >Back</MyButton>
-            <MyButton
-                onClick={onContinueClick}
-                variant="contained"
-                sx={{
-                    // width:width+"px"
-                    width: "10%"
-
-                }} >Continue</MyButton>
         </div>
 
     )
 }
 
-export default SkipFooter;
+export default BackFooter;
