@@ -9,7 +9,10 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Image from 'next/image';
 import { loginData } from "../metaData/formData/login";
-import { FormElements } from "../interface";
+import { postData } from "../src/services/api";
+import { Users } from "../src/services/endpoint";
+import { setItemInStorage } from "../src/utils/storageUtils";
+import { IFormElements } from "../src/interfaces/components/FormBuilder/FormElements";
 
 function Login() {
 
@@ -17,15 +20,24 @@ function Login() {
     const router = useRouter();
     const role = "purchaser";
 
-    const onContinueClick = (formData: FormElements[]) => {
-        const login: FormElements[] = formData.reduce((acc: any, { name, value }: FormElements) => {
+    const onContinueClick = (formData: IFormElements[]) => {
+        const loginForm: IFormElements[] = formData.reduce((acc: any, { name, value }: IFormElements) => {
             if (name){
                acc[name] = value;
             }  
                return acc;
-           }, { role } as unknown as FormElements[]);
+           }, { role } as unknown as IFormElements[]);
 
-           console.log('loginData', login)
+           console.log('loginData', loginForm)
+
+
+           postData(Users.signIn, loginForm)
+           .then((response:any)=> {
+            setItemInStorage('token', JSON.stringify(response.data.access_token))
+           })
+           .catch((error:any)=> {
+            console.error(error)
+           })
 
         // router.push('/dashboard');
 

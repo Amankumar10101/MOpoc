@@ -6,7 +6,7 @@ export const Users = {
     activeUsers: 'fetchUser',
     cretae: 'createUser',
     signUp: 'auth/signup/PURCHASER',
-    entries : 'entries'
+    signIn : 'auth/signin'
 }
 
 // const getUrl = (endpoint: string) => `${baseURL}/${endpoint}`;

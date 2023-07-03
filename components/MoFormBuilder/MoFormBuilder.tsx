@@ -2,20 +2,14 @@
 import MoTextfields from "../MoTextfield/MoTextfields";
 import { useEffect, useState } from "react";
 import MoButton from "../MoButton/MoButton";
-<<<<<<< HEAD
 import "./MoFormBuilder.scss";
-import { FormElements, FormBuilder } from '../../app/interface';
-=======
-import "./MoFormBuilder.css";
-import { IFormElements, IFormBuilder } from '../../app/interface';
-import axios from "axios";
->>>>>>> 7468a4de3458e8cc251b39338a16ad2a20544d61
 import MoCheckbox from "../MoCheckbox/MoCheckbox";
 import MoPassword from "../MoTextfield/MoPassword";
 import MoDropdown from "../MoDropdown/MoDropdown";
-
 import MoLink from "../MoLink/MoLink";
 import MoAddMoreLink from "../MoAddMoreLink/MoAddMoreLink";
+import { IFormBuilder } from "@/app/src/interfaces/components/FormBuilder/FormBuilder";
+import { IFormElements } from "@/app/src/interfaces/components/FormBuilder/FormElements";
 
 
 function MoFormBuilder({ onBackClick, onContinueClick, className, ActionComponent, formData }: IFormBuilder) {
