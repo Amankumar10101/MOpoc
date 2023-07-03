@@ -2,15 +2,13 @@
 
 import MoCard from "../../../components/MoCard/MoCard";
 import { useState,useEffect } from 'react';
-// import data from "../../data/purchaserDashboard.json";
-// import formData from "../../data/formBuilderData.json";
 import MoTextfields from "../../../components/MoTextfield/MoTextfields";
 import "./optionalSignUp.css";
 import Tab from '../../../components/Tab/Tab';
 import About from "../about/about";
 import Address from "../address/address";
 import Experience from "../experience/experience";
-// import PairHashPack from "../../Hashpack/hashpack";
+
 
 function OptionalSignUp() {
 

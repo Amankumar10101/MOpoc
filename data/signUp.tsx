@@ -7,12 +7,12 @@ export const formData=(
     className: "create-account-form",
     formData: [
         {
-            type: "textbox",
-            name: "name",
-            placeholder: "Enter Name",
-            className: "login-email",
-            width:"300px",
-            label:"Name",
+            "type": "textbox",
+            "name": "name",
+            "placeholder": "Enter Name",
+            "className": "login-email",
+            "width":"300px",
+            "label":"Name",
             
             "value": ""
         },

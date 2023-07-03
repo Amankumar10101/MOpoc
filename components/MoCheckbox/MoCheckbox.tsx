@@ -24,17 +24,23 @@ interface CheckboxInterface{
     label?: string,
     name: string,
     className?:string,
-    onChange:  ( name : string,value: string)=>void,
+    onChange:  ( name : string,value: boolean)=>void,
 }
 function MoCheckbox(props: CheckboxInterface){
    
    const {label, name}=props;
+   const [checked, setChecked] = useState(false);
+
+   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked);
+    props.onChange(name, event.target.checked);
+  };
     
 
 return (
     <MyFormControl
    
-     control={<Checkbox  defaultChecked />} label={label} onChange={(event)=>props.onChange(name,event?.target?.value)}/>
+     control={<Checkbox   checked={checked}  />} label={label} onChange={handleChange}/>
      
 )
 }
