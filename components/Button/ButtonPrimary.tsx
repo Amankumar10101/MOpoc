@@ -15,6 +15,7 @@ interface ButtonProps {
   onContinueClick?: () => void;
   onBackClick?: () => void;
   onClick?: () => void;
+  disabled?:boolean;
 
 }
 
@@ -85,7 +86,7 @@ const ButtonStyle = styled(Button)(({ theme }) => ({
 //     color: "#FFFFFF",
 //   },
 // });
-const ButtonPrimary: React.FC<ButtonProps> = ({ name, left, top, variant, type, width, onClick }) => {
+const ButtonPrimary: React.FC<ButtonProps> = ({ name, left, top, variant, type, width, onClick,disabled }) => {
   return (
     <ThemeProvider theme={theme}>
       <Container left={left} top={top} name={name}>
@@ -95,6 +96,8 @@ const ButtonPrimary: React.FC<ButtonProps> = ({ name, left, top, variant, type, 
           variant={variant}
           type={type}
           color="primary"
+          sx={{width:width}}
+          disabled={disabled}
         >
           {name}
         </ButtonStyle>

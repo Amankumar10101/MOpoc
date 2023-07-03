@@ -1,10 +1,10 @@
 import { Component, ReactElement } from "react";
 
-export interface ActionComponent{
+export interface IActionComponent{
     onContinueClick :()=>void;
     onBackClick :()=>void;
 }
-export interface TextfieldInterface{
+export interface ITextfieldInterface{
     width?:string,
     label?: string,
     placeholder?: string,
@@ -17,7 +17,7 @@ export interface TextfieldInterface{
     className?:string,
     onChange?:  ( name : string,value: string)=>void,
   }
-export  interface FormElements {
+export  interface IFormElements {
     type: string,
     label?: string,
     name: string,
@@ -31,20 +31,20 @@ export  interface FormElements {
     errorMessage?: string,
     link?: string
 }
-export interface FormBuilder{
+export interface IFormBuilder{
     onContinueClick ?:()=>void;
     onBackClick?:()=>void;
     className?: string,
-    ActionComponent?:(props:ButtonInterface)=>ReactElement,
-    formData: Array<FormElements>
+    ActionComponent?:(props:IButtonInterface)=>ReactElement,
+    formData: Array<IFormElements>
 }
-export interface DoughnutInterface{
+export interface IDoughnutInterface{
     values: Array<number>;
     colors:Array<string>;
     labels:Array<string>;
   }
 
-export interface CardInterface{
+export interface ICardInterface{
     name : string,
     status: string,
     development: string,
@@ -53,15 +53,15 @@ export interface CardInterface{
     funds: string,
     date: string
 }
-export interface BasicCard{
+export interface IBasicCard{
     width: string
 }
-export interface ProgressBarInterface{
+export interface IProgressBarInterface{
     funds: string,
     variant: string,
      value: number
 }
-export interface ButtonInterface{
+export interface IButtonInterface{
     variant?:"text" | "outlined" | "contained"| undefined ,
     name?: string,
     type?: "button" | "submit" | "reset" | undefined,

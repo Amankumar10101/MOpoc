@@ -1,7 +1,7 @@
 
 import Button from "@mui/material/Button";
 import { ButtonHTMLAttributes, useEffect, useState } from "react";
-import { ButtonInterface } from '../../app/interface';
+import { IButtonInterface } from '../../app/interface';
 import { alpha, styled } from '@mui/material/styles';
 import './skipFooter.css';
 
@@ -17,7 +17,7 @@ const MyButton = styled(Button)((props) => ({
     // width: props.size? props.size: 50  ,
 }));
 
-function SkipFooter(props: ButtonInterface) {
+function SkipFooter(props: IButtonInterface) {
 
     const { onContinueClick,onBackClick } = props;
 

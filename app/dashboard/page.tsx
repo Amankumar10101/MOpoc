@@ -8,6 +8,7 @@ import MoTextfields from "../../components/MoTextfield/MoTextfields";
 import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
 import MoDoughnut from "../../components/MoDoghnut/MoDoughnut";
 import MoAttachment from "../../components/MoAttachment/MoAttachment";
+import MoDropdown from "../../components/MoDropdown/MoDropdown";
 
 
 function PurchaserDashboard() {
@@ -23,7 +24,7 @@ function PurchaserDashboard() {
 
     return (
         <div>
-            <MoAttachment />
+            <MoDropdown />
             {/* <MoFormBuilder {...formData} /> */}
           
             <MoDoughnut
@@ -32,7 +33,7 @@ function PurchaserDashboard() {
                 labels={pieLabels}
             ></MoDoughnut>
             
-            <div className="mo-dashboard-main-section">
+            {/* <div className="mo-dashboard-main-section">
                 {purchaserData.map((d) => (
                     <MoCard
                         name={d.name}
@@ -44,7 +45,7 @@ function PurchaserDashboard() {
                         date={d.date}
                     ></MoCard>
                 ))}
-            </div>
+            </div> */}
 
 
         </div>

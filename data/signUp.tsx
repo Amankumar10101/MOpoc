@@ -31,7 +31,7 @@ export const formData=(
         {
             "type": "password",
             "name": "password",
-            "placeholder": "Create a Password",
+            "placeholder": "Create a Password",                           
             "className": "login-password",
             "label": "Password",
             "width":"300px",
@@ -44,14 +44,14 @@ export const formData=(
             "type": "checkbox",
             "name": "update",
             "className": "login-password",
-            "label": "Send me Updates of Upwork",
+            "label": "Send me Updates of Upwork.",
             "value": ""
         },
         {
             "type": "checkbox",
             "name": "policy",
             "className": "login-password",
-            "label": "I have read and agreed to the M.O. Terms of Services and Privacy Policy",
+            "label": "I have read and agreed to the M.O. Terms of Services and Privacy Policy.",
             "value": ""
         },
         {

@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import './MoCard.scss';
 import { Box, Container } from '@mui/material';
-import {CardInterface,BasicCard,ProgressBarInterface} from '../../app/interface';
+import {ICardInterface,IBasicCard,IProgressBarInterface} from '../../app/interface';
 
 
 export const MyTypography = styled(Typography)(() => ({
@@ -19,7 +19,7 @@ export const MyTypography = styled(Typography)(() => ({
     marginBottom:'2px'
 }));
 
-export const MyCard = styled(Card)((props : BasicCard) => {
+export const MyCard = styled(Card)((props : IBasicCard) => {
      return (
 
         {
@@ -39,17 +39,17 @@ export const MyCardHeadingContainer = styled(Box)((props) => ({
     margin: "0px",
 
 }));
-interface MyCardHeading{
+interface IMyCardHeading{
     color: string
 }
-export const MyCardHeading = styled(Typography)((props :MyCardHeading) => ({
+export const MyCardHeading = styled(Typography)((props :IMyCardHeading) => ({
     color: props.color,
     fontSize: "20px",
     fontWeight: 'bold',
     marginBottom:'2px'
 
 }));
-export const MyCardSubHeading = styled(Typography)((props : MyCardHeading) => {
+export const MyCardSubHeading = styled(Typography)((props : IMyCardHeading) => {
     console.log(props.color); return ({
         color: props.color,
         fontSize: "15px",
@@ -97,7 +97,7 @@ export const ProgressBar = styled(LinearProgress)(()=>({
     }
 }));
 
-export const ProgressContainer = (props : ProgressBarInterface) => {
+export const ProgressContainer = (props : IProgressBarInterface) => {
     return (
         <div>
         <MyCardHeadingContainer>
@@ -114,7 +114,7 @@ export const ProgressContainer = (props : ProgressBarInterface) => {
     )
 }
 
-function MoCard(props : CardInterface) {
+function MoCard(props : ICardInterface) {
     console.log(props);
     return (
         <MyCard width="500px">

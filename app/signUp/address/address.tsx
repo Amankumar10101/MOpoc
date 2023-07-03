@@ -4,9 +4,9 @@
 import "../page.css";
 import MoFormBuilder from "../../../components/MoFormBuilder/MoFormBuilder";
 import { addressData } from "@/app/metaData/formData/address";
-import {ActionComponent} from '../../interface';
+import {IActionComponent} from '../../interface';
 
-function Address({onContinueClick,onBackClick}:ActionComponent) {
+function Address({onContinueClick,onBackClick}:IActionComponent) {
 
 
 

@@ -3,15 +3,16 @@ import MoTextfields from "../MoTextfield/MoTextfields";
 import { useEffect, useState } from "react";
 import MoButton from "../MoButton/MoButton";
 import "./MoFormBuilder.css";
-import { FormElements, FormBuilder } from '../../app/interface';
+import { IFormElements, IFormBuilder } from '../../app/interface';
 import axios from "axios";
 import MoCheckbox from "../MoCheckbox/MoCheckbox";
 import MoPassword from "../MoTextfield/MoPassword";
-import SkipFooter from "../SkipFooter/SkipFooter";
+import MoDropdown from "../MoDropdown/MoDropdown";
 import MoLink from "../MoLink/MoLink";
+import MoAddMoreLink from "../MoAddMoreLink/MoAddMoreLink";
 
 
-function MoFormBuilder({ onBackClick, onContinueClick, className, ActionComponent, formData }: FormBuilder) {
+function MoFormBuilder({ onBackClick, onContinueClick, className, ActionComponent, formData }: IFormBuilder) {
 
     // console.log(props);
     // const { formData } = props;
@@ -73,7 +74,7 @@ function MoFormBuilder({ onBackClick, onContinueClick, className, ActionComponen
 
     return (<>
         <form className={className}>
-            {formData.map((d: FormElements) => {
+            {formData.map((d: IFormElements) => {
                 const { className, width, type, name, placeholder, label, showErrorMessage, errorMessage, link } = d;
                 switch (type) {
                     case "textbox": return (
@@ -109,7 +110,24 @@ function MoFormBuilder({ onBackClick, onContinueClick, className, ActionComponen
                             onChange={handleChange}
                         />
                     );
-                    case "link": return (<MoLink name={name} link={link} />)
+                    case "select": return (
+                        <MoDropdown
+                            width={width}
+                            className={className}
+                            name={name}
+                            label={label}
+                            placeholder={placeholder}
+                            onChange={handleChange} />);
+                    case "link": return (<MoLink name={name} link={link} />);
+                    case "addMore": return (
+                        <MoAddMoreLink
+                            className={className}
+                            name={name}
+                            label={label}
+                            placeholder={placeholder}
+                            onChange={handleChange}
+                            showErrorMessage={showErrorMessage}
+                            errorMessage={errorMessage} />);
                     case "checkbox": return (<MoCheckbox label={label} name={name} onChange={handleChange}></MoCheckbox>);
                     case "button": return (<MoButton variant="contained" width="100%" type={type} name={name} onClick={handleSubmit} />);
                 }
