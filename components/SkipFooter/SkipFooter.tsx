@@ -1,9 +1,8 @@
 
 import Button from "@mui/material/Button";
-import { ButtonHTMLAttributes, useEffect, useState } from "react";
 import { ButtonInterface } from '../../app/interface';
-import { alpha, styled } from '@mui/material/styles';
-import './skipFooter.css';
+import { styled } from '@mui/material/styles';
+import './skipFooter.scss';
 
 const MyButton = styled(Button)((props) => ({
     backgroundColor: props.variant === "contained" ? props.color ? props.color : "#00B7FD" : "transparent",
@@ -13,13 +12,11 @@ const MyButton = styled(Button)((props) => ({
     paddingTop: "10px",
     paddingBottom: "10px",
     marginTop: "10px"
-
-    // width: props.size? props.size: 50  ,
 }));
 
 function SkipFooter(props: ButtonInterface) {
 
-    const { onContinueClick,onBackClick } = props;
+    const { onContinueClick, onBackClick } = props;
 
 
     return (

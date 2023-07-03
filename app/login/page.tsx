@@ -1,36 +1,40 @@
 'use client'
 
-import MoCard from "../../components/MoCard/MoCard";
-import MoTextfields from "../../components/MoTextfield/MoTextfields";
-
-import "./login.css";
+import "./login.scss";
 import { useRouter } from 'next/navigation';
 import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
-import MoButton from "@/components/MoButton/MoButton";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PublicIcon from '@mui/icons-material/Public';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Image from 'next/image';
 import { loginData } from "../metaData/formData/login";
+import { FormElements } from "../interface";
 
 function Login() {
 
 
     const router = useRouter();
+    const role = "purchaser";
 
-    const onContinueClick = () => {
+    const onContinueClick = (formData: FormElements[]) => {
+        const login: FormElements[] = formData.reduce((acc: any, { name, value }: FormElements) => {
+            if (name){
+               acc[name] = value;
+            }  
+               return acc;
+           }, { role } as unknown as FormElements[]);
 
-        router.push('/dashboard');
-       
+           console.log('loginData', login)
+
+        // router.push('/dashboard');
+
     }
 
     return (
         <div className="login-main-page">
-            {/* <section className="login-section1">
-                <MoButton width="30%" variant="outlined" type="button" name="SignUp" onClick={handleChange} ></MoButton>
-            </section> */}
-            
+
+
             <section className="login-section2">
                 <div className="login-mo-logo-container">
                     <Image src="/image/Mo-logo.png" className="login-mo-logo"
@@ -43,7 +47,7 @@ function Login() {
                     <MoFormBuilder onContinueClick={onContinueClick} {...loginData} />
 
 
-                    <h5 className="login-signup">Don’t have an account? <span onClick={()=> router.push('/signUp')} className="signUp-link">SignUp!</span></h5>
+                    <h5 className="login-signup">Don’t have an account? <span onClick={() => router.push('/signUp')} className="signUp-link">SignUp!</span></h5>
                 </div>
                 <div className="login-extensions">
                     <div className="login-icons" >

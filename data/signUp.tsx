@@ -7,11 +7,11 @@ export const formData=(
     className: "create-account-form",
     formData: [
         {
-            "type": "textbox",
-            "name": "name",
-            "placeholder": "Enter Name",
-            "className": "login-email",
-            "width":"300px",
+            type: "textbox",
+            name: "name",
+            placeholder: "Enter Name",
+            className: "login-email",
+            width:"300px",
             "label":"Name",
             
             "value": ""
@@ -42,21 +42,21 @@ export const formData=(
         },
         {
             "type": "checkbox",
-            "name": "update",
+            "name": "subscribe_upwork",
             "className": "login-password",
             "label": "Send me Updates of Upwork",
             "value": ""
         },
         {
             "type": "checkbox",
-            "name": "policy",
+            // "name": "policy",
             "className": "login-password",
             "label": "I have read and agreed to the M.O. Terms of Services and Privacy Policy",
             "value": ""
         },
         {
             "type": "button",
-            "name": "Create Account",
+            "label": "Create Account",
         }
     ]})
 }

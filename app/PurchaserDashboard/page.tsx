@@ -1,6 +1,6 @@
 'use client'
 import React, { FC } from 'react';
-import Header from '../../components/Header/Header';
+import Header from '../src/components/complex/Header/Header';
 import SidePanel from '../../components/Menu/SidePanel';
 import Tab from '../../components/Tab/Tab';
 import ButtonPrimary from '../../components/Button/ButtonPrimary';
@@ -21,7 +21,7 @@ const PurchaserDashboard: FC = () => {
 
     const tabs = [
         {label: 'new', component: <ButtonPrimary key='button' name={'New'} left={''} top={''} />},
-        {label: 'old', component: <About />},
+        // {label: 'old', component: <About />},
     ]
 
    
@@ -30,7 +30,7 @@ const PurchaserDashboard: FC = () => {
             {/* <Header/> */}
          <h1>{t('one')}</h1>
             <SidePanel/>
-            <Tab tabs={tabs}/>
+            {/* <Tab tabs={tabs}/> */}
             {/* <h1>{t('one')}</h1>
             <h1>hii</h1> */}
            

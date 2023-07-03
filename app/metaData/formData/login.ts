@@ -17,13 +17,13 @@ export const loginData = {
         },
         {
             "type": "link",
-            "name": "Forgot Password?",
+            // "name": "Forgot Password?",
             "link":"#"
 
         },
         {
             "type": "button",
-            "name": "Login"
+            // "name": "Login"
 
         }
     ]

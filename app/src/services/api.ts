@@ -5,7 +5,7 @@ import { baseURL } from './apiconstants';
 const axiosInst = axios.create({
     baseURL: baseURL,
     headers: {
-        'Content-Type' : 'json'
+        'Content-Type': 'application/json',
     },
 });
 
@@ -33,6 +33,10 @@ axiosInst.interceptors.response.use(
 
 export const fetchdata = (url: string) => {
     axiosInst.get(url);
+}
+
+export const postData = (url: string, data: any) => {
+    return axiosInst.post(url,data)
 }
 
 

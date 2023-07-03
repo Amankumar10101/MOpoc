@@ -22,7 +22,7 @@ const MyFormControl = styled(FormControlLabel)((props) => ({
 
 interface CheckboxInterface{
     label?: string,
-    name: string,
+    name?: string,
     className?:string,
     onChange:  ( name : string,value: boolean)=>void,
 }

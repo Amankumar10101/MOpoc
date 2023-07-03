@@ -21,7 +21,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import FavoriteBorderOutlined from "@mui/icons-material/FavoriteBorderOutlined";
 import Settings from "@mui/icons-material/Settings";
-import SearchBar from "../Search/Search";
+import SearchBar from "../../../../../components/MoSearch/Search";
 import Paper from "@mui/material/Paper";
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 

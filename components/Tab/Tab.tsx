@@ -5,9 +5,9 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material";
-import "./tab.css";
+import "./tab.scss";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "@/app/styles/theme";
+import theme from "@/app/src/styles/theme";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -21,12 +21,6 @@ const StyledTab = styled("div")({
   justifyContent: "center",
   alignItems: "center",
   padding: "0px",
-
-  // position: "absolute",
-  // width: "825px",
-  // height: "32px",
-  // left: "70px",
-  // top: "8px",
 });
 
 const TabsStyle = styled(Tabs)({
@@ -34,7 +28,6 @@ const TabsStyle = styled(Tabs)({
   "& .MuiTabs-scroller .MuiTabs-flexContainer .MuiButtonBase-root": {
     color: '#B4B4B4',
     fontSize: '1.75rem',
-    // fontFamily: 'Roboto',
     textTransform: 'unset',
     borderBottom: '2px solid #74777A',
   },

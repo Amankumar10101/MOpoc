@@ -1,8 +1,9 @@
-import "./MoButton.css";
 import Button from "@mui/material/Button";
 import { ButtonHTMLAttributes, useEffect, useState } from "react";
 import {ButtonInterface} from '../../app/interface';
 import { alpha, styled } from '@mui/material/styles';
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "@/app/src/styles/theme";
 
 const MyButton = styled(Button)((props) => ({
     backgroundColor: props.variant==="contained"?props.color? props.color: "#00B7FD":"transparent",
@@ -22,6 +23,7 @@ function MoButton(props: ButtonInterface){
     
 
 return (
+    <ThemeProvider theme={theme}>
     <MyButton 
     onClick={onClick}
      sx={{
@@ -29,6 +31,7 @@ return (
         width: width,
         
     }} variant={variant}    type={type}>{name}</MyButton>
+    </ThemeProvider>
 )
 }
 

@@ -2,7 +2,7 @@
 
 
 // import { Grid, Card, CardContent, Typography, styled, Theme, CardMedia } from '@mui/material';
-import Headline from '@/components/Typography/Headline';
+import Headline from '@/components/MoTypography/Headline';
 import ButtonSecondary from '@/components/Button/ButtonSecondary';
 import { useEffect, useState } from 'react';
 import cardData from '../../metaData/cardData/cardData.json'
@@ -108,7 +108,7 @@ const CardList: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     )
 }
 

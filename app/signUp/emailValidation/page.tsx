@@ -1,9 +1,9 @@
 'use client'
 
-import Headline from '../../../components/Typography/Headline'
+import Headline from '../../../components/MoTypography/Headline'
 import React, { useEffect, useState } from 'react'
-import { Users } from '@/api/endpoint';
-import { fetchdata } from '@/api/api';
+import { Users } from '@/app/src/api/endpoint';
+import { fetchdata } from '@/app/src/api/api';
 
 import '../page.css';
 

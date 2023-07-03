@@ -1,8 +1,8 @@
-import "./MoFormBuilder.css";
+
 import MoTextfields from "../MoTextfield/MoTextfields";
 import { useEffect, useState } from "react";
 import MoButton from "../MoButton/MoButton";
-import "./MoFormBuilder.css";
+import "./MoFormBuilder.scss";
 import { FormElements, FormBuilder } from '../../app/interface';
 import MoCheckbox from "../MoCheckbox/MoCheckbox";
 import MoPassword from "../MoTextfield/MoPassword";
@@ -98,7 +98,8 @@ function MoFormBuilder({ onBackClick, onContinueClick, className, ActionComponen
                     );
                     case "link": return (<MoLink name={name} link={link} />)
                     case "checkbox": return (<MoCheckbox label={label} name={name} onChange={handleChange}></MoCheckbox>);
-                    case "button": return (<MoButton variant="contained" width="100%" type={type} name={name} onClick={handleSubmit} />);
+                    // case "button": return (<MoButton variant="contained" width="100%" type={type} name={label} onClick={handleSubmit} />);
+                    case "button": return (<MoButton variant="contained" width="100%" type={type} name={label} onClick={handleSubmit} />);
                 }
             })}
 

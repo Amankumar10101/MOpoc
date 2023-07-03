@@ -5,7 +5,7 @@ import { baseURL } from './apiconstants';
 export const Users = {
     activeUsers: 'fetchUser',
     cretae: 'createUser',
-    validateUser: 'validateUser',
+    signUp: 'auth/signup/PURCHASER',
     entries : 'entries'
 }
 

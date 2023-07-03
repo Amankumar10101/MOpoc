@@ -20,7 +20,7 @@ export interface TextfieldInterface{
 export  interface FormElements {
     type: string,
     label?: string,
-    name: string,
+    name?: string,
     placeholder?: string,
     rows?: number,
     className?: string,

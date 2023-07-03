@@ -11,7 +11,6 @@ function About({onContinueClick,onBackClick}:ActionComponent) {
 
     return (
         <MoFormBuilder onContinueClick={onContinueClick} onBackClick={onBackClick} {...aboutData} />
-
     )
 
 
