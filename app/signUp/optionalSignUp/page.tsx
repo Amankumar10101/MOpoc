@@ -8,6 +8,7 @@ import Tab from '../../../components/Tab/Tab';
 import About from "../about/about";
 import Address from "../address/address";
 import Experience from "../experience/experience";
+import Wallet from "../wallet/wallet";
 
 
 function OptionalSignUp() {
@@ -33,7 +34,7 @@ function OptionalSignUp() {
         { label: 'About', component: <About onBackClick={onBackClick} onContinueClick={onContinueClick} /> },
         { label: 'Address', component: <Address onBackClick={onBackClick} onContinueClick={onContinueClick} /> },
         { label: 'Experience', component: <Experience onBackClick={onBackClick} onContinueClick={onContinueClick} /> },
-        { label: 'Wallet', component: <Experience onBackClick={onBackClick} onContinueClick={onContinueClick} /> },
+        { label: 'Wallet', component: <Wallet /> },
     ]
 
 

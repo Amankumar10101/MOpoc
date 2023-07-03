@@ -4,7 +4,7 @@ import "./page.css";
 import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
 import { formData } from "../../data/signUp";
 import { useRouter } from 'next/navigation';
-import {  FormElements } from "../interface";
+import {  IFormElements } from "../interface";
 
 
 
@@ -17,16 +17,16 @@ function SignUp() {
 
 
 
-    const onContinueClick = (formData: FormElements[]) => {
+    const onContinueClick = (formData: IFormElements[]) => {
 
-        const signUp: FormElements[] = formData.reduce((acc: any, { name, value }: FormElements) => {
+        const signUp: IFormElements[] = formData.reduce((acc: any, { name, value }: IFormElements) => {
             if (name !== "policy" && name !== "Create Account") {
                 acc[name] = value;
               }
             return acc;
             
           
-        }, { role } as unknown as FormElements[]);
+        }, { role } as unknown as IFormElements[]);
         console.log('signup data', signUp)
         console.log('formdata is', formData);
 
