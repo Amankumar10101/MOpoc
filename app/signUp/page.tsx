@@ -8,6 +8,7 @@ import { postData } from "../src/services/api";
 import { Users } from "../src/services/endpoint";
 import { setItemInStorage } from "../src/utils/storageUtils";
 import { IFormElements } from "../src/interfaces/components/FormBuilder/FormElements";
+import { decodeToken } from "../src/utils/tokenDecode";
 
 
 
@@ -38,6 +39,7 @@ function SignUp() {
                  .then((response:any) => {
                     console.log(response.data)
                     setItemInStorage('token', JSON.stringify(response.data.access_token));
+                    decodeToken()
                   })
                   .catch((error:any) => {
                     console.error(error);

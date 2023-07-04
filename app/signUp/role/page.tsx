@@ -5,22 +5,27 @@ import Headline from '@/components/MoTypography/Headline';
 import { useEffect, useState } from 'react';
 import cardData from '../../metaData/cardData/cardData.json'
 import CustomCard from './card';
-import { Link } from 'react-router-dom';
-
-
+import { useRouter } from 'next/router';
 
 interface CardData {
+    id: number;
     filename: string;
-    imageURL: string;
-    label: string;
     title: string;
+    label: string;
 }
-const CardList: React.FC = () => {
 
-    const [cards, setCards] = useState([])
+interface MainPageprops{}
 
-    useEffect(() => setCards(cardData), [])
+const CardList: React.FC<MainPageprops> = () => {
 
+    
+
+    // const [cards, setCards] = useState()
+
+    // useEffect(() => setCards(cardData), [])
+    console.log(cardData);
+    
+    
     return (
         <div style={{ backgroundColor: '#FFF', height: '100%' }}>
             <div style={{ display: 'flex', justifyContent: 'center',paddingTop: '0.625vw' }}>
@@ -29,18 +34,19 @@ const CardList: React.FC = () => {
                     <div style={{ marginTop: '5.55vw', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                         <Headline text='I am a' />
                         <div style={{display:'flex', justifyContent:'center',marginTop:'1.63vw',marginLeft:'22vw'}}>
-                        <Link to={'/signup'}>
-                        {cards.map((card, index) => (
+                        
+                        {/* {cardData.map((card : CardData) => (
                             
-                            <CustomCard
-                                key={index}
+                            <CustomCard 
+                           
+                                key={card.id}
                                 filename={card.filename}
-                                imageURL={card.imageURL}
                                 title={card.title}
-                                label={card.label} />
-                               
-                        ))}
-                         </Link>
+                                label={card.label} id={0} />
+                                 
+                        ))} */}
+                        
+                       
                         </div>
                     </div>
                 </div>
