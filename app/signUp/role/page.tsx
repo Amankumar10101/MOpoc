@@ -2,10 +2,10 @@
 
 // import { Grid, Card, CardContent, Typography, styled, Theme, CardMedia } from '@mui/material';
 import Headline from '@/components/MoTypography/Headline';
-import ButtonSecondary from '@/components/Button/ButtonSecondary';
 import { useEffect, useState } from 'react';
 import cardData from '../../metaData/cardData/cardData.json'
 import CustomCard from './card';
+import { Link } from 'react-router-dom';
 
 
 
@@ -29,14 +29,18 @@ const CardList: React.FC = () => {
                     <div style={{ marginTop: '5.55vw', display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
                         <Headline text='I am a' />
                         <div style={{display:'flex', justifyContent:'center',marginTop:'1.63vw',marginLeft:'22vw'}}>
+                        <Link to={'/signup'}>
                         {cards.map((card, index) => (
+                            
                             <CustomCard
                                 key={index}
                                 filename={card.filename}
                                 imageURL={card.imageURL}
                                 title={card.title}
                                 label={card.label} />
+                               
                         ))}
+                         </Link>
                         </div>
                     </div>
                 </div>

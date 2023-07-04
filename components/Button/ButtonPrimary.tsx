@@ -54,43 +54,9 @@ const ButtonStyle = styled(Button)(({ theme }) => ({
   },
 }));
 
-<<<<<<< HEAD
+
 const ButtonPrimary: React.FC<ButtonProps> = ({ name, left, top, variant, type, width, onClick }) => {
-=======
 
-
-
-// const ButtonStyle = styled(Button)({
-//   boxSizing: "border-box",
-//   display: "flex",
-//   flexDirection: "row",
-//   justifyContent: "center",
-//   alignItems: "center",
-//   padding: "10px",
-//   gap: "10px",
-//   position: "absolute",
-//   height: "32px",
-//   letterSpacing: "0.25px",
-//   color: "#FFFFFF",
-//   borderRadius: "5px",
-//   boxShadow: "none",
-//   textTransform: "none",
-//   whiteSpace: "nowrap",
-//   fontSize: 14,
-//   lineHeight: "17px",
-
-//   fontStyle: "normal",
-//   "&:hover": {
-//     boxShadow: "none",
-//   },
-//   "&:active": {
-//     boxShadow: "none",
-//     backgroundColor: "#00B7FD",
-//     color: "#FFFFFF",
-//   },
-// });
-const ButtonPrimary: React.FC<ButtonProps> = ({ name, left, top, variant, type, width, onClick,disabled }) => {
->>>>>>> 7468a4de3458e8cc251b39338a16ad2a20544d61
   return (
     <ThemeProvider theme={theme}>
       <Container left={left} top={top} name={name}>
@@ -101,7 +67,7 @@ const ButtonPrimary: React.FC<ButtonProps> = ({ name, left, top, variant, type, 
           type={type}
           color="primary"
           sx={{width:width}}
-          disabled={disabled}
+          // disabled={disabled}
         >
           {name}
         </ButtonStyle>
