@@ -1,6 +1,6 @@
 'use client'
 
-import Headline from '../../../components/Typography/Headline'
+import {Headline} from '../../../components/MoMolecules/Molecules'
 import React, { useEffect, useState } from 'react'
 import { Users } from '@/api/endpoint';
 import { fetchdata } from '@/api/api';

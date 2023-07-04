@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import '../page.css';
 import ButtonPrimary from "@/components/Button/ButtonPrimary";
 import MoButton from "@/components/MoButton/MoButton";
-import Headline from "@/components/Typography/Headline";
+import {Headline} from "../../../components/MoMolecules/Molecules";
 
 export default function Wallet() {
     return (

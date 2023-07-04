@@ -10,6 +10,7 @@ import MoDoughnut from "../../components/MoDoghnut/MoDoughnut";
 import MoAttachment from "../../components/MoAttachment/MoAttachment";
 import MoDropdown from "../../components/MoDropdown/MoDropdown";
 import Wallet from "../signUp/wallet/wallet";
+import { Div } from "@/components/MoMolecules/Molecules";
 
 
 function PurchaserDashboard() {
@@ -26,6 +27,7 @@ function PurchaserDashboard() {
     return (
         <div>
             <Wallet />
+            <Div className="hello">helllo</Div>
             {/* <MoFormBuilder {...formData} /> */}
           
             {/* <MoDoughnut
