@@ -1,13 +1,12 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "filename" : "Hobbies Hobbies Fill.png",
-       
         "label" : "Provider",
         "title" : "Provider"
     },
     {
-        "id": "2",
+        "id": 2,
         "filename": "Brazuca Planning.png",
             "label": "Purchaser",
             "title" : "Purchaser"

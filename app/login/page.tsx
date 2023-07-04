@@ -56,7 +56,7 @@ function Login() {
                     <h1 className="login-heading">Hi there!</h1>
                     <h2 className="login-sub-heading">Welcome to M.O.</h2>
 
-                    <MoFormBuilder onContinueClick={onContinueClick} {...loginData} />
+                    <MoFormBuilder onContinueClick={onContinueClick}  {...loginData} />
 
 
                     <h5 className="login-signup">Don’t have an account? <span onClick={() => router.push('/signUp')} className="signUp-link">SignUp!</span></h5>

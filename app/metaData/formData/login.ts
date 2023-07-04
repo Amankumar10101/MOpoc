@@ -23,7 +23,7 @@ export const loginData = {
         },
         {
             "type": "button",
-            // "name": "Login"
+            "label": "Login"
 
         }
     ]
