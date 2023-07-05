@@ -20,13 +20,14 @@ const CardList: React.FC<MainPageprops> = () => {
 
     
 
-    // const [cards, setCards] = useState()
+    const [cards, setCards] = useState<CardData[]>([])
 
-    // useEffect(() => setCards(cardData), [])
+    useEffect(() => setCards(cardData), [])
     console.log(cardData);
     
     
     return (
+        <>
         <div style={{ backgroundColor: '#FFF', height: '100%' }}>
             <div style={{ display: 'flex', justifyContent: 'center',paddingTop: '0.625vw' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -35,7 +36,7 @@ const CardList: React.FC<MainPageprops> = () => {
                         <Headline text='I am a' />
                         <div style={{display:'flex', justifyContent:'center',marginTop:'1.63vw',marginLeft:'22vw'}}>
                         
-                        {/* {cardData.map((card : CardData) => (
+                        {cardData.map((card : CardData) => (
                             
                             <CustomCard 
                            
@@ -44,7 +45,7 @@ const CardList: React.FC<MainPageprops> = () => {
                                 title={card.title}
                                 label={card.label} id={0} />
                                  
-                        ))} */}
+                        ))}
                         
                        
                         </div>
@@ -52,6 +53,7 @@ const CardList: React.FC<MainPageprops> = () => {
                 </div>
             </div>
         </div> 
+        </>
     )
 }
 
