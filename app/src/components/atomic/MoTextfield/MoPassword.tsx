@@ -101,7 +101,7 @@ export default function MoPassword(props: TextfieldInterface) {
         </FormControl>
         <FormControl className='textfield' variant="standard">
             {label && <span shrink htmlFor="bootstrap-input">
-                Confirm Paswword
+                Confirm Password
             </span>}
 
             <BootstrapInput type='password' className={props.className} value={confirmPassword}  onChange={(event)=>handleConfirmPassword(event?.target.value)} name="confirm password" placeholder="Renter Password" id="bootstrap-input" />
