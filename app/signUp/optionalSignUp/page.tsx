@@ -1,10 +1,10 @@
 'use client'
 
-import MoCard from "../../../components/MoCard/MoCard";
+import MoCard from "../../src/components/complex/MoCard/MoCard";
 import { useState,useEffect } from 'react';
-import MoTextfields from "../../../components/MoTextfield/MoTextfields";
+import MoTextfields from "../../src/components/atomic/MoTextfield/MoTextfields";
 import "./optionalSignUp.css";
-import Tab from '../../../components/Tab/Tab';
+import Tab from '../../src/components/complex/Tab/Tab';
 import About from "../about/about";
 import Address from "../address/address";
 import Experience from "../experience/experience";

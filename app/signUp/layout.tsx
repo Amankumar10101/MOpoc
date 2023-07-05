@@ -17,10 +17,10 @@ export default function RootLayout({
         <div
           className="signUp-mo-logo-container"
         >
-          <Image src="/image/Mo-logo.png"
+           <Image src="/image/Mo-logo.png"
             className="signUp-mo-logo"
             width={128} height={59}
-            alt="MO Logo" />
+            alt="MO Logo" /> 
         </div>
         {children}
       </body>

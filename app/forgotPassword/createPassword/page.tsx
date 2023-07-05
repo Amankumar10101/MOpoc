@@ -1,11 +1,11 @@
 'use client'
 
-import {Headline} from '../../../components/MoMolecules/Molecules'
+import {Headline} from '../../src/components/atomic/MoMolecules/Molecules'
 import React, { useEffect, useState } from 'react'
 import Image from "next/image";
 import './page.css';
-import MoFormBuilder from "../../../components/MoFormBuilder/MoFormBuilder";
-import { formData } from "../../metaData/formData/createPassword";
+import MoFormBuilder from "../../src/components/complex/MoFormBuilder/MoFormBuilder";
+import { formData } from "../../src/metaData/formData/createPassword";
 
 
 function CreatePassword() {

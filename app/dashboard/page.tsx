@@ -1,16 +1,10 @@
+
 'use client'
 
-import MoCard from "../../components/MoCard/MoCard";
-import data from "../../data/purchaserDashboard.json";
-import formData from "../../data/formBuilderData.json";
-import MoTextfields from "../../components/MoTextfield/MoTextfields";
-// import "./purchaserDashboard.scss";
-import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
-import MoDoughnut from "../../components/MoDoghnut/MoDoughnut";
-import MoAttachment from "../../components/MoAttachment/MoAttachment";
-import MoDropdown from "../../components/MoDropdown/MoDropdown";
+import MoCard from "../src/components/complex/MoCard/MoCard";
+import data from "../../app/src/metaData/formData/purchaserDashboard.json";
 import Wallet from "../signUp/wallet/wallet";
-import { Div } from "@/components/MoMolecules/Molecules";
+import { Div } from "@/app/src/components/atomic/MoMolecules/Molecules";
 
 
 function PurchaserDashboard() {
@@ -51,7 +45,8 @@ function PurchaserDashboard() {
             </div> */}
 
 
-        </div>
+
+      </div>
     )
 
 

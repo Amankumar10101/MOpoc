@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Card, CardContent, Typography, styled, Theme, CardMedia } from '@mui/material';
-import cardData from '../../metaData/cardData/cardData.json'
+import cardData from '../../src/metaData/cardData/cardData.json'
 import Image from "next/image";
 
 interface CardProps{
