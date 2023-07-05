@@ -7,5 +7,4 @@ export interface ICardProps {
 
   export interface IActionCard {
     cardData: ICardProps[];
-    onClick: (title: string)=> void;
   }

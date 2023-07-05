@@ -35,11 +35,9 @@ const StyledCard = styled(Card)(({ theme }: { theme: Theme }) => ({
   transition: "transform 0.3s ease",
 }));
 
-interface MoRoleProps extends ICardProps {
-  onClick?: (title: string) => void;
-}
 
-const MoRole: React.FC<MoRoleProps> = ({ id, filename, title, label, onClick }) => {
+
+const MoRole: React.FC<ICardProps> = ({ id, filename, title, label }) => {
   
   // const getImageUrl = (filename) => {
   //   return require(``).default

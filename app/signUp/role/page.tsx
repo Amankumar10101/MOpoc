@@ -3,7 +3,7 @@
 // import { Grid, Card, CardContent, Typography, styled, Theme, CardMedia } from '@mui/material';
 import Headline from '@/components/MoTypography/Headline';
 import cardData from '../../src/metaData/cardData/cardData.json';
-import {IActionCard, ICardProps} from '../../src/interfaces/components/Role';
+import { ICardProps} from '../../src/interfaces/components/Role';
 import MoRole from '../../src/components/atomic/MoRole';
 import Link from 'next/link';
 
@@ -12,7 +12,7 @@ import Link from 'next/link';
 
 
 
-const CardList: React.FC<IActionCard> = () => {
+const CardList: React.FC<ICardProps> = () => {
 
 
 
