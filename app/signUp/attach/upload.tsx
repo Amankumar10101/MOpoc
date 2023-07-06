@@ -77,9 +77,8 @@ interface FileBrowserProps{
   acceptedFileTypes : string[];
   labelIdle : string;
   multipleFiles?: boolean;
-  // files: any;
+  files: any;
   showFileDetails?:boolean;
-  // onupdatefiles:(files: any) => void;
 }
 
 // Our app

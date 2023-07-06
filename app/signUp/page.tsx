@@ -30,8 +30,8 @@ function SignUp() {
       .then((response: any) => {
         console.log(response.data);
         // router.push('/signUp/emailValidation');
-        setItemInStorage("token", JSON.stringify(response.data.access_token));
-        decodeToken();
+        // setItemInStorage("token", JSON.stringify(response.data.access_token));
+        // decodeToken();
       })
       .catch((error: any) => {
         console.error(error);

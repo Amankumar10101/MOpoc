@@ -11,7 +11,6 @@ export const formData=(
             className: "login-email",
             width:"300px",
             label:"Name",
-            
             value: ""
         },
         {
@@ -46,15 +45,15 @@ export const formData=(
             value: ""
         },
         {
-            "type": "checkbox",
+            type: "checkbox",
             // "name": "policy",
-            "className": "login-password",
-            "label": "I have read and agreed to the M.O. Terms of Services and Privacy Policy.",
-            "value": ""
+            className: "login-password",
+            label: "I have read and agreed to the M.O. Terms of Services and Privacy Policy.",
+            value: ""
         },
         {
-            "type": "button",
-            "name": "Create Account",
+            type: "button",
+            name: "Create Account",
         }
     ]})
 }
