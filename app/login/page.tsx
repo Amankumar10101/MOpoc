@@ -8,7 +8,7 @@ import PublicIcon from '@mui/icons-material/Public';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Image from 'next/image';
-import { loginData } from "../metaData/formData/login";
+import { loginData } from ".././src/metaData/formData/login";
 import { postData } from "../src/services/api";
 import { Users } from "../src/services/endpoint";
 import { setItemInStorage } from "../src/utils/storageUtils";
@@ -18,7 +18,7 @@ function Login() {
 
 
     const router = useRouter();
-    const role = "purchaser";
+    // const role = "purchaser";
 
     const onContinueClick = (formData: IFormElements[]) => {
         const loginForm: IFormElements[] = formData.reduce((acc: any, { name, value }: IFormElements) => {
@@ -26,7 +26,7 @@ function Login() {
                acc[name] = value;
             }  
                return acc;
-           }, { role } as unknown as IFormElements[]);
+           }, { } as unknown as IFormElements[]);
 
            console.log('loginData', loginForm)
 

@@ -5,13 +5,13 @@ import InputBase from '@mui/material/InputBase';
 import { alpha, styled } from '@mui/material/styles';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-import { TextfieldInterface } from '../../app/interface';
+import { TextfieldInterface } from '../../../interfaces/components/TextFieldInterface';
 import WarningIcon from '@mui/icons-material/Warning';
 import "./MoTextfields.scss";
 
 
 export default function MoTextfields(props: TextfieldInterface) {
-  const { label, width, multiline, inputType, placeholder, name, showErrorMessage, errorMessage } = props;
+  const { label, width, multiline, inputType, placeholder, name, showErrorMessage, errorMessage,backgroundColor } = props;
 
 
 
@@ -26,12 +26,14 @@ export default function MoTextfields(props: TextfieldInterface) {
     '& .MuiInputBase-input': {
       borderRadius: 6,
       position: 'relative',
-      backgroundColor: theme.palette.mode === 'light' ? '#F3F6F9' : '#1A2027',
+      backgroundColor: backgroundColor,
+      // backgroundColor: theme.palette.mode === 'dark' ? '#FFF' : '#1A2027',
       border: '2px solid',
       borderColor: theme.palette.mode === 'light' ? '#dedddd' : '#2D3843',
       fontSize: 16,
       // width: width,
-      width: "100%",
+      // width: "100%",
+      width: width,
       padding: '10px 12px',
       transition: theme.transitions.create([
         'border-color',
@@ -64,7 +66,7 @@ export default function MoTextfields(props: TextfieldInterface) {
         {label}
       </InputLabel>}
 
-      {multiline ? <BootstrapInput type={inputType ? inputType : 'text'} className={props.className} name={name} multiline rows={props.rows} placeholder={placeholder} id="bootstrap-input" onChange={(event) => props.onChange(name, event?.target?.value)} /> :
+      {multiline ? <BootstrapInput type={inputType ? inputType : 'text'} className={props.className} name={name} width={width} multiline rows={props.rows} backgroundColor={backgroundColor} placeholder={placeholder} id="bootstrap-input" onChange={(event) => props.onChange(name, event?.target?.value)} /> :
         <BootstrapInput type={inputType ? inputType : 'text'} className={props.className} onChange={(event) => props.onChange(name, event?.target?.value)} name={name} placeholder={placeholder} id="bootstrap-input" />
       }
       {showErrorMessage && <span className='form-error-msg'><WarningIcon fontSize='small' />{errorMessage}</span>}

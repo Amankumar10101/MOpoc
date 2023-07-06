@@ -74,12 +74,13 @@ registerPlugin(FilePondPluginFileValidateSize);
 
 interface FileBrowserProps{
   acceptedFileTypes : string[];
+  labelIdle : string;
   files: any;
   onupdatefiles:(files: any) => void;
 }
 
 // Our app
-const FileBrowser: React.FC<FileBrowserProps> = ({acceptedFileTypes}) => {
+const FileBrowser: React.FC<FileBrowserProps> = ({acceptedFileTypes,labelIdle}) => {
   const [files, setFiles] = useState<any>([])
   return (
     <div className='App' >
@@ -95,7 +96,7 @@ const FileBrowser: React.FC<FileBrowserProps> = ({acceptedFileTypes}) => {
         allowMultiple={false}
         server="/api"
         name="files" /* sets the file input name, it's filepond by default */
-        labelIdle='Drop your file or <span class="filepond--label-action">browse</span>'
+        labelIdle={labelIdle}
       />
     </div>
   )
