@@ -4,15 +4,15 @@ export const aboutData = {
     "className": "signup-about-form",
     ActionComponent: SkipFooter,
     "formData": [
-        {
-            "type": "textbox",
-            "name": "name",
-            "placeholder": "Enter Name",
-            "className": "login-email",
-            "width": "300px",
-            "label": "Name",
-            "value": ""
-        },
+        // {
+        //     "type": "textbox",
+        //     "name": "name",
+        //     "placeholder": "Enter Name",
+        //     "className": "login-email",
+        //     "width": "300px",
+        //     "label": "Name",
+        //     "value": ""
+        // },
         {
             "type": "multiline",
             "name": "about",

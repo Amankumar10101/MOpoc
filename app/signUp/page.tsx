@@ -1,6 +1,6 @@
 "use client";
 
-import "./page.css";
+import "../src/styles/Pages/signUp/signup.scss";
 import MoFormBuilder from "../src/components/complex/MoFormBuilder/MoFormBuilder";
 import {formData}  from "../src/metaData/formData/signUp";
 import { useRouter } from 'next/navigation';
@@ -12,6 +12,7 @@ import { decodeToken } from "../src/utils/tokenDecode";
 import { useSearchParams } from "next/navigation";
 
 function SignUp() {
+  const router = useRouter();
   const role = useSearchParams().get("title");
   console.log(role)
 
@@ -29,7 +30,7 @@ function SignUp() {
     postData(Users.signUp, formPost)
       .then((response: any) => {
         console.log(response.data);
-        // router.push('/signUp/emailValidation');
+        router.push('/signUp/optionalSignUp');
         // setItemInStorage("token", JSON.stringify(response.data.access_token));
         // decodeToken();
       })

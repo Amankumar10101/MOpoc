@@ -1,5 +1,5 @@
-import axios, { AxiosRequestConfig } from 'axios';
-import { config } from 'process';
+import axios from 'axios';
+
 import { baseURL } from './apiconstants';
 
 const axiosInst = axios.create({
@@ -39,5 +39,8 @@ export const postData = (url: string, data: any) => {
     return axiosInst.post(url,data)
 }
 
+export const patchData = (url: string, data:any) => {
+    return axiosInst.patch(url,data)
+}
 
 

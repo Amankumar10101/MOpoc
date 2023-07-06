@@ -11,14 +11,16 @@ import Image from 'next/image';
 import { loginData } from "../src/metaData/formData/login";
 import { postData } from "../src/services/api";
 import { Users } from "../src/services/endpoint";
-import { setItemInStorage } from "../src/utils/storageUtils";
+import { getItemFromStorage, setItemInStorage } from "../src/utils/storageUtils";
 import { IFormElements } from "../src/interfaces/components/FormBuilder/FormElements";
+import { decodeToken } from "../src/utils/tokenDecode";
+
 
 function Login() {
 
 
     const router = useRouter();
-    // const role = "purchaser";
+    
 
     const onContinueClick = (formData: IFormElements[]) => {
         const loginForm: IFormElements[] = formData.reduce((acc: any, { name, value }: IFormElements) => {
@@ -34,6 +36,12 @@ function Login() {
            postData(Users.signIn, loginForm)
            .then((response:any)=> {
             setItemInStorage('token', JSON.stringify(response.data.access_token))
+            console.log(getItemFromStorage('token'))
+            router.push('/signUp/optionalSignUp');
+            
+  
+        decodeToken();
+        console.log("decoded", decodeToken())
            })
            .catch((error:any)=> {
             console.error(error)
@@ -59,7 +67,7 @@ function Login() {
                     <MoFormBuilder onContinueClick={onContinueClick}  {...loginData} />
 
 
-                    <h5 className="login-signup">Don’t have an account? <span onClick={() => router.push('/signUp')} className="signUp-link">SignUp!</span></h5>
+                    <h5 className="login-signup">Don’t have an account? <span onClick={() => router.push('/signUp/role')} className="signUp-link">SignUp!</span></h5>
                 </div>
                 <div className="login-extensions">
                     <div className="login-icons" >

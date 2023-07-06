@@ -1,9 +1,8 @@
 import Avatar from "@mui/material/Avatar";
 import Card from "@mui/material/Card";
-import '../page.css';
-import ButtonPrimary from "@/app/src/components/atomic/Button/ButtonPrimary";
+import '../../../../styles/Pages/signUp/signup.scss';
 import MoButton from "@/app/src/components/atomic/MoButton/MoButton";
-import {Headline} from "../../src/components/atomic/MoMolecules/Molecules";
+import {Headline} from "../../../atomic/MoMolecules/Molecules";
 
 export default function Wallet() {
     return (

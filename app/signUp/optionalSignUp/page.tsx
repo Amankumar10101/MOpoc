@@ -9,7 +9,12 @@ import Experience from "../../src/components/complex/ExtraDetail/experience/expe
 import Wallet from "../../src/components/complex/ExtraDetail/wallet/wallet";
 
 
+
+
 function OptionalSignUp() {
+
+
+   
 
     const [isClicked, setIsClicked] = useState<number>(0);
     const [isBackClicked, setIsBackClicked] = useState<number>(0);
