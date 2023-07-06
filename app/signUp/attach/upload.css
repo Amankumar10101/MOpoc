@@ -7,7 +7,6 @@
 .filepond--label-action{
     color: blue;
 }
-
 .filepond--drop-label{
     border-radius: 5px;
     padding: 0.625rem;
@@ -16,6 +15,7 @@
     margin-left: 29.63rem ;
     margin-right: 29.63rem;
 }
+
 
 .filepond--credits{
     display: none;

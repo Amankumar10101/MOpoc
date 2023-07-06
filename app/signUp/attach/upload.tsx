@@ -63,11 +63,12 @@ import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
 import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type';
 import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size';
 import  "./upload.css"
+import CloseIcon from '@mui/icons-material/Close';
 
 import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css'
-import { FilePondFile } from 'filepond'
+import { FilePondErrorDescription, FilePondFile } from 'filepond'
 
-// Register the plugins
+// // Register the plugins
 registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 registerPlugin(FilePondPluginFileValidateType)
 registerPlugin(FilePondPluginFileValidateSize);
@@ -75,29 +76,54 @@ registerPlugin(FilePondPluginFileValidateSize);
 interface FileBrowserProps{
   acceptedFileTypes : string[];
   labelIdle : string;
-  files: any;
-  onupdatefiles:(files: any) => void;
+  multipleFiles?: boolean;
+  // files: any;
+  showFileDetails?:boolean;
+  // onupdatefiles:(files: any) => void;
 }
 
 // Our app
-const FileBrowser: React.FC<FileBrowserProps> = ({acceptedFileTypes,labelIdle}) => {
-  const [files, setFiles] = useState<any>([])
+const FileBrowser: React.FC<FileBrowserProps> = ({acceptedFileTypes,showFileDetails=false,labelIdle,multipleFiles=true}) => {
+  const [files, setFiles] = useState<File[]>([])
+  const handleAddFile = (error: FilePondErrorDescription | null, file: File) => {
+    if(!error){
+      setFiles([...files,file])
+    }
+  };
+
+  const handleRemoveFile = (file : File) => {
+    const updatedFiles = files.filter((f) => f !== file);
+    setFiles(updatedFiles)
+  };
+
   return (
     <div className='App' >
       <FilePond 
-        files={files}
-        onupdatefiles={setFiles}
+      files={files}
+        onaddfile={handleAddFile}
         allowFileSizeValidation={true}
         allowFileTypeValidation={true}
         // acceptedFileTypes={['image/jpg','image/jpeg','image/png']}
         acceptedFileTypes={acceptedFileTypes}
         maxFileSize="2MB"
         labelMaxFileSizeExceeded='Files can not be larger than 2MB'
-        allowMultiple={false}
+        allowMultiple={multipleFiles}
         server="/api"
         name="files" /* sets the file input name, it's filepond by default */
         labelIdle={labelIdle}
       />
+      {showFileDetails && files.length > 0 && (
+        <ul>
+          {files.map((file) => (
+            <li key={file.name}>
+              {file.name} ({file.type})  {file.size}
+              <button onClick={() => handleRemoveFile(file)}>
+                <CloseIcon/>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   )
 }
