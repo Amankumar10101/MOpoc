@@ -3,7 +3,7 @@
 // import { Grid, Card, CardContent, Typography, styled, Theme, CardMedia } from '@mui/material';
 
 import Headline from '../../src/components/atomic/MoTypography/Headline';
-import cardData from '../../src/metaData/cardData/cardData.json';
+import {cardData} from '../../src/metaData/cardData/cardData';
 import { ICardProps} from '../../src/interfaces/components/Role';
 import MoRole from '../../src/components/atomic/MoRole';
 import Link from 'next/link';

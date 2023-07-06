@@ -2,8 +2,9 @@ import { getItemFromStorage } from "../utils/storageUtils";
 import { decodeToken } from "../utils/tokenDecode";
 
 export function getUserIdFromToken() {
-    console.log('flow is here')
+   
     if (getItemFromStorage('token')) {
+        console.log('flow is here')
         console.log('user id',decodeToken().user_id) 
     } else {
         return null;
