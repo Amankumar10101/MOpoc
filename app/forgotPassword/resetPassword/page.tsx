@@ -1,12 +1,12 @@
 'use client'
 
-import Headline from '../../../components/Typography/Headline'
+import {Headline} from '../../src/components/atomic/MoMolecules/Molecules'
 import React, { useEffect, useState } from 'react'
 import Image from "next/image";
 import './page.css';
-import ButtonSecondary from '../../../components/Button/ButtonSecondary';
-import MoFormBuilder from "../../../components/MoFormBuilder/MoFormBuilder";
-import { formData } from "../../metaData/formData/resetPassword";
+import ButtonSecondary from '../../src/components/atomic/Button/ButtonSecondary';
+import MoFormBuilder from "../../src/components/complex/MoFormBuilder/MoFormBuilder";
+import { formData } from "../../src/metaData/formData/resetPassword";
 
 
 function ResetPassword() {

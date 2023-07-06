@@ -2,13 +2,13 @@
 
 import "../src/styles/Pages/login/login.scss";
 import { useRouter } from 'next/navigation';
-import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
+import MoFormBuilder from "../src/components/complex/MoFormBuilder/MoFormBuilder";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import PublicIcon from '@mui/icons-material/Public';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Image from 'next/image';
-import { loginData } from ".././src/metaData/formData/login";
+import { loginData } from "../src/metaData/formData/login";
 import { postData } from "../src/services/api";
 import { Users } from "../src/services/endpoint";
 import { setItemInStorage } from "../src/utils/storageUtils";

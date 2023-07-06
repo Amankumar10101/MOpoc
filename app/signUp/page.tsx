@@ -1,9 +1,15 @@
 "use client";
 
 import "./page.css";
+<<<<<<< HEAD
+import MoFormBuilder from "../src/components/complex/MoFormBuilder/MoFormBuilder";
+import {formData}  from "../src/metaData/formData/signUp";
+import { useRouter } from 'next/navigation';
+=======
 import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
 import { formData } from "../../data/signUp";
 import { NextRouter, useRouter } from "next/router";
+>>>>>>> 4d7cd8a5fae4d002a411222a023034fa71ca348c
 import { postData } from "../src/services/api";
 import { Users } from "../src/services/endpoint";
 import { setItemInStorage } from "../src/utils/storageUtils";

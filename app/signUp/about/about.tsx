@@ -1,6 +1,6 @@
 import "../page.css";
-import MoFormBuilder from "../../../components/MoFormBuilder/MoFormBuilder";
-import { aboutData } from "@/app/metaData/formData/aboutForm";
+import MoFormBuilder from "../../src/components/complex/MoFormBuilder/MoFormBuilder";
+import { aboutData } from "@/app/src/metaData/formData/aboutForm";
 import {IActionComponent} from '../../interface';
 
 

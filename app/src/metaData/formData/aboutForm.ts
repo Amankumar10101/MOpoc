@@ -1,4 +1,4 @@
-import SkipFooter from "../../../components/SkipFooter/SkipFooter";
+import SkipFooter from "../../components/atomic/SkipFooter/SkipFooter";
 
 export const aboutData = {
     "className": "signup-about-form",

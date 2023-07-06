@@ -1,11 +1,12 @@
 'use client'
 import React, { FC } from 'react';
 import Header from '../src/components/complex/Header/Header';
-import SidePanel from '../../components/Menu/SidePanel';
-import Tab from '../../components/Tab/Tab';
-import ButtonPrimary from '../../components/Button/ButtonPrimary';
+
+import Tab from '../src/components/complex/Tab/Tab';
+import ButtonPrimary from '../src/components/atomic/Button/ButtonPrimary';
 import About from '../signUp/about/about';
 import { getTranslation, changeLanguageToEs} from '../../i18n/config';
+import SidePanel from '../src/components/complex/Menu/SidePanel';
 
 
 
