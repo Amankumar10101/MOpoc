@@ -1,5 +1,7 @@
+"use client";
 import React, { FC } from "react";
 import { Typography, styled } from "@mui/material";
+import "../../../styles/components/atomic/MoMolecules.scss"
 
 
 export interface IHeadlineProps {
@@ -53,6 +55,13 @@ export function Div({className, children}:IMoleculeInterface){
     return (
         <div className={className}>{children}</div>
     )
+}
+
+export function MoLabel({className, children}:IMoleculeInterface){
+  return(
+      <span className={className?className: "mo-label"}>{children}</span>
+  )
+
 }
 
 export function Typography1({className, children}:IMoleculeInterface){

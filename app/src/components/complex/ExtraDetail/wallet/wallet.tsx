@@ -1,3 +1,5 @@
+'use client'
+
 import Avatar from "@mui/material/Avatar";
 import Card from "@mui/material/Card";
 import '../../../../styles/Pages/signUp/signup.scss';

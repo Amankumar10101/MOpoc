@@ -1,7 +1,7 @@
 'use client'
 
 import { useState,useEffect } from 'react';
-import "../../src/styles/components/shared/optionalSignUp.scss"
+import "../../src/styles/components/shared/optionalSignUp.scss";
 import Tab from '../../src/components/complex/Tab/Tab';
 import About from "../../src/components/complex/ExtraDetail/about/about";
 import Address from "../../src/components/complex/ExtraDetail/address/address";

@@ -3,10 +3,11 @@
 
 import ButtonPrimary from '@/app/src/components/atomic/Button/ButtonPrimary';
 import { Button, FormControl, InputLabel } from '@mui/material';
-import { ITextfieldInterface } from '../../../../interface';
-import MoTextfields, { BootstrapInput } from "../MoTextfield/MoTextfields";
-import React, { useState } from 'react';
+import { ITextfieldInterface } from '../../../interfaces/components/TextFieldInterface';
+import {BootstrapInput} from "../MoTextfield/MoTextfields";
+import React, { InputHTMLAttributes, useState } from 'react';
 import WarningIcon from '@mui/icons-material/Warning';
+import { MoLabel } from '../MoMolecules/Molecules';
 
 
 
@@ -20,7 +21,7 @@ const Portfolio: React.FC<ITextfieldInterface> = (props) => {
     const handleAddTextField = () => {
         if(textFields.length<5){
         setTextFields([...textFields, ''])
-        props.onChange(name, [...textFields, '']);}
+        props.onChange?.(name , [...textFields, '']);}
         else isButtonDisabled=true;
     }
 
@@ -35,11 +36,11 @@ const Portfolio: React.FC<ITextfieldInterface> = (props) => {
 
     return (
         <FormControl className='textfield' variant="standard">
-            {label && <span htmlFor="bootstrap-input">
+            {label && <MoLabel>
                 {label}
-            </span>}
+            </MoLabel>}
             {textFields.map((value, index) => (
-                <BootstrapInput sx={{marginBottom:"8px"}} type={inputType ? inputType : 'text'} className={props.className} name={name} placeholder={placeholder} id="bootstrap-input" key={index}  onChange={(e) => handleTextFieldChange(index, e.target.value)} />
+                <BootstrapInput type={inputType?inputType: 'text'} className={props.className} name={name} placeholder={placeholder} id="bootstrap-input" key={index}  onChange={(e) => handleTextFieldChange(index, e?.target?.value)} />
             ))}
             <Button sx={{width:"40%" , marginLeft:"60%"}} disabled={isButtonDisabled} onClick={handleAddTextField}>Add More Link</Button>
         </FormControl>

@@ -1,4 +1,5 @@
 export const providerData = {
+    className:"create-new-project-provider-form",
     formData: [
         
         {
@@ -10,5 +11,11 @@ export const providerData = {
             width: "100%",
             rows:4,
         },
+        {
+            type: "button",
+            name:"Add Provider",
+            width: "15%",
+            className:"provider-button"
+        }
     ]
 }

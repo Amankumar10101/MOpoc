@@ -11,29 +11,29 @@ import "../../../../styles/Pages/signUp/signup.scss";
 
 function About({onBackClick}:IActionComponent) {
 
-    const email = decodeToken().email
+    // const email = decodeToken().email
 
    
     const onContinueClick = (aboutData: IFormElements[]) => {
-        const formUpdate: IFormElements[] = aboutData.reduce(
-            (acc: any, { name, value }: IFormElements) => {
-              if (name) {
-                acc[name] = value;
-              }
-              return acc;
-            },
-            { email } as unknown as IFormElements[]
-          );
-          console.log('formData is', formUpdate)
+        // const formUpdate: IFormElements[] = aboutData.reduce(
+        //     (acc: any, { name, value }: IFormElements) => {
+        //       if (name) {
+        //         acc[name] = value;
+        //       }
+        //       return acc;
+        //     },
+        //     { email } as unknown as IFormElements[]
+        //   );
+        //   console.log('formData is', formUpdate)
 
-          patchData(Users.updateProfile, formUpdate)
-          .then((response: any) => {
-            console.log(response.data);
+        //   patchData(Users.updateProfile, formUpdate)
+        //   .then((response: any) => {
+        //     console.log(response.data);
     
-          })
-          .catch((error: any) => {
-            console.error(error);
-          });
+        //   })
+        //   .catch((error: any) => {
+        //     console.error(error);
+        //   });
       
       
         

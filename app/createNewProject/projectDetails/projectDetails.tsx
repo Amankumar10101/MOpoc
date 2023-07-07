@@ -7,13 +7,13 @@ import Card from "@mui/material/Card";
 
 
 
-function ProjectDetails({ onContinueClick }: IActionComponent) {
+function ProjectDetails() {
 
 
 
 
     return (<Card>
-        <MoFormBuilder onContinueClick={onContinueClick} {...projectDetailData} />
+        <MoFormBuilder  {...projectDetailData} />
     </Card>
     )
 

@@ -1,6 +1,6 @@
 import Button from "@mui/material/Button";
 import { ButtonHTMLAttributes, useEffect, useState } from "react";
-import {IButtonInterface} from '../../../interface';
+import {IButtonInterface} from '../../../src/interfaces/components/Button';
 import { alpha, styled } from '@mui/material/styles';
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "@/app/src/styles/theme";

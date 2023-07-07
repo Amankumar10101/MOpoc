@@ -4,3 +4,43 @@
     justify-content: center;
     align-items: center;
 }
+.create-new-project-provider-form{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+
+}
+.provider-button{
+
+}
+// .project-tab{
+//     display: grid;
+//     grid-template-columns: [first] 50% [line2] 50% [end];
+//   grid-template-rows: auto;
+// }
+// .project-tab:nth-child(1){
+//     grid-column-start: 1;
+//   grid-column-end:2;
+//   grid-row-start: 1;
+//   grid-row-end: 2;
+// }
+// .project-tab:nth-child(2){
+//     grid-column-start: 2;
+//   grid-column-end:3;
+//   grid-row-start: 1;
+//   grid-row-end: 2;
+// }
+// .project-tab:nth-child(7){
+//     grid-column-start: 1;
+//   grid-column-end:3;
+//   grid-row-start: 4;
+//   grid-row-end: 5;
+// }
+// .project-tab:nth-child(8){
+//     grid-column-start: 1;
+//   grid-column-end:3;
+//   grid-row-start: 5;
+//   grid-row-end: 6;
+// }
