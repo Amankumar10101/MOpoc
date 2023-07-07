@@ -14,12 +14,16 @@ import { Users } from "../src/services/endpoint";
 import { getItemFromStorage, setItemInStorage } from "../src/utils/storageUtils";
 import { IFormElements } from "../src/interfaces/components/FormBuilder/FormElements";
 import { decodeToken } from "../src/utils/tokenDecode";
+import { useState } from "react";
+import CustomizedSnackbars from "../src/components/shared/MoToaster/Alert";
 
 
 function Login() {
 
 
     const router = useRouter();
+    const [openSnackbar, setOpenSnackbar] = useState(false);
+    const [snackbarSeverity, setSnackbarSeverity] = useState('success');
     
 
     const onContinueClick = (formData: IFormElements[]) => {
@@ -36,15 +40,21 @@ function Login() {
            postData(Users.signIn, loginForm)
            .then((response:any)=> {
             setItemInStorage('token', JSON.stringify(response.data.access_token))
-            console.log(getItemFromStorage('token'))
-            router.push('/signUp/optionalSignUp');
+            console.log(getItemFromStorage('token'));
+            setOpenSnackbar(true); // Open the snackbar
+            setSnackbarSeverity('success');
+           
+            // router.push('/signUp/optionalSignUp');
             
   
         decodeToken();
         console.log("decoded", decodeToken())
            })
            .catch((error:any)=> {
-            console.error(error)
+            console.error(error);
+            setOpenSnackbar(true); // Open the snackbar
+        setSnackbarSeverity('success');
+       
            })
 
         // router.push('/dashboard');
@@ -52,6 +62,7 @@ function Login() {
     }
 
     return (
+      
         <div className="login-main-page">
 
 
@@ -79,8 +90,17 @@ function Login() {
                     <h5 className="login-privacy">Privacy Policy</h5>
                 </div>
             </section>
+            {openSnackbar && (
+        <CustomizedSnackbars
+          open={openSnackbar}
+          severity={snackbarSeverity}
+          message={snackbarSeverity === 'success' ? 'Login successful!' : 'Login failed!'}
+          onClose={() => setOpenSnackbar(false)}
+        />
+      )}
 
         </div>
+       
     )
 
 
