@@ -1,0 +1,21 @@
+.mo-title-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.mo-title-details-label {
+    color: #585858;
+    font-size: 0.875rem;
+    font-family: Roboto;
+    font-weight: 700;
+}
+
+.mo-title-details-description {
+    color: #74777A;
+    /* Typography/body/medium */
+    font-size: 0.875rem;
+    font-family: Roboto;
+    margin-top: 2px;
+}

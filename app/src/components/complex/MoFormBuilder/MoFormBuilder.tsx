@@ -23,7 +23,7 @@ function MoFormBuilder({
   const [errorMsg, setErrorMsg] = useState();
   const [showErrorMsg, setShowErrorMsg] = useState(false);
 
-  const handleChange = (name: string, value: string | boolean) => {
+  const handleChange = (name: string|undefined, value: string | boolean) => {
     const controlIndex = formData.findIndex((control) => control.name === name);
     console.log(controlIndex);
     if (controlIndex !== -1) {
@@ -158,9 +158,9 @@ function MoFormBuilder({
                 <MoButton
                   variant="contained"
                   key={index}
-                  width="100%"
+                  width={width?width:"100%"}
                   type={type}
-                  name={label}
+                  name={name}
                   onClick={handleSubmit}
                 />
               );

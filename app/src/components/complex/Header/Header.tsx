@@ -24,6 +24,8 @@ import Settings from "@mui/icons-material/Settings";
 import SearchBar from "../../atomic/MoSearch/Search";
 import Paper from "@mui/material/Paper";
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import { Div } from "../../atomic/MoMolecules/Molecules";
+import '../../../styles/components/complex/Header.scss';
 
 
 export default function Header() {
@@ -70,27 +72,27 @@ export default function Header() {
       onClose={handleMenuClose}
     >
       <MenuList>
-      <MenuItem onClick={handleMenuClose}>
-      <ListItemIcon>
+        <MenuItem onClick={handleMenuClose}>
+          <ListItemIcon>
             <AccountCircleOutlinedIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText>My Profile</ListItemText>
-      </MenuItem>
-      <MenuItem onClick={handleMenuClose}><ListItemIcon>
-            <FavoriteBorderOutlined fontSize="small" />
-          </ListItemIcon>
+        </MenuItem>
+        <MenuItem onClick={handleMenuClose}><ListItemIcon>
+          <FavoriteBorderOutlined fontSize="small" />
+        </ListItemIcon>
           <ListItemText>Shortlist</ListItemText>
-      </MenuItem>
-      <MenuItem onClick={handleMenuClose}><ListItemIcon>
-            <Settings fontSize="small" />
-          </ListItemIcon>
+        </MenuItem>
+        <MenuItem onClick={handleMenuClose}><ListItemIcon>
+          <Settings fontSize="small" />
+        </ListItemIcon>
           <ListItemText>Settings</ListItemText>
-      </MenuItem>
-      <MenuItem onClick={handleMenuClose}><ListItemIcon>
-            <LogoutOutlinedIcon fontSize="small" />
-          </ListItemIcon>
+        </MenuItem>
+        <MenuItem onClick={handleMenuClose}><ListItemIcon>
+          <LogoutOutlinedIcon fontSize="small" />
+        </ListItemIcon>
           <ListItemText>Logout</ListItemText>
-      </MenuItem>
+        </MenuItem>
       </MenuList>
     </Menu>
   );
@@ -163,8 +165,9 @@ export default function Header() {
           >
             {/* <MenuIcon /> */}
           </IconButton>
-
-          <Image src="icons/MO_LOGO.svg" alt="logo" width={96.88} height={42} />
+          <Div className="header-mo-logo-container">
+            <Image className="header-mo-logo" src="/image/MO-logo.png" alt="logo" width={128} height={59} />
+          </Div>
           <SearchBar />
 
           <Box sx={{ flexGrow: 1 }} />
@@ -209,8 +212,8 @@ export default function Header() {
         </Toolbar>
       </AppBar>
 
-     {/* {renderMobileMenu} */}
-      {renderMenu} 
+      {/* {renderMobileMenu} */}
+      {renderMenu}
     </Box>
   );
 }

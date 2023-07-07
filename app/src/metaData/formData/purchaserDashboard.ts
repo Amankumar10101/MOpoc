@@ -1,5 +1,5 @@
-{
-    "data":[
+
+ export const purchaserData=  { "data":[
         {
             "name": "Fitness App UX/UI Design Project",
             "status": "Progress",

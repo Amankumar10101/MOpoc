@@ -1,4 +1,4 @@
-// @ts-nocheck
+//@ts-nocheck
 
 import Input from '@mui/material/Input';
 import InputBase from '@mui/material/InputBase';
@@ -8,19 +8,17 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import { HTMLAttributes, useState, useEffect, ChangeEvent } from 'react';
 import { ButtonClasses } from '@mui/material';
-import { TextfieldInterface } from '../../../../interface';
+import  {ITextfieldInterface}  from '../../../interfaces/components/TextFieldInterface';
 import WarningIcon from '@mui/icons-material/Warning';
 import "../../../styles/components/shared/MoTextfields.scss";
+import { MoLabel } from '../MoMolecules/Molecules';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
 
-    'label + &': {
-        marginTop: theme.spacing(3),
-    },
     '& .MuiInputBase-input': {
         borderRadius: 6,
         position: 'relative',
-        backgroundColor: theme.palette.mode === 'light' ? '#F3F6F9' : '#1A2027',
+        backgroundColor: 'white',
         border: '2px solid',
         borderColor: theme.palette.mode === 'light' ? '#dedddd' : '#2D3843',
         fontSize: 16,
@@ -52,7 +50,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function MoPassword(props: TextfieldInterface) {
+export default function MoPassword(props: ITextfieldInterface) {
 
 
     // console.log(props.rows);
@@ -65,23 +63,23 @@ export default function MoPassword(props: TextfieldInterface) {
         // props.onChange("confirm password",event?.target?.value);
         if (password !== value) {
             setConfirmError(true);
-            props.onChange(name,"");
+            props.onChange?.(name,"");
            
         }else{
             setConfirmError(false);
-            props.onChange(name,value);
+            props.onChange?.(name,value);
         }
 
         setConfirmPassword(value);
     }
     const handlePassword = (value:string) => {
         if (confirmPassword === value) {
-            props.onChange(name,value);
+            props.onChange?.(name,value);
             setConfirmError(false);
         }
         else{
             setConfirmError(true);
-            props.onChange(name,"");
+            props.onChange?.(name,"");
         }
         // event.preventDefault();
         setPassword(value);
@@ -92,17 +90,14 @@ export default function MoPassword(props: TextfieldInterface) {
 
     return (<>
         <FormControl className='textfield' variant="standard">
-            {label && <span shrink htmlFor="bootstrap-input">
-                Password
-            </span>}
-
+            {label && <MoLabel>Password</MoLabel>}
             <BootstrapInput  type='password' className={props.className} value={password}  onChange={(event)=>handlePassword(event?.target.value)} name="password" placeholder={placeholder} id="bootstrap-input" />
             {showErrorMessage && <span className='form-error-msg'><WarningIcon fontSize='small' />Invalid Password</span>}
         </FormControl>
         <FormControl className='textfield' variant="standard">
-            {label && <span shrink htmlFor="bootstrap-input">
+            {label && <MoLabel>
                 Confirm Password
-            </span>}
+            </MoLabel>}
 
             <BootstrapInput type='password' className={props.className} value={confirmPassword}  onChange={(event)=>handleConfirmPassword(event?.target.value)} name="confirm password" placeholder="Renter Password" id="bootstrap-input" />
             {confirmError && <span className='form-error-msg'><WarningIcon fontSize='small' />Password not Matched</span>}

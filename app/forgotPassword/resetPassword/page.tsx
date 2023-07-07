@@ -4,7 +4,6 @@ import {Headline} from '../../src/components/atomic/MoMolecules/Molecules'
 import React, { useEffect, useState } from 'react'
 import Image from "next/image";
 import './page.css';
-import ButtonSecondary from '../../src/components/atomic/Button/ButtonSecondary';
 import MoFormBuilder from "../../src/components/complex/MoFormBuilder/MoFormBuilder";
 import { formData } from "../../src/metaData/formData/resetPassword";
 
