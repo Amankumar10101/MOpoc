@@ -1,13 +1,10 @@
 'use client'
 
-import MoCard from "../../src/components/complex/MoCard/MoCard";
-// import data from "../../data/purchaserDashboard.json";
-// import formData from "../../data/formBuilderData.json";
-import MoTextfields from "../../src/components/atomic/MoTextfield/MoTextfields";
-import "../page.css";
-import MoFormBuilder from "../../src/components/complex/MoFormBuilder/MoFormBuilder";
-import SkipFooter from "../../src/components/atomic/SkipFooter/SkipFooter";
-import {IActionComponent} from '../../interface';
+
+import "../../../../styles/Pages/signUp/signup.scss";
+import MoFormBuilder from "../../MoFormBuilder/MoFormBuilder";
+import SkipFooter from "../../../atomic/SkipFooter/SkipFooter";
+import {IActionComponent} from '../../../../interfaces/components/Action';
 
 
 function Experience({onContinueClick,onBackClick}:IActionComponent) {

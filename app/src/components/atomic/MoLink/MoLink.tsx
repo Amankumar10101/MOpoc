@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
-import './MoLink.scss';
+import '../../../styles/components/atomic/MoLink.scss';
 
 const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 

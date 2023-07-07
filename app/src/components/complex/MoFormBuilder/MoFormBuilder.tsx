@@ -2,7 +2,7 @@
 import MoTextfields from "../../atomic/MoTextfield/MoTextfields";
 import { useEffect, useState } from "react";
 import MoButton from "../../atomic/MoButton/MoButton";
-import "./MoFormBuilder.scss";
+import "../../../styles/components/complex/MoFormBuilder.scss";
 import MoCheckbox from "../../atomic/MoCheckbox/MoCheckbox";
 import MoPassword from "../../atomic/MoTextfield/MoPassword";
 import MoDropdown from "../../atomic/MoDropdown/MoDropdown";

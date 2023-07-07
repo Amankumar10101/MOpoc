@@ -10,7 +10,7 @@ import { HTMLAttributes, useState, useEffect, ChangeEvent } from 'react';
 import { ButtonClasses } from '@mui/material';
 import  {ITextfieldInterface}  from '../../../interfaces/components/TextFieldInterface';
 import WarningIcon from '@mui/icons-material/Warning';
-import "./MoTextfields.scss";
+import "../../../styles/components/shared/MoTextfields.scss";
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
 

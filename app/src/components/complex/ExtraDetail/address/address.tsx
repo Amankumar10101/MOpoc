@@ -1,10 +1,10 @@
 'use client'
 
 
-import "../page.css";
-import MoFormBuilder from "../../src/components/complex/MoFormBuilder/MoFormBuilder";
+import "../../../../styles/Pages/signUp/signup.scss";
+import MoFormBuilder from "../../MoFormBuilder/MoFormBuilder";
 import { addressData } from "@/app/src/metaData/formData/address";
-import {IActionComponent} from '../../interface';
+import {IActionComponent} from '../../../../interfaces/components/Action';
 
 function Address({onContinueClick,onBackClick}:IActionComponent) {
 

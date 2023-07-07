@@ -1,9 +1,9 @@
 "use client";
 
-import "./page.css";
-import MoFormBuilder from "../../app/src/components/complex/MoFormBuilder/MoFormBuilder";
-import { formData } from "../../app/src/metaData/formData/signUp";
-import { NextRouter, useRouter } from "next/router";
+import "../src/styles/Pages/signUp/signup.scss";
+import MoFormBuilder from "../src/components/complex/MoFormBuilder/MoFormBuilder";
+import {formData}  from "../src/metaData/formData/signUp";
+import { useRouter } from 'next/navigation';
 import { postData } from "../src/services/api";
 import { Users } from "../src/services/endpoint";
 import { setItemInStorage } from "../src/utils/storageUtils";
@@ -12,6 +12,7 @@ import { decodeToken } from "../src/utils/tokenDecode";
 import { useSearchParams } from "next/navigation";
 
 function SignUp() {
+  const router = useRouter();
   const role = useSearchParams().get("title");
   console.log(role)
 
@@ -29,9 +30,9 @@ function SignUp() {
     postData(Users.signUp, formPost)
       .then((response: any) => {
         console.log(response.data);
-        // router.push('/signUp/emailValidation');
-        setItemInStorage("token", JSON.stringify(response.data.access_token));
-        decodeToken();
+        router.push('/signUp/optionalSignUp');
+        // setItemInStorage("token", JSON.stringify(response.data.access_token));
+        // decodeToken();
       })
       .catch((error: any) => {
         console.error(error);
