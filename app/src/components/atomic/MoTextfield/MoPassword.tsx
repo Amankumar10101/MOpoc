@@ -1,4 +1,4 @@
-// @ts-nocheck
+//@ts-nocheck
 
 import Input from '@mui/material/Input';
 import InputBase from '@mui/material/InputBase';
@@ -8,7 +8,7 @@ import TextField from '@mui/material/TextField';
 import FormControl from '@mui/material/FormControl';
 import { HTMLAttributes, useState, useEffect, ChangeEvent } from 'react';
 import { ButtonClasses } from '@mui/material';
-import { TextfieldInterface } from '../../../../interface';
+import  {ITextfieldInterface}  from '../../../interfaces/components/TextFieldInterface';
 import WarningIcon from '@mui/icons-material/Warning';
 import "./MoTextfields.scss";
 
@@ -52,7 +52,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function MoPassword(props: TextfieldInterface) {
+export default function MoPassword(props: ITextfieldInterface) {
 
 
     // console.log(props.rows);

@@ -24,7 +24,7 @@ export const aboutData = {
             "value": ""
         },
         {
-            "type": "textbox",
+            "type": "addMore",
             "name": "portfolio",
             "placeholder": "Enter Link",
             "className": "login-password",
