@@ -23,7 +23,8 @@ export const loginData = {
         },
         {
             type: "button",
-            name: "Login"
+            name: "Login",
+            color: "white",
 
         }
     ]

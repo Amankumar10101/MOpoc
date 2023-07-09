@@ -45,7 +45,7 @@ export const BootstrapInput = styled(InputBase)(({ theme }) => ({
   },
 }));
 export default function MoTextfields(props: ITextfieldInterface) {
-  const { label, width, multiline, inputType, placeholder, name, showErrorMessage, errorMessage } = props;
+  const { label, width, multiline, inputType, placeholder, name, showErrorMessage, errorMessage, id } = props;
  
 
   return (
@@ -54,8 +54,8 @@ export default function MoTextfields(props: ITextfieldInterface) {
         {label}
       </MoLabel>}
 
-      {multiline ? <BootstrapInput type={inputType ? inputType : 'text'} className={props.className} name={name} multiline rows={props.rows} placeholder={placeholder} id="bootstrap-input" onChange={(event) => props.onChange?.(name, event?.target?.value)} /> :
-        <BootstrapInput type={inputType ? inputType : 'text'} className={props.className} onChange={(event) => props.onChange?.(name, event?.target?.value)} name={name} placeholder={placeholder} id="bootstrap-input" />
+      {multiline ? <BootstrapInput type={inputType ? inputType : 'text'} className={props.className} name={name} multiline rows={props.rows} placeholder={placeholder} id={id} onChange={(event) => props.onChange?.(name, event?.target?.value)} /> :
+        <BootstrapInput type={inputType ? inputType : 'text'} className={props.className} onChange={(event) => props.onChange?.(name, event?.target?.value)} name={name} placeholder={placeholder} id={id} />
       }
       {showErrorMessage && <span className='form-error-msg'><WarningIcon fontSize='small' />{errorMessage}</span>}
     </FormControl>

@@ -18,6 +18,7 @@ export default function RootLayout({
           className="signUp-mo-logo-container"
         >
            <Image src="/image/Mo-logo.png"
+           priority={true}
             className="signUp-mo-logo"
             width={128} height={59}
             alt="MO Logo" /> 

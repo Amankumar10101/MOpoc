@@ -1,21 +1,26 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import * as React from 'react';
 import Link from '@mui/material/Link';
-import '../../../styles/components/atomic/MoLink.scss';
 
-const preventDefault = (event: React.SyntheticEvent) => event.preventDefault();
 
-interface link{
+interface Ilink{
     link?: string,
     name?: string,
+  
 }
 
-export default function MoLink(props : link ) {
+const MoLink: React.FC<Ilink> = ({ link, name }) => {
 
-    const {name, link}=props;
+  const linkStyle: any = {
+    color: '#00B7FD',
+    fontSize: 'smaller',
+    textAlign: 'end',
+  };
+
   return (
-      <Link href={link} underline="none" className='link'>
+      <Link href={link} underline="none" sx={linkStyle}>
         {name}
       </Link> 
   );
 }
+export default MoLink;

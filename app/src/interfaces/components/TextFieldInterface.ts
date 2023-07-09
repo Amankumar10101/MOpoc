@@ -4,6 +4,7 @@ export interface ITextfieldInterface{
     placeholder?: string,
     name?: string,
     rows?: number,
+    id?: string;
     inputType?:string,
     multiline?: boolean,
     showErrorMessage?:boolean,

@@ -58,9 +58,9 @@ function MoFormBuilder({
     }
   };
 
-  useEffect(() => {
-    console.log("useeffect1", formData);
-  }, [showErrorMsg]); // Only re-run the effect if count change
+  // useEffect(() => {
+  //   console.log("useeffect1", formData);
+  // }, [showErrorMsg]); 
 
   return (
     <>
@@ -71,6 +71,9 @@ function MoFormBuilder({
             width,
             type,
             name,
+            color,
+            top,
+            id,
             placeholder,
             label,
             showErrorMessage,
@@ -83,6 +86,7 @@ function MoFormBuilder({
                 <MoTextfields
                   key={index}
                   width={width}
+                  id={id}
                   className={className}
                   name={name}
                   label={label}
@@ -97,6 +101,7 @@ function MoFormBuilder({
                 <MoTextfields
                   key={index}
                   width={width}
+                  id={id}
                   className={className}
                   name={name}
                   label={label}
@@ -130,7 +135,7 @@ function MoFormBuilder({
                 />
               );
             case "link":
-              return <MoLink name={name} link={link} />;
+              return <MoLink key={index} name={name} link={link} />;
             case "addMore":
               return (
                 <MoAddMoreLink
@@ -158,6 +163,8 @@ function MoFormBuilder({
                 <MoButton
                   variant="contained"
                   key={index}
+                  color={color}
+                  top={top}
                   width={width?width:"100%"}
                   type={type}
                   name={name}

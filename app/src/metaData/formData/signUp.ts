@@ -6,20 +6,22 @@ export const formData=(
     formData: [
         {
             type: "textbox",
+            id: "name",
             name: "name",
             placeholder: "Enter Name",
             className: "login-email",
             width:"300px",
-            label:"Name",
+            label:"Name*",
             value: ""
         },
         {
             type: "textbox",
+            id: "email",
             name: "email",
             placeholder: "Enter Email",
             className: "login-email",
             width:"300px",
-            label:"Email Id",
+            label:"Email Id*",
             regex:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
             showErrorMessage:  false,
             errorMessage: "invalid email",
@@ -28,9 +30,9 @@ export const formData=(
         {
             type: "password",
             name: "password",
-            placeholder: "Create a Password",                           
-            className: "login-password",
-            label: "Password",
+            placeholder: "Create a Password",                       
+            // className: "login-password",
+            label: "Password*",
             width:"300px",
            
             // "regex":"/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/",
@@ -41,7 +43,7 @@ export const formData=(
             type: "checkbox",
             name: "subscribe_upwork",
             className: "login-password",
-            label: "Send me Updates of Upwork.",
+            label: "Send me Updates of M.O.",
             value: ""
         },
         {
@@ -54,6 +56,8 @@ export const formData=(
         {
             type: "button",
             name: "Create Account",
+            color: "white",
+            top: "3.125rem",
         }
     ]})
 }

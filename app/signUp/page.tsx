@@ -10,11 +10,13 @@ import { setItemInStorage } from "../src/utils/storageUtils";
 import { IFormElements } from "../src/interfaces/components/FormBuilder/FormElements";
 import { decodeToken } from "../src/utils/tokenDecode";
 import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 function SignUp() {
+  const [isBackClicked, setIsBackClicked] = useState<number>(0);
   const router = useRouter();
   const role = useSearchParams().get("title");
-  console.log(role)
+ 
 
   const onContinueClick = (formData: IFormElements[]) => {
     const formPost: IFormElements[] = formData.reduce(
@@ -39,10 +41,19 @@ function SignUp() {
       });
   };
 
+  const onBackClick = () => {
+    console.log("Backclicked");
+  
+    setIsBackClicked(1);
+
+}
+
   return (
     <div className="signup-page">
-      <h3 className="signUp-heading">Create Account</h3>
-      <MoFormBuilder onContinueClick={onContinueClick} {...formData()} />
+      <div>
+      <h3 className="signUp-heading">Create your account</h3>
+      </div>
+      <MoFormBuilder onContinueClick={onContinueClick} onBackClick={onBackClick} {...formData()} />
     </div>
   );
 }

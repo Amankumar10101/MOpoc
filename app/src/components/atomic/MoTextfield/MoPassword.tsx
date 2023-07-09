@@ -90,16 +90,16 @@ export default function MoPassword(props: ITextfieldInterface) {
 
     return (<>
         <FormControl className='textfield' variant="standard">
-            {label && <MoLabel>Password</MoLabel>}
-            <BootstrapInput  type='password' className={props.className} value={password}  onChange={(event)=>handlePassword(event?.target.value)} name="password" placeholder={placeholder} id="bootstrap-input" />
+            {label && <MoLabel>{label}</MoLabel>}
+            <BootstrapInput  type='password' className={props.className} value={password}  onChange={(event)=>handlePassword(event?.target.value)} name="password" placeholder={placeholder} id="bootstrap-input-password" />
             {showErrorMessage && <span className='form-error-msg'><WarningIcon fontSize='small' />Invalid Password</span>}
         </FormControl>
         <FormControl className='textfield' variant="standard">
             {label && <MoLabel>
-                Confirm Password
+                Confirm Password*
             </MoLabel>}
 
-            <BootstrapInput type='password' className={props.className} value={confirmPassword}  onChange={(event)=>handleConfirmPassword(event?.target.value)} name="confirm password" placeholder="Renter Password" id="bootstrap-input" />
+            <BootstrapInput type='password' className={props.className} value={confirmPassword}  onChange={(event)=>handleConfirmPassword(event?.target.value)} name="confirm password" placeholder="Confirm Password" id="bootstrap-input-confirm-password" />
             {confirmError && <span className='form-error-msg'><WarningIcon fontSize='small' />Password not Matched</span>}
         </FormControl>
     </>
