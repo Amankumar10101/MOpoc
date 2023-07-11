@@ -16,16 +16,19 @@ const MyButton = styled(Button)((props) => ({
         ? props.color
         : "#00B7FD"
       : "none",
-  textColor:
-    props.variant === "text"
-      ? props.color
-        ? props.color
-        : "#00B7FD"
-      : "white",
+      color:
+    props.variant === "contained"
+      ? "white"
+      : props.variant === "outlined"
+      ? "#00B7FD"
+      : "inherit",
   textTransform: "none",
   paddingTop: "10px",
   paddingBottom: "10px",
+  fontSize: '0.875rem',
+  fontWeight: '500',
   marginTop: "10px",
+  borderRadius: '0.3125rem',
 }));
 
 function SkipFooter(props: IButtonInterface) {
@@ -35,7 +38,8 @@ function SkipFooter(props: IButtonInterface) {
     <div className="signUp-action-button">
       <MyButton
         onClick={onBackClick}
-        variant="contained"
+        variant="outlined"
+       
         sx={{
           // width:width+"px"
           width: "10%",

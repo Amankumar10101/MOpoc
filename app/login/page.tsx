@@ -43,8 +43,8 @@ function Login() {
       .then((response: any) => {
         setItemInStorage("token", JSON.stringify(response.data.access_token));
         console.log(getItemFromStorage("token"));
-        setOpenSnackbar(true); // Open the snackbar
-        setSnackbarSeverity("success");
+        // setOpenSnackbar(true); // Open the snackbar
+        // setSnackbarSeverity("success");
 
         // router.push('/signUp/optionalSignUp');
 
@@ -98,8 +98,7 @@ function Login() {
             </div>
             <h5 className="login-privacy">Privacy Policy</h5>
           </div>
-        </section>
-        {openSnackbar && (
+          {openSnackbar && (
           <CustomizedSnackbars
             open={openSnackbar}
             severity={snackbarSeverity}
@@ -111,6 +110,8 @@ function Login() {
             onClose={() => setOpenSnackbar(false)}
           />
         )}
+        </section>
+       
       </div>
     </>
   );
