@@ -3,9 +3,14 @@
 import MoDocCard from '@/app/src/components/complex/DocCard/MoDocCard';
 import { MoDocCardProps } from '@/app/src/interfaces/components/Doc';
 import {docData} from '../../src/metaData/docData/docData';
-import React from 'react'
+import React, { useState } from 'react'
 
 const Document: React.FC<MoDocCardProps> = () => {
+    const [requirement,setRequirement] = useState('')
+    const [addFile,setAddFile] = useState([])
+    const handlePostFiles = () => {
+
+    }
     return (
         <>
             <div>
@@ -15,6 +20,7 @@ const Document: React.FC<MoDocCardProps> = () => {
                         />
                     </div>
                 ))}
+                <button onClick={handlePostFiles}>Save and Continue</button>
             </div>
         </>
     )
