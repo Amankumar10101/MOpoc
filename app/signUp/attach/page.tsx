@@ -1,6 +1,6 @@
 import React from "react";
 import "./upload.css";
-import FileBrowser from "./upload";
+import FileBrowser from "./FileBrowser";
 
 const Attachment = () => {
   const showFileDetails = true;
