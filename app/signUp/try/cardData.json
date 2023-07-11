@@ -5,11 +5,11 @@
       "cards": [
         {
           "image": "/image/Brazuca Planning.png",
-          "name": "Card 1"
+          "name": "Provider"
         },
         {
           "image": "/image/Hobbies Hobbies Fill.png",
-          "name": "Card 2"
+          "name": "Purchaser"
         }
       ]
     }

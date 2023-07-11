@@ -3,6 +3,7 @@ export  interface IFormElements {
     label?: string,
     name?: string,
     top?: string,
+    inputType?: string,
     placeholder?: string,
     rows?: number,
     className?: string,

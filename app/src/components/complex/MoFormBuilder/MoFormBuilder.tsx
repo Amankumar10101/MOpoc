@@ -79,6 +79,7 @@ function MoFormBuilder({
             showErrorMessage,
             errorMessage,
             link,
+            inputType,
           } = d;
           switch (type) {
             case "textbox":
@@ -90,6 +91,7 @@ function MoFormBuilder({
                   className={className}
                   name={name}
                   label={label}
+                  inputType={inputType}
                   placeholder={placeholder}
                   onChange={handleChange}
                   showErrorMessage={showErrorMessage}
@@ -102,6 +104,7 @@ function MoFormBuilder({
                   key={index}
                   width={width}
                   id={id}
+                  inputType={inputType}
                   className={className}
                   name={name}
                   label={label}

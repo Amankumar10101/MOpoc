@@ -2,24 +2,23 @@
 import React, { useState } from 'react';
 import { Grid, CardMedia, Grow, Typography, Box, Paper } from '@mui/material';
 import { styled } from '@mui/system';
-import cardData from './cardData.json'; // adjust path according to your file structure
+import cardData from './cardData.json'; 
 import Image from 'next/image';
 
-interface Card {
+
+interface ICard {
   image: string;
   name: string;
 }
 
-interface CardData {
+interface ICardData {
   iamText: string;
   createAccountText: string;
-  cards: Card[];
+  cards: ICard[];
 }
 
 const StyledGrid = styled(Grid)(({ theme }) => ({
   flexGrow: 1,
-  padding: '6.25rem',
-
 }));
 
 const StyledCard = styled(Paper)(({ theme }) => ({
@@ -48,25 +47,39 @@ const ImageRectangle = styled('div')(({ theme }) => ({
   borderRadius: '0 0 0.3125rem 0.3125rem',
 }));
 const StyledImageContainer = styled('div')(({ theme }) => ({
-    display: 'flex',
+  display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   width: '100%',
   height: '100%'
-  }));
+}));
+
+const typographyStyle =  {
+color: 'var(--colour-title, #585858)',
+fontSize: '1.75rem',
+fontStyle: 'normal',
+fontWeight: '400',
+lineHeight: '2.25rem'};
 
 const ImageCard: React.FC = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
+ 
 
-  const data: CardData = cardData[0]; 
+
+
+
+  const data: ICardData = cardData[0];
 
   return (
+    <>
     <StyledGrid container direction="column" alignItems="center">
       <Box marginBottom={4}>
-        <Typography variant="h4" align="center">
+        <Typography sx={{
+          ...typographyStyle
+        }} variant="h4" align="center">
           {data.createAccountText}
         </Typography>
-        <Typography variant="h4" sx={{marginTop: "4.44rem"}} align="center">
+        <Typography variant="h4" sx={{ marginTop: "4.44rem",   ...typographyStyle }} align="center">
           {data.iamText}
         </Typography>
       </Box>
@@ -76,17 +89,23 @@ const ImageCard: React.FC = () => {
             <Grow in={true}>
               <div onClick={() => setActiveCard(index)}>
                 <StyledCard>
-                    <StyledImageContainer>
-                  <Image
-                     src={card.image}
-                     alt={card.name}
-                     width={128}
-                     height={184}
-                  />
+                  <StyledImageContainer>
+                    <Image
+                      src={card.image}
+                      alt={card.name}
+                      width={128}
+                      height={184}
+                    />
                   </StyledImageContainer>
                   {activeCard === index && <ImageRectangle />}
                 </StyledCard>
-                <Typography variant="body1" sx={{textAlign: 'center', marginTop: '0.5rem'}}>
+                <Typography variant="body1" sx={{
+                  textAlign: 'center', color: activeCard === index ? '#00B7FD' : 'var(--colour-title, #585858)', marginTop: '0.5rem', fontSize: '1.375rem',
+                  fontFamily: 'Inherit',
+                  fontStyle: 'normal',
+                  fontWeight: activeCard === index ? '700' : '400',
+                  lineHeight: '1.75rem'
+                }}>
                   {card.name}
                 </Typography>
               </div>
@@ -95,6 +114,8 @@ const ImageCard: React.FC = () => {
         ))}
       </Grid>
     </StyledGrid>
+
+    </>
   );
 }
 

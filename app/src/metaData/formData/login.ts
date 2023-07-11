@@ -4,12 +4,14 @@ export const loginData = {
         {
             type: "textbox",
             name: "email",
+            inputType: "text",
             placeholder: "Your Email",
             className: "login-email",
             width: "300px"
         },
         {
             type: "textbox",
+            inputType: "password",
             name: "password",
             placeholder: "Password",
             className: "login-password",
