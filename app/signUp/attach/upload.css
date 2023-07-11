@@ -1,17 +1,17 @@
 
 
 .filepond--root *{
-    background-color: #FFFFFF !important;
+    background-color: #FFF !important;
 }
 
 .filepond--label-action{
-    color: blue;
+    color: #F6F6F6;
 }
 .filepond--drop-label{
     border-radius: 5px;
     padding: 0.625rem;
     border: 1px dashed #B4B4B4;
-    background-color: #FFF;
+    background-color: #00B7FD !important;
     margin-left: 29.63rem ;
     margin-right: 29.63rem;
 }
@@ -19,7 +19,47 @@
 
 .filepond--credits{
     display: none;
-}
+} 
+
+/* .file-browser-button .filepond--root {
+    background-color: blue;
+    color: white;
+    }
+    
+    .file-browser-button .filepond--label-action {
+    color: white !important;
+    }
+    
+    .file-browser-button .filepond--label-action:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .file-browser-button .filepond--panel-root {
+    background-color: blue;
+    border-color: blue;
+    }
+    
+    .file-browser-button .filepond--item-panel {
+    background-color: blue;
+    border-color: blue;
+    }
+    
+    .file-browser-button .filepond--item-panel:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    .file-browser-button .filepond--item-panel .filepond--item-info {
+    color: white;
+    }
+    
+    .file-browser-button .filepond--remove-item-button {
+    color: white;
+    }
+    
+    .file-browser-button .filepond--remove-item-button:hover {
+    color: white;
+    } */
+    
 
 
 

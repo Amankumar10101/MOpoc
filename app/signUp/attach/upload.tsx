@@ -73,32 +73,58 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 registerPlugin(FilePondPluginFileValidateType)
 registerPlugin(FilePondPluginFileValidateSize);
 
+interface MyFile {
+  name: string;
+  filename : string;
+  fileSize : string;
+}
+
 interface FileBrowserProps{
   acceptedFileTypes : string[];
   labelIdle : string;
   multipleFiles?: boolean;
-  files: any;
+ 
   showFileDetails?:boolean;
 }
 
 // Our app
 const FileBrowser: React.FC<FileBrowserProps> = ({acceptedFileTypes,showFileDetails=false,labelIdle,multipleFiles=true}) => {
-  const [files, setFiles] = useState<File[]>([])
-  const handleAddFile = (error: FilePondErrorDescription | null, file: File) => {
+  
+  const [files, setFiles] = useState<MyFile[]>([])
+  const handleAddFile = (error: FilePondErrorDescription | null, file: MyFile) => {
     if(!error){
-      setFiles([...files,file])
+      if(!multipleFiles){
+        setFiles([file])
+      }
+      else{
+        setFiles([...files,file]);
+        console.log(file);
+        
+      }
     }
   };
 
-  const handleRemoveFile = (file : File) => {
+  const handleRemoveFile = (file : MyFile) => {
     const updatedFiles = files.filter((f) => f !== file);
     setFiles(updatedFiles)
   };
 
   return (
     <div className='App' >
+      {showFileDetails && (
+        <ul>
+          {files.map((file) => (
+            <li key={file.name}>
+              <span>{file.filename}</span>  <span>{file.fileSize} bytes</span> 
+              <button onClick={() => handleRemoveFile(file)}>
+                <CloseIcon/>
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
       <FilePond 
-      files={files}
+      
         onaddfile={handleAddFile}
         allowFileSizeValidation={true}
         allowFileTypeValidation={true}
@@ -110,19 +136,9 @@ const FileBrowser: React.FC<FileBrowserProps> = ({acceptedFileTypes,showFileDeta
         server="/api"
         name="files" /* sets the file input name, it's filepond by default */
         labelIdle={labelIdle}
+        className="file-browser-button"
       />
-      {showFileDetails && files.length > 0 && (
-        <ul>
-          {files.map((file) => (
-            <li key={file.name}>
-              {file.name} ({file.type})  {file.size}
-              <button onClick={() => handleRemoveFile(file)}>
-                <CloseIcon/>
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
+      
     </div>
   )
 }
