@@ -73,47 +73,56 @@ registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview)
 registerPlugin(FilePondPluginFileValidateType)
 registerPlugin(FilePondPluginFileValidateSize);
 
-interface MyFile {
+interface File {
   name: string;
   filename : string;
   fileSize : string;
+  value ? : any;
 }
 
 interface FileBrowserProps{
   acceptedFileTypes : string[];
   labelIdle : string;
   multipleFiles?: boolean;
+  onClick: () => void;
+
  
   showFileDetails?:boolean;
 }
 
 // Our app
-const FileBrowser: React.FC<FileBrowserProps> = ({acceptedFileTypes,showFileDetails=false,labelIdle,multipleFiles=true}) => {
+const FileBrowser: React.FC<FileBrowserProps> = ({acceptedFileTypes,showFileDetails=false,labelIdle,multipleFiles=true,onClick}) => {
   
-  const [files, setFiles] = useState<MyFile[]>([])
-  const handleAddFile = (error: FilePondErrorDescription | null, file: MyFile) => {
+  const [attach, setAttach] = useState<File[]>([])
+  console.log("attach",attach)
+  const handleAddFile = (error: FilePondErrorDescription | null, file: File) => {
     if(!error){
       if(!multipleFiles){
-        setFiles([file])
+        setAttach([file])
       }
       else{
-        setFiles([...files,file]);
+        setAttach([...attach,file]);
         console.log(file);
         
       }
     }
   };
 
-  const handleRemoveFile = (file : MyFile) => {
-    const updatedFiles = files.filter((f) => f !== file);
-    setFiles(updatedFiles)
+  const handleFileChange = (file: File) => {
+    const value = file;
+    setFiles(value)
+  }
+
+  const handleRemoveFile = (file : File) => {
+    const updatedFiles = attach.filter((f) => f !== file);
+    setAttach(updatedFiles)
   };
 
   return (
     <div className='App' >
       {showFileDetails && (
         <ul>
-          {files.map((file) => (
+          {attach.map((file) => (
             <li key={file.name}>
               <span>{file.filename}</span>  <span>{file.fileSize} bytes</span> 
               <button onClick={() => handleRemoveFile(file)}>
@@ -124,7 +133,8 @@ const FileBrowser: React.FC<FileBrowserProps> = ({acceptedFileTypes,showFileDeta
         </ul>
       )}
       <FilePond 
-      
+    //  onSet={onSet}
+    onChange={handleFileChange}
         onaddfile={handleAddFile}
         allowFileSizeValidation={true}
         allowFileTypeValidation={true}
@@ -133,10 +143,11 @@ const FileBrowser: React.FC<FileBrowserProps> = ({acceptedFileTypes,showFileDeta
         maxFileSize="2MB"
         labelMaxFileSizeExceeded='Files can not be larger than 2MB'
         allowMultiple={multipleFiles}
-        server="/api"
+        // server="/api"
         name="files" /* sets the file input name, it's filepond by default */
         labelIdle={labelIdle}
         className="file-browser-button"
+        onClick={onClick}
       />
       
     </div>
@@ -144,3 +155,7 @@ const FileBrowser: React.FC<FileBrowserProps> = ({acceptedFileTypes,showFileDeta
 }
 
 export default FileBrowser
+
+function setFiles() {
+  throw new Error('Function not implemented.')
+}

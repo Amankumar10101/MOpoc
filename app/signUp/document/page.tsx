@@ -11,12 +11,13 @@ const Document: React.FC<MoDocCardProps> = () => {
     const handlePostFiles = () => {
 
     }
+  
     return (
         <>
             <div>
-                {docData.map((doc: any) => (
-                    <div>
-                        <MoDocCard id={0} title={doc.title} label={doc.label}
+                {docData.map((doc: any, index:number) => (
+                    <div key={index}>
+                        <MoDocCard onClick={()=>console.log("index",index)}  id={0} title={doc.title} label={doc.label} labelIdle={doc.labelIdle}
                         />
                     </div>
                 ))}
