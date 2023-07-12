@@ -20,6 +20,7 @@ import { decodeToken } from "../src/utils/tokenDecode";
 import { useState } from "react";
 import CustomizedSnackbars from "../src/components/shared/MoToaster/Alert";
 
+
 function Login() {
   const router = useRouter();
   const [openSnackbar, setOpenSnackbar] = useState(false);
@@ -41,9 +42,17 @@ function Login() {
     postData(Users.signIn, loginForm)
       .then((response: any) => {
         setItemInStorage("token", JSON.stringify(response.data.access_token));
+       
+        setOpenSnackbar(true); // Open the snackbar
+          setSnackbarSeverity("success");
         console.log(getItemFromStorage("token"));
-        // setOpenSnackbar(true); // Open the snackbar
-        // setSnackbarSeverity("success");
+        setTimeout(()=> {
+          if (response.data.IsUpdate === false){
+            router.push('/signUp/optionalSignUp');
+         }
+          
+        },2000)
+      
 
         // router.push('/signUp/optionalSignUp');
 
@@ -52,8 +61,10 @@ function Login() {
       })
       .catch((error: any) => {
         console.error(error);
-        setOpenSnackbar(true); // Open the snackbar
-        setSnackbarSeverity("success");
+        setTimeout(()=> {
+          setOpenSnackbar(true); // Open the snackbar
+          setSnackbarSeverity("error");
+        },2000)
       });
 
     // router.push('/dashboard');
@@ -81,7 +92,7 @@ function Login() {
             <h5 className="login-signup">
               Don’t have an account?{" "}
               <span
-                onClick={() => router.push("/signUp/role")}
+                onClick={() => router.push("/signUp")}
                 className="signUp-link"
               >
                 SignUp!
@@ -105,7 +116,7 @@ function Login() {
                 snackbarSeverity === "success"
                   ? "Login successful!"
                   : snackbarSeverity === "error"
-                  ? "Error occurred"
+                  ? "Email & Password is wrong"
                   : snackbarSeverity === "warning"
                   ? "Warning occurred"
                   : "Operation failed!"
