@@ -15,7 +15,6 @@ const MoDocCard: React.FC<MoDocCardProps> = ({
   setAttach
 }) => {
   const showFileDetails = true;
-  // const [attach, setAttach] = useState<File[]>([]);
 
   return (
     <Card
@@ -34,10 +33,10 @@ const MoDocCard: React.FC<MoDocCardProps> = ({
       <MoTextfields multiline rows={4} width="71.875rem" placeholder={label} />
       <div>
         <FileBrowser
-        id={id}
           acceptedFileTypes={["application/pdf", "application/msword"]}
           labelIdle={labelIdle}
           showFileDetails={showFileDetails}
+          type={type}
           multipleFiles={true}
           attach={attach}
           setAttach={setAttach}

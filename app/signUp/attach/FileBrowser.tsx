@@ -9,6 +9,7 @@ import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css";
 import { FilePondErrorDescription, FilePondFile } from "filepond";
 import CloseIcon from "@mui/icons-material/Close";
 import "./upload.css";
+import { MyFile } from "@/app/src/interfaces/components/Doc";
 
 registerPlugin(
   FilePondPluginImageExifOrientation,
@@ -17,11 +18,7 @@ registerPlugin(
   FilePondPluginFileValidateSize
 );
 
-interface MyFile {
-  name: string;
-  filename: string;
-  fileSize: number;
-}
+
 
 interface FileBrowserProps {
   acceptedFileTypes: string[];
@@ -29,7 +26,8 @@ interface FileBrowserProps {
   multipleFiles?: boolean;
   showFileDetails?: boolean;
   attach: MyFile[];
-  setAttach: React.Dispatch<React.SetStateAction<MyFile[]>>;
+  setAttach:Function ; 
+  type:string;
 }
 
 const FileBrowser: React.FC<FileBrowserProps> = ({
@@ -38,13 +36,16 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
   labelIdle,
   multipleFiles = true,
   attach,
-  setAttach
+  setAttach,type
 }) => {
 
   const handleAddFile = (
     error: FilePondErrorDescription | null,
-    file: FilePondFile
+    file: FilePondFile,
+    fileType:string
   ) => {
+    console.log(fileType);
+    
     if (error) {
       console.error("There was an error adding the file:", error);
       return;
@@ -57,13 +58,16 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
       name: actualFile.name,
       filename: actualFile.name,
       fileSize: actualFile.size,
+      fileType:fileType
     };
 
     if (!multipleFiles) {
       setAttach([myFile]);
     } else {
-      setAttach((oldFiles) => [...oldFiles, myFile]);
+      setAttach((oldFiles: MyFile[]) => [...oldFiles, myFile]);
     }
+    console.log(attach);
+    
   };
   const handleRemoveButtonClick = (file: MyFile) => {
     const updatedFiles = attach.filter((f) => f.name !== file.name);
@@ -78,6 +82,7 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
         name: fileItem.file.name,
         filename: fileItem.file.name,
         fileSize: fileItem.file.size,
+        fileType: fileItem.file.type,
       });
     }}
 
@@ -85,14 +90,16 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
     <div className="App">
       {showFileDetails && (
         <ul>
-          {attach.map((file) => (
-            <li key={file.name}>
-              <span>{file.filename}</span> <span>{file.fileSize} bytes</span>
-              <button onClick={() => handleRemoveButtonClick(file)}>
-                <CloseIcon />
-              </button>
-            </li>
-          ))}
+          {attach.map((file) => 
+            
+              file.fileType === type && (<li key={file.name}>
+                <span>{file.filename}</span> <span>{file.fileSize} bytes</span>
+                <button onClick={() => handleRemoveButtonClick(file)}>
+                  <CloseIcon />
+                </button>
+              </li>)
+            
+          )}
         </ul>
       )}
       <FilePond
@@ -105,7 +112,7 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
         name="files"
         labelIdle={labelIdle}
         className="file-browser-button"
-        onaddfile={handleAddFile}
+        onaddfile={(error, file) => handleAddFile(error, file, type)}
         onremovefile={handleRemoveFile}
       />
     </div>
