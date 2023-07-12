@@ -24,7 +24,6 @@ function Login() {
   const router = useRouter();
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
-  
 
   const onContinueClick = (formData: IFormElements[]) => {
     const loginForm: IFormElements[] = formData.reduce(
@@ -62,7 +61,7 @@ function Login() {
 
   return (
     <>
-      <div className="login-main-page" >
+      <div className="login-main-page">
         <section className="login-section2">
           <div className="login-mo-logo-container">
             <Image
@@ -99,19 +98,22 @@ function Login() {
             <h5 className="login-privacy">Privacy Policy</h5>
           </div>
           {openSnackbar && (
-          <CustomizedSnackbars
-            open={openSnackbar}
-            severity={snackbarSeverity}
-            message={
-              snackbarSeverity === "success"
-                ? "Login successful!"
-                : "Login failed!"
-            }
-            onClose={() => setOpenSnackbar(false)}
-          />
-        )}
+            <CustomizedSnackbars
+              open={openSnackbar}
+              severity={snackbarSeverity}
+              message={
+                snackbarSeverity === "success"
+                  ? "Login successful!"
+                  : snackbarSeverity === "error"
+                  ? "Error occurred"
+                  : snackbarSeverity === "warning"
+                  ? "Warning occurred"
+                  : "Operation failed!"
+              }
+              onClose={() => setOpenSnackbar(false)}
+            />
+          )}
         </section>
-       
       </div>
     </>
   );

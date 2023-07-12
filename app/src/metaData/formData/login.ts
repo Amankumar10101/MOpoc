@@ -4,9 +4,12 @@ export const loginData = {
         {
             type: "textbox",
             name: "email",
-            inputType: "text",
+            // inputType: "text",
             placeholder: "Your Email",
             className: "login-email",
+            showErrorMessage:  false,
+            errorMessage: "Enter Name",
+            regex:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
             width: "300px"
         },
         {
@@ -31,3 +34,5 @@ export const loginData = {
         }
     ]
 }
+
+
