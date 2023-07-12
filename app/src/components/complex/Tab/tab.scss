@@ -1,0 +1,24 @@
+.tab-child-components{
+    /* position:absolute; */
+    grid-row: 2;
+    width: 100%;
+}
+.tab-child-components>div{
+display: flex;
+justify-content: space-between;
+height: 100%;
+}
+.signUp-tab-box {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap; */
+}
+.tab-box{
+    
+     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

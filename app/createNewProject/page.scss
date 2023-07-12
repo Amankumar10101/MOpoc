@@ -1,0 +1,96 @@
+.createNewProjectCard {
+    width: 90%;
+}
+
+// // .project-details {
+// //     display: grid;
+// //     grid-template-columns: auto auto ;
+// //     grid-gap: 20px;
+// //     padding: 20px;
+// //     width: 700px;
+// // }
+
+  
+//   .project-details {
+//     display: grid;
+//     grid-template-columns: 50% 50%;
+//     grid-gap: 20px ;
+//     grid-auto-flow: row dense;
+//     padding: 20px;
+//   }
+  
+// //   .box {
+// //     // background: rgba(0, 0, 0, 0.1);
+// //     // border-radius: 0.25em;
+// //     padding: 20px;
+// //   }
+  
+//   .large {
+//     // background: rgba(255, 0, 0, 0.25);
+//     // grid-column: auto / span 2;
+//     // grid-row: auto / span 2;
+//     // height: 200px;
+//     width: 620px;
+//     grid-template-columns: 100%;
+//   }
+
+.project-details {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    // grid-gap: 20px;
+    padding: 20px;
+  }
+  
+//   .cell {
+//     display: flex;
+//     justify-items: stretch;
+//     gap: 5px;
+//   }
+  
+//   .cell div {
+//     border: 3px solid black;
+//   }
+  
+  .large1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+      
+  }
+  .large2 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+      
+  }
+  
+  .box1 {
+    grid-column-start: 1;
+  grid-column-end: 2;
+    
+  }
+  .box2 {
+    grid-column-start: 2;
+  grid-column-end: 3;
+    
+  }
+  .box3 {
+    grid-column-start: 1;
+  grid-column-end: 2;
+    
+  }
+  .box4 {
+    grid-column-start: 2;
+  grid-column-end: 3;
+    
+  }
+  .box5 {
+    grid-column-start: 1;
+  grid-column-end: 2;
+    
+  }
+  .box6 {
+    grid-column-start: 2;
+  grid-column-end: 3;
+    
+  }

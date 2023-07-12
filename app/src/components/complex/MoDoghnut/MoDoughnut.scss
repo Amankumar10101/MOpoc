@@ -1,0 +1,29 @@
+.doughnut-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.doughnut-values {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    line-height: 2;
+}
+.doughnut-label{
+    width: 100px; padding-left: 4px;
+    margin-bottom: 5px;
+}
+.doughnut-label-2 {
+    border-left: 3px solid #efbf31;
+}
+
+.doughnut-label-1 {
+    border-left: 3px solid #377b85;
+}
+
+.doughnut-label-3 {
+    border-left: 3px solid #4eab5b;
+}
