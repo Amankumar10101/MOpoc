@@ -17,15 +17,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body >
+        <>
         <Header></Header>
         <Div className="create-new-project-main-page">
         <SidePanel></SidePanel>
         {children}
         </Div>
+        </>
         
-      </body>
-    </html>
+     
   )
 }

@@ -12,8 +12,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body >
+  <>
         <div
           className="signUp-mo-logo-container"
         >
@@ -24,7 +23,7 @@ export default function RootLayout({
             alt="MO Logo" /> 
         </div>
         {children}
-      </body>
-    </html>
+        </>
+     
   )
 }
