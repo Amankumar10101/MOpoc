@@ -44,7 +44,7 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
     file: FilePondFile,
     fileType:string
   ) => {
-    console.log(fileType);
+    // console.log(fileType);
     
     if (error) {
       console.error("There was an error adding the file:", error);
@@ -52,7 +52,7 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
     }
 
     const actualFile = file.file;
-    console.log("File added:", actualFile.name);
+    // console.log("File added:", actualFile.name);
 
     const myFile: MyFile = {
       name: actualFile.name,
@@ -66,7 +66,7 @@ const FileBrowser: React.FC<FileBrowserProps> = ({
     } else {
       setAttach((oldFiles: MyFile[]) => [...oldFiles, myFile]);
     }
-    console.log(attach);
+    // console.log(attach);
     
   };
   const handleRemoveButtonClick = (file: MyFile) => {

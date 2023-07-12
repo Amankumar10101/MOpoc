@@ -6,7 +6,6 @@ import FileBrowser from "@/app/signUp/attach/FileBrowser";
 
 
 const MoDocCard: React.FC<MoDocCardProps> = ({
-  id,
   title,
   label,
   labelIdle,

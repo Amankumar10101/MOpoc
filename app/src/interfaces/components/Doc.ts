@@ -4,7 +4,6 @@ export interface MoDocCardProps  {
     title: string;
     label: string;
     labelIdle:string;
-    onClick: () => void;
     type: string;
     attach: MyFile[];
   setAttach: Function;

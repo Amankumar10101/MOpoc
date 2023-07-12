@@ -24,10 +24,7 @@ const Document: React.FC<MoDocCardProps> = () => {
               labelIdle={doc.labelIdle}
               setAttach={setAttach}
               attach={attach}
-              type={doc.type} onClick={function (): void {
-                throw new Error("Function not implemented.");
-              } }              
-           
+              type={doc.type}           
             />
           </div>
         ))}

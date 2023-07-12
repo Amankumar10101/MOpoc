@@ -51,9 +51,6 @@ function SignUp({role}:ISignUp) {
   };
 
   const onBackClick = () => {
-
-    console.log("Backclicked");
-  
     setIsBackClicked(1);
 
 }

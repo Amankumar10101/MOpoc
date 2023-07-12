@@ -46,12 +46,12 @@ function Login() {
         setOpenSnackbar(true); // Open the snackbar
           setSnackbarSeverity("success");
         console.log(getItemFromStorage("token"));
-        setTimeout(()=> {
+     
           if (response.data.IsUpdate === false){
             router.push('/signUp/optionalSignUp');
          }
           
-        },2000)
+    
       
 
         // router.push('/signUp/optionalSignUp');
@@ -61,10 +61,10 @@ function Login() {
       })
       .catch((error: any) => {
         console.error(error);
-        setTimeout(()=> {
+       
           setOpenSnackbar(true); // Open the snackbar
           setSnackbarSeverity("error");
-        },2000)
+      
       });
 
     // router.push('/dashboard');
