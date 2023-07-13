@@ -1,16 +1,15 @@
-// import styled, { css } from 'styled-components';
+
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import LinearProgress from '@mui/material/LinearProgress';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import './MoCard.scss';
-import { Box, Container } from '@mui/material';
-import {ICardInterface,IBasicCard,IProgressBarInterface} from '../../../../interface';
+import '../../../styles/components/complex/MoCard.scss';
+import { Box } from '@mui/material';
+import {ICardInterface,IBasicCard} from '../../../interfaces/components/Card';
+import {IProgressBarInterface} from '../../../interfaces/components/ProgressBar';
 
 
 export const MyTypography = styled(Typography)(() => ({

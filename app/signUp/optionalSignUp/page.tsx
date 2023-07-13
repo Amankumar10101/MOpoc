@@ -1,17 +1,20 @@
 'use client'
 
-import MoCard from "../../src/components/complex/MoCard/MoCard";
 import { useState,useEffect } from 'react';
-import MoTextfields from "../../src/components/atomic/MoTextfield/MoTextfields";
-import "./optionalSignUp.css";
+import "../../src/styles/components/shared/optionalSignUp.scss";
 import Tab from '../../src/components/complex/Tab/Tab';
-import About from "../about/about";
-import Address from "../address/address";
-import Experience from "../experience/experience";
-import Wallet from "../wallet/wallet";
+import About from "../../src/components/complex/ExtraDetail/about/about";
+import Address from "../../src/components/complex/ExtraDetail/address/address";
+import Experience from "../../src/components/complex/ExtraDetail/experience/experience";
+import Wallet from "../../src/components/complex/ExtraDetail/wallet/wallet";
+
+
 
 
 function OptionalSignUp() {
+
+
+   
 
     const [isClicked, setIsClicked] = useState<number>(0);
     const [isBackClicked, setIsBackClicked] = useState<number>(0);

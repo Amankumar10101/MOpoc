@@ -9,7 +9,6 @@ import SideMenu from "./SideMenu";
 
 const MyIcon = styled("div")(({ theme }) => ({
   position: "absolute",
-
   height: "24px",
   left: "13px",
   right: "13px",
@@ -22,8 +21,11 @@ const MyPaper = styled(Paper)(({ theme }) => ({
   left: "0px",
   top: "61px",
   bottom: "2px",
+  borderRadius:"0px",
   background: "#518B9F",
+  height:"100%",
   boxShadow: "4px 0px 4px rgba(0, 0, 0, 0.25)",
+  zIndex:"100"
 }));
 
 const TextAreaComponent: React.FC = () => {

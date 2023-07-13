@@ -1,19 +1,22 @@
 "use client";
 
-import "./page.css";
+import "../src/styles/Pages/signUp/signup.scss";
 import MoFormBuilder from "../src/components/complex/MoFormBuilder/MoFormBuilder";
-import { formData } from "../src/metaData/formData/signUp";
-import { NextRouter, useRouter } from "next/router";
+import {formData}  from "../src/metaData/formData/signUp";
+import { useRouter } from 'next/navigation';
 import { postData } from "../src/services/api";
 import { Users } from "../src/services/endpoint";
 import { setItemInStorage } from "../src/utils/storageUtils";
 import { IFormElements } from "../src/interfaces/components/FormBuilder/FormElements";
 import { decodeToken } from "../src/utils/tokenDecode";
 import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 
 function SignUp() {
+  const [isBackClicked, setIsBackClicked] = useState<number>(0);
+  const router = useRouter();
   const role = useSearchParams().get("title");
-  console.log(role)
+ 
 
   const onContinueClick = (formData: IFormElements[]) => {
     const formPost: IFormElements[] = formData.reduce(
@@ -29,19 +32,28 @@ function SignUp() {
     postData(Users.signUp, formPost)
       .then((response: any) => {
         console.log(response.data);
-        // router.push('/signUp/emailValidation');
-        setItemInStorage("token", JSON.stringify(response.data.access_token));
-        decodeToken();
+        router.push('/signUp/optionalSignUp');
+        // setItemInStorage("token", JSON.stringify(response.data.access_token));
+        // decodeToken();
       })
       .catch((error: any) => {
         console.error(error);
       });
   };
 
+  const onBackClick = () => {
+    console.log("Backclicked");
+  
+    setIsBackClicked(1);
+
+}
+
   return (
     <div className="signup-page">
-      <h3 className="signUp-heading">Create Account</h3>
-      <MoFormBuilder onContinueClick={onContinueClick} {...formData()} />
+      <div>
+      <h3 className="signUp-heading">Create your account</h3>
+      </div>
+      <MoFormBuilder onContinueClick={onContinueClick} onBackClick={onBackClick} {...formData()} />
     </div>
   );
 }

@@ -2,59 +2,25 @@
 
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
 import DialogActions from '@mui/material/DialogActions';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { Div } from '@/app/src/components/atomic/MoMolecules/Molecules';
+import Card from '@mui/material/Card';
+import MoButton from '@/app/src/components/shared/MoButton';
+import MoTitleDetails from '@/app/src/components/shared/MoTitle&Details/MoTitle&Details';
+import './page.scss';
 
-
-const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  '& .MuiDialogContent-root': {
-    padding: theme.spacing(2),
-  },
-  '& .MuiDialogActions-root': {
-    padding: theme.spacing(1),
-  },
-}));
-
-export interface DialogTitleProps {
-  id: string;
-  children?: React.ReactNode;
-  onClose: () => void;
-}
-
-function BootstrapDialogTitle(props: DialogTitleProps) {
-  const { children, onClose, ...other } = props;
-
-  return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-      {children}
-      {onClose ? (
-        <IconButton
-          aria-label="close"
-          onClick={onClose}
-          sx={{
-            position: 'absolute',
-            right: 8,
-            top: 8,
-            color: (theme) => theme.palette.grey[500],
-          }}
-        >
-          <CloseIcon />
-        </IconButton>
-      ) : null}
-    </DialogTitle>
-  );
-}
-
-export default function CustomizedDialogs() {
+export default function ProjectSent() {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -62,21 +28,43 @@ export default function CustomizedDialogs() {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Submit
+        Open alert dialog
       </Button>
-      <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
+      <Dialog
         open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+        className='project-sent-dailoguebox'
       >
-        
-        
+        <Div className='outerCheckCircle'><CheckCircleIcon sx={{
+          color:"green",
+          width:"100px",
+          height:"100px",
+          padding:0,
+          // backgroundColor:"white"
+        }} /></Div>
+
+        <DialogTitle className='project-sent-heading' id="alert-dialog-title">
+          {"Project Sent"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Your project has been sent to provider
+          </DialogContentText>
+          <Card sx={{
+            padding: "10px"
+            
+          }}>
+            <MoTitleDetails title='Project ID' description='Heathify App UX/UI' />
+            <MoTitleDetails title='Project ID' description='Heathify App UX/UI' />
+            <MoTitleDetails title='Project ID' description='Heathify App UX/UI' />
+          </Card>
+        </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Save changes
-          </Button>
+          <MoButton onClick={handleClose} variant='contained' name='View Project Details'></MoButton>
         </DialogActions>
-      </BootstrapDialog>
+      </Dialog>
     </div>
   );
 }

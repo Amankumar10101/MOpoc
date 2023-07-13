@@ -1,5 +1,8 @@
+import SkipFooter from "../../components/atomic/SkipFooter/SkipFooter";
+
 export const projectDetailData = {
     "className": "project-details",
+    ActionComponent: SkipFooter,
     "formData": [
         {
             type: "textbox",

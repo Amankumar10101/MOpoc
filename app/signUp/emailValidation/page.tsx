@@ -4,8 +4,7 @@ import {Headline} from '../../src/components/atomic/MoMolecules/Molecules'
 import React, { useEffect, useState } from 'react'
 // import { Users } from '@/app/src/services/api/endpoint';
 // import { fetchdata } from '@/app/src/services/api/api';
-
-import '../page.css';
+import "../../src/styles/components/shared/optionalSignUp.scss";
 
 
 function password() {

@@ -1,0 +1,22 @@
+.outerCheckCircle{
+    width:80px;
+    height:80px;
+    border-radius: 100%;
+    // background-color: rgb(96, 149, 96);
+    display: flex;
+    flex-direction: column;
+    border: 20px solid rgb(96, 149, 96); ;
+    justify-content: center;
+    align-items: center;
+    box-sizing: unset;
+}
+.attention-dailoguebox>div:nth-child(3)>div{
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.attention-heading{
+    color: green;
+}

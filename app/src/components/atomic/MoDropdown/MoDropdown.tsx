@@ -6,6 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { alpha, styled } from '@mui/material/styles';
 import InputLabel from '@mui/material/InputLabel';
+import { MoLabel } from '../MoMolecules/Molecules';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -31,14 +32,11 @@ const placeHolder = "Select category"
 
 const BootstrapInput = styled(Select)(({ theme }) => ({
 
-    'label + &': {
-        marginTop: theme.spacing(3),
-    },
     // css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root.Mui-focused .MuiOutlinedInput-notchedOutline
     '& .MuiInputBase-input': {
         borderRadius: 6,
         position: 'relative',
-        backgroundColor: theme.palette.mode === 'light' ? '#fff' : '#fff',
+        backgroundColor: "white",
         border: '2px solid',
         borderColor: theme.palette.mode === 'light' ? '#dedddd' : '#2D3843',
         fontSize: 16,
@@ -82,14 +80,7 @@ const BootstrapInput = styled(Select)(({ theme }) => ({
     // color:"red"
     //     }
 }));
-function getStyles(name: string, personName: string[], theme: Theme) {
-    return {
-        fontWeight:
-            personName.indexOf(name) === -1
-                ? theme.typography.fontWeightRegular
-                : theme.typography.fontWeightMedium,
-    };
-}
+
 interface ISelectDropdown {
     width?: string,
     label?: string,
@@ -125,9 +116,10 @@ export default function MoDropdown(props: ISelectDropdown) {
 
     return (
 
-        <FormControl className={props.className}
-            variant="standard">
-            <span id="demo-customized-select-label">{label}</span>
+
+        <FormControl className={props.className}  variant="standard">
+            <MoLabel>{label}</MoLabel>
+
             <Select
                 // sx={{ color: '#2D3843' }}
                 // className={props.className}

@@ -1,16 +1,19 @@
-import React from 'react'
-import "./upload.css"
-import FileBrowser from './upload'
+import React from "react";
+import "./upload.css";
+import FileBrowser from "./FileBrowser";
 
 const Attachment = () => {
+  const showFileDetails = true;
   return (
-    <div className='App'>
-        {/* <h1>File Browser</h1> */}
-      <FileBrowser acceptedFileTypes={['image/jpg']} files={undefined} onupdatefiles={function (files: any): void {
-        throw new Error('Function not implemented.')
-      } } />
+    <div className="App">
+      {/* <h1>File Browser</h1> */}
+      <FileBrowser
+        acceptedFileTypes={["image/jpg","image/png"]}
+        labelIdle={'Drop your file or <span class="filepond--label-action">browse</span>'}
+        multipleFiles={false}
+        showFileDetails={showFileDetails}       />
     </div>
-  )
-}
+  );
+};
 
-export default Attachment
+export default Attachment;

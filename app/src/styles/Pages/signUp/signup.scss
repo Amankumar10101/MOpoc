@@ -1,0 +1,70 @@
+.create-account-form{
+    display :flex ;
+    flex-direction: column;
+    justify-content: center;
+    width: 20.75rem;
+}
+.signup-about-form{
+    display :flex ;
+    flex-direction: column;
+    justify-content: center;
+    width: 400px;
+}
+.signup-page{
+    display: flex;
+    flex-direction:column ;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 70px;
+
+}
+.signUp-mo-logo-container {
+    width: 100%;
+    text-align: start;
+    padding-left: 20px;
+    padding-top: 15px;
+}
+
+.signUp-mo-logo {
+    object-fit: contain;
+    // width: 100px;
+    filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.20)) drop-shadow(0px 3px 14px rgba(0, 0, 0, 0.12)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.14));
+}
+.signUp-heading{
+    font-family: '__Roboto_5506ec';
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.25rem;
+    color: #585858;
+}
+.hashpack-card{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.wallet-sub-container{
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.wallet-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.wallet-typography{
+    color: #74777A;
+/* Typography/body/small */
+font-size: 0.75rem;
+font-family: Roboto;
+line-height: 1rem;
+}

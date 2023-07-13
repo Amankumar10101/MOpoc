@@ -2,7 +2,7 @@
 import MoTextfields from "../../atomic/MoTextfield/MoTextfields";
 import { useEffect, useState } from "react";
 import MoButton from "../../atomic/MoButton/MoButton";
-import "./MoFormBuilder.scss";
+import "../../../styles/components/complex/MoFormBuilder.scss";
 import MoCheckbox from "../../atomic/MoCheckbox/MoCheckbox";
 import MoPassword from "../../atomic/MoTextfield/MoPassword";
 import MoDropdown from "../../atomic/MoDropdown/MoDropdown";
@@ -23,7 +23,7 @@ function MoFormBuilder({
   const [errorMsg, setErrorMsg] = useState();
   const [showErrorMsg, setShowErrorMsg] = useState(false);
 
-  const handleChange = (name: string, value: string | boolean) => {
+  const handleChange = (name: string|undefined, value: string | boolean) => {
     const controlIndex = formData.findIndex((control) => control.name === name);
     console.log(controlIndex);
     if (controlIndex !== -1) {
@@ -58,9 +58,9 @@ function MoFormBuilder({
     }
   };
 
-  useEffect(() => {
-    console.log("useeffect1", formData);
-  }, [showErrorMsg]); // Only re-run the effect if count change
+  // useEffect(() => {
+  //   console.log("useeffect1", formData);
+  // }, [showErrorMsg]); 
 
   return (
     <>
@@ -71,11 +71,15 @@ function MoFormBuilder({
             width,
             type,
             name,
+            color,
+            top,
+            id,
             placeholder,
             label,
             showErrorMessage,
             errorMessage,
             link,
+            inputType,
           } = d;
           switch (type) {
             case "textbox":
@@ -83,9 +87,11 @@ function MoFormBuilder({
                 <MoTextfields
                   key={index}
                   width={width}
+                  id={id}
                   className={className}
                   name={name}
                   label={label}
+                  inputType={inputType}
                   placeholder={placeholder}
                   onChange={handleChange}
                   showErrorMessage={showErrorMessage}
@@ -97,6 +103,8 @@ function MoFormBuilder({
                 <MoTextfields
                   key={index}
                   width={width}
+                  id={id}
+                  inputType={inputType}
                   className={className}
                   name={name}
                   label={label}
@@ -130,7 +138,7 @@ function MoFormBuilder({
                 />
               );
             case "link":
-              return <MoLink name={name} link={link} />;
+              return <MoLink key={index} name={name} link={link} />;
             case "addMore":
               return (
                 <MoAddMoreLink
@@ -158,9 +166,11 @@ function MoFormBuilder({
                 <MoButton
                   variant="contained"
                   key={index}
-                  width="100%"
+                  color={color}
+                  top={top}
+                  width={width?width:"100%"}
                   type={type}
-                  name={label}
+                  name={name}
                   onClick={handleSubmit}
                 />
               );

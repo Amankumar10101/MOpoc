@@ -6,37 +6,46 @@ export const addressData = {
     "formData": [
         {
             "type": "textbox",
-            "name": "name",
-            "placeholder": "Enter Name",
+            "name": "street address",
+            "placeholder": "Your street name",
             "className": "login-email",
             "width": "300px",
-            "label": "Name",
+            "label": "Street Address",
             "value": ""
         },
         {
             "type": "textbox",
-            "name": "about",
+            "name": "city",
             "className": "login-email",
-            "placeholder": "Write few things about yourself",
+            "placeholder": "Your city name",
             "width": "300px",
-            "label": "About",
+            "label": "City",
             "value": ""
         },
         {
             "type": "textbox",
-            "name": "portfolio",
-            "placeholder": "Enter Link",
+            "name": "state",
+            "placeholder": "Your state name",
             "className": "login-password",
-            "label": "Portfolio/Website Link",
+            "label": "State/Province",
             "width": "300px",
             "value": ""
         },
         {
             "type": "textbox",
-            "name": "phone",
-            "placeholder": "Add phone number",
+            "name": "postal code",
+            "placeholder": "Your pincode",
             "className": "login-password",
-            "label": "Phone No.",
+            "label": "Zip/Postal Code",
+            "width": "300px",
+            "value": ""
+        },
+        {
+            "type": "select",
+            "name": "country",
+            "placeholder": "Country name",
+            "className": "login-password",
+            "label": "Country",
             "width": "300px",
             "value": ""
         }
