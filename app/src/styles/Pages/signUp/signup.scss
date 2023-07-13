@@ -31,7 +31,6 @@
     filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.20)) drop-shadow(0px 3px 14px rgba(0, 0, 0, 0.12)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.14));
 }
 .signUp-heading{
-    font-family: '__Roboto_5506ec';
     font-size: 1.75rem;
     font-style: normal;
     font-weight: 400;
@@ -68,3 +67,13 @@ font-size: 0.75rem;
 font-family: Roboto;
 line-height: 1rem;
 }
+.signUp-signIn {
+    color: #9D9D9D;
+    font-weight: 500;
+  margin-top: 5px;
+  }
+  .login-link {
+    color: #00B7FD;
+    cursor: pointer;
+  }
+    

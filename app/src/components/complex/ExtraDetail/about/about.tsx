@@ -3,10 +3,8 @@ import { aboutData } from "@/app/src/metaData/formData/aboutForm";
 import { patchData } from "@/app/src/services/api";
 import { Users } from "@/app/src/services/endpoint";
 import { decodeToken } from "@/app/src/utils/tokenDecode";
-
 import { IActionComponent } from '../../../../interfaces/components/Action';
 import MoFormBuilder from "../../MoFormBuilder/MoFormBuilder";
-
 import "../../../../styles/Pages/signUp/signup.scss";
 
 function About({onBackClick}:IActionComponent) {

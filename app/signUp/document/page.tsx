@@ -1,14 +1,13 @@
 "use client";
 
 import MoDocCard from "@/app/src/components/complex/DocCard/MoDocCard";
-import { MoDocCardProps } from "@/app/src/interfaces/components/Doc";
+import { MoDocCardProps, MyFile } from "@/app/src/interfaces/components/Doc";
 import { docData } from "../../src/metaData/docData/docData";
 import React, { useState } from "react";
 
 const Document: React.FC<MoDocCardProps> = () => {
-  const [attach, setAttach] = useState<File[]>([]);
-  const [requirement, setRequirement] = useState("");
-  const [tc, setTc] = useState([]);
+  const [attach, setAttach] = useState<MyFile[]>([]);
+
   const handlePostFiles = () => {};
 
   
@@ -25,9 +24,7 @@ const Document: React.FC<MoDocCardProps> = () => {
               labelIdle={doc.labelIdle}
               setAttach={setAttach}
               attach={attach}
-              type={doc.type}
-              
-           
+              type={doc.type}           
             />
           </div>
         ))}

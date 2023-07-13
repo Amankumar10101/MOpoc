@@ -40,7 +40,7 @@ const Portfolio: React.FC<ITextfieldInterface> = (props) => {
                 {label}
             </MoLabel>}
             {textFields.map((value, index) => (
-                <BootstrapInput type={inputType?inputType: 'text'} className={props.className} name={name} placeholder={placeholder} id="bootstrap-input" key={index}  onChange={(e) => handleTextFieldChange(index, e?.target?.value)} />
+                <BootstrapInput type={inputType?inputType: 'text'} className={props.className} name={name}  placeholder={placeholder} id="bootstrap-input" key={index}  onChange={(e) => handleTextFieldChange(index, e?.target?.value)} />
             ))}
             <Button sx={{width:"40%" , marginLeft:"60%"}} disabled={isButtonDisabled} onClick={handleAddTextField}>Add More Link</Button>
         </FormControl>

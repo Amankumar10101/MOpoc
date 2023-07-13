@@ -55,8 +55,8 @@ export default function MoPassword(props: ITextfieldInterface) {
 
     // console.log(props.rows);
     const { label, width, multiline, placeholder, name, showErrorMessage, errorMessage } = props;
-    const [password, setPassword] = useState();
-    const [confirmPassword, setConfirmPassword] = useState();
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
     const [confirmError, setConfirmError] = useState(false);
 
     const handleConfirmPassword = (value:string) => {

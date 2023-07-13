@@ -1,4 +1,3 @@
-"use client";
 import MoTextfields from "../../atomic/MoTextfield/MoTextfields";
 import { useEffect, useState } from "react";
 import MoButton from "../../atomic/MoButton/MoButton";
@@ -18,14 +17,15 @@ function MoFormBuilder({
   ActionComponent,
   formData,
 }: IFormBuilder) {
-  // console.log(props);
-  // const { formData } = props;
+  // Ensure all form data has a defined initial value
+
+
   const [errorMsg, setErrorMsg] = useState();
   const [showErrorMsg, setShowErrorMsg] = useState(false);
+  const [showRequiredMessage, setShowRequiredMessage] = useState(false);
 
   const handleChange = (name: string|undefined, value: string | boolean) => {
     const controlIndex = formData.findIndex((control) => control.name === name);
-    console.log(controlIndex);
     if (controlIndex !== -1) {
       formData[controlIndex].value = value;
     }
@@ -33,8 +33,27 @@ function MoFormBuilder({
 
   const validateForm = () => {
     formData.map((e) => {
-      console.log("hello");
-      if (e.regex) {
+      if(e.required){
+        if(e.value == undefined){ 
+          e.showRequiredMessage = true;
+          setShowRequiredMessage(true);
+        }else{
+          e.showRequiredMessage = false;
+          setShowRequiredMessage(false);
+          if (e.regex) {
+            let reg = RegExp(e.regex);
+            let value: any = e.value;
+            if (value && reg.test(value)) {
+              e.showErrorMessage = false;
+              setShowErrorMsg(false);
+            } else {
+              e.showErrorMessage = true;
+              setShowErrorMsg(true);
+            }
+          }
+        }
+      }
+      else if(e.regex) {
         let reg = RegExp(e.regex);
         let value: any = e.value;
         if (value && reg.test(value)) {
@@ -46,21 +65,14 @@ function MoFormBuilder({
         }
       }
     });
-    console.log("formData", formData);
     return formData.filter((control) => control.showErrorMessage).length === 0;
   };
+
   const handleSubmit = () => {
-    console.log("done");
     if (validateForm()) {
-      // post data
-      console.log(formData[0].value);
       onContinueClick && onContinueClick(formData);
     }
   };
-
-  // useEffect(() => {
-  //   console.log("useeffect1", formData);
-  // }, [showErrorMsg]); 
 
   return (
     <>
@@ -76,6 +88,8 @@ function MoFormBuilder({
             id,
             placeholder,
             label,
+            required,
+            showRequiredMessage,
             showErrorMessage,
             errorMessage,
             link,
@@ -94,8 +108,10 @@ function MoFormBuilder({
                   inputType={inputType}
                   placeholder={placeholder}
                   onChange={handleChange}
+                  required={required}
                   showErrorMessage={showErrorMessage}
                   errorMessage={errorMessage}
+                  showRequiredMessage={showRequiredMessage}
                 ></MoTextfields>
               );
             case "multiline":
@@ -150,6 +166,7 @@ function MoFormBuilder({
                   onChange={handleChange}
                   showErrorMessage={showErrorMessage}
                   errorMessage={errorMessage}
+          
                 />
               );
             case "checkbox":
@@ -168,7 +185,7 @@ function MoFormBuilder({
                   key={index}
                   color={color}
                   top={top}
-                  width={width?width:"100%"}
+                  width={width ? width : "100%"}
                   type={type}
                   name={name}
                   onClick={handleSubmit}
@@ -187,4 +204,5 @@ function MoFormBuilder({
     </>
   );
 }
+
 export default MoFormBuilder;

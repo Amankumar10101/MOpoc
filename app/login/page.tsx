@@ -20,10 +20,14 @@ import { decodeToken } from "../src/utils/tokenDecode";
 import { useState } from "react";
 import CustomizedSnackbars from "../src/components/shared/MoToaster/Alert";
 
+
 function Login() {
   const router = useRouter();
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+  const onBackClick=()=>{
+
+  }
 
   const onContinueClick = (formData: IFormElements[]) => {
     const loginForm: IFormElements[] = formData.reduce(
@@ -41,9 +45,17 @@ function Login() {
     postData(Users.signIn, loginForm)
       .then((response: any) => {
         setItemInStorage("token", JSON.stringify(response.data.access_token));
+       
+        setOpenSnackbar(true); // Open the snackbar
+          setSnackbarSeverity("success");
         console.log(getItemFromStorage("token"));
-        // setOpenSnackbar(true); // Open the snackbar
-        // setSnackbarSeverity("success");
+     
+          if (response.data.IsUpdate === false){
+            router.push('/signUp/optionalSignUp');
+         }
+          
+    
+      
 
         // router.push('/signUp/optionalSignUp');
 
@@ -52,8 +64,10 @@ function Login() {
       })
       .catch((error: any) => {
         console.error(error);
-        setOpenSnackbar(true); // Open the snackbar
-        setSnackbarSeverity("success");
+       
+          setOpenSnackbar(true); // Open the snackbar
+          setSnackbarSeverity("error");
+      
       });
 
     // router.push('/dashboard');
@@ -81,7 +95,7 @@ function Login() {
             <h5 className="login-signup">
               Don’t have an account?{" "}
               <span
-                onClick={() => router.push("/signUp/role")}
+                onClick={() => router.push("/signUp",{query:"jhgu"})}
                 className="signUp-link"
               >
                 SignUp!
@@ -105,7 +119,7 @@ function Login() {
                 snackbarSeverity === "success"
                   ? "Login successful!"
                   : snackbarSeverity === "error"
-                  ? "Error occurred"
+                  ? "Email & Password is wrong"
                   : snackbarSeverity === "warning"
                   ? "Warning occurred"
                   : "Operation failed!"

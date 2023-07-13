@@ -14,7 +14,7 @@ const MyButton = styled(Button)((props:any) => ({
     paddingTop:"10px",
     paddingBottom:"10px",
     marginTop:"10px",
-    top: props.top,
+    // top: props.top,
 
    
     // width: props.size? props.size: 50  ,
@@ -36,7 +36,7 @@ return (
         
         
     }} variant={variant}
-    top={top as any}
+    // top={top as any}
       type={type}>{name}</MyButton>
     </ThemeProvider>
 )
