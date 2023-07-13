@@ -15,4 +15,6 @@ export  interface IFormElements {
     showErrorMessage?:boolean;
     errorMessage?: string;
     link?: string;
+    required?:boolean;
+    showRequiredMessage?:boolean;
 }

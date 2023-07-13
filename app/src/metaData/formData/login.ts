@@ -10,6 +10,7 @@ export const loginData = {
             showErrorMessage:  false,
             errorMessage: "Enter Name",
             regex:/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+            required:true,
             width: "300px"
         },
         {
@@ -18,7 +19,8 @@ export const loginData = {
             name: "password",
             placeholder: "Password",
             className: "login-password",
-            width: "300px"
+            width: "300px",
+            required:true
         },
         {
             type: "link",

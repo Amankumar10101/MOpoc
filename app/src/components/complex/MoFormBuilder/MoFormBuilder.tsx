@@ -22,6 +22,7 @@ function MoFormBuilder({
 
   const [errorMsg, setErrorMsg] = useState();
   const [showErrorMsg, setShowErrorMsg] = useState(false);
+  const [showRequiredMessage, setShowRequiredMessage] = useState(false);
 
   const handleChange = (name: string|undefined, value: string | boolean) => {
     const controlIndex = formData.findIndex((control) => control.name === name);
@@ -32,7 +33,27 @@ function MoFormBuilder({
 
   const validateForm = () => {
     formData.map((e) => {
-      if (e.regex) {
+      if(e.required){
+        if(e.value == undefined){ 
+          e.showRequiredMessage = true;
+          setShowRequiredMessage(true);
+        }else{
+          e.showRequiredMessage = false;
+          setShowRequiredMessage(false);
+          if (e.regex) {
+            let reg = RegExp(e.regex);
+            let value: any = e.value;
+            if (value && reg.test(value)) {
+              e.showErrorMessage = false;
+              setShowErrorMsg(false);
+            } else {
+              e.showErrorMessage = true;
+              setShowErrorMsg(true);
+            }
+          }
+        }
+      }
+      else if(e.regex) {
         let reg = RegExp(e.regex);
         let value: any = e.value;
         if (value && reg.test(value)) {
@@ -67,6 +88,8 @@ function MoFormBuilder({
             id,
             placeholder,
             label,
+            required,
+            showRequiredMessage,
             showErrorMessage,
             errorMessage,
             link,
@@ -85,8 +108,10 @@ function MoFormBuilder({
                   inputType={inputType}
                   placeholder={placeholder}
                   onChange={handleChange}
+                  required={required}
                   showErrorMessage={showErrorMessage}
                   errorMessage={errorMessage}
+                  showRequiredMessage={showRequiredMessage}
                 ></MoTextfields>
               );
             case "multiline":

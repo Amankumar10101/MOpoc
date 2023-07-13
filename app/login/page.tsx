@@ -25,6 +25,9 @@ function Login() {
   const router = useRouter();
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
+  const onBackClick=()=>{
+
+  }
 
   const onContinueClick = (formData: IFormElements[]) => {
     const loginForm: IFormElements[] = formData.reduce(
@@ -92,7 +95,7 @@ function Login() {
             <h5 className="login-signup">
               Don’t have an account?{" "}
               <span
-                onClick={() => router.push("/signUp")}
+                onClick={() => router.push("/signUp",{query:"jhgu"})}
                 className="signUp-link"
               >
                 SignUp!

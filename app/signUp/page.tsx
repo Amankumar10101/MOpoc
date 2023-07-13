@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, CardMedia, Grow, Typography, Box, Paper } from '@mui/material';
 import { styled } from '@mui/system';
-import {roleData} from '../src/metaData/roleData/cardData'; 
+import { roleData } from '../src/metaData/roleData/cardData';
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
 import SignUp from '../src/components/complex/SignUp/signUp';
@@ -56,12 +56,13 @@ const StyledImageContainer = styled('div')(({ theme }) => ({
   height: '100%'
 }));
 
-const typographyStyle =  {
-color: 'var(--colour-title, #585858)',
-fontSize: '1.75rem',
-fontStyle: 'normal',
-fontWeight: '400',
-lineHeight: '2.25rem'};
+const typographyStyle = {
+  color: 'var(--colour-title, #585858)',
+  fontSize: '1.75rem',
+  fontStyle: 'normal',
+  fontWeight: '400',
+  lineHeight: '2.25rem'
+};
 
 const ImageCard: React.FC = () => {
   const router = useRouter();
@@ -70,63 +71,61 @@ const ImageCard: React.FC = () => {
   const [showSignUp, setShowSignUp] = useState(false);
   const data: ICardData = roleData[0];
 
-
-
   return (
     <>
-  {!role && !showSignUp ? (
-    <StyledGrid container direction="column" alignItems="center">
-      <Box marginBottom={4}>
-        <Typography sx={{
-          ...typographyStyle
-        }} variant="h4" align="center">
-          {data.createAccountText}
-        </Typography>
-        <Typography variant="h4" sx={{ marginTop: "4.44rem",   ...typographyStyle }} align="center">
-          {data.iamText}
-        </Typography>
-      </Box>
-      <Grid container item xs={12} spacing={3}>
-        {data.cards.map((card, index) => (
-          <Grid item xs={12} sm={6} key={index}>
-            <Grow in={true}>
-              <div onClick={() => {
-                setActiveCard(index);
-                setTimeout(()=>{
-                  setRole(card.name.toUpperCase());
-                  setShowSignUp(true);
-                },1000)
-                
-                }}>
-                <StyledCard>
-                  <StyledImageContainer>
-                    <Image
-                      src={card.image}
-                      alt={card.name}
-                      width={128}
-                      height={184}
-                    />
-                  </StyledImageContainer>
-                  {activeCard === index && <ImageRectangle />}
-                </StyledCard>
-                <Typography variant="body1" sx={{
-                  textAlign: 'center', color: activeCard === index ? '#00B7FD' : 'var(--colour-title, #585858)', marginTop: '0.5rem', fontSize: '1.375rem',
-                  fontFamily: 'Inherit',
-                  fontStyle: 'normal',
-                  fontWeight: activeCard === index ? '700' : '400',
-                  lineHeight: '1.75rem'
-                }}>
-                  {card.name}
-                </Typography>
-              </div>
-            </Grow>
+      {!role && !showSignUp ? (
+        <StyledGrid container direction="column" alignItems="center">
+          <Box marginBottom={4}>
+            <Typography sx={{
+              ...typographyStyle
+            }} variant="h4" align="center">
+              {data.createAccountText}
+            </Typography>
+            <Typography variant="h4" sx={{ marginTop: "4.44rem", ...typographyStyle }} align="center">
+              {data.iamText}
+            </Typography>
+          </Box>
+          <Grid container item xs={12} spacing={3}>
+            {data.cards.map((card, index) => (
+              <Grid item xs={12} sm={6} key={index}>
+                <Grow in={true}>
+                  <div onClick={() => {
+                    setActiveCard(index);
+                    setTimeout(() => {
+                      setRole(card.name.toUpperCase());
+                      setShowSignUp(true);
+                    }, 1000)
+
+                  }}>
+                    <StyledCard>
+                      <StyledImageContainer>
+                        <Image
+                          src={card.image}
+                          alt={card.name}
+                          width={128}
+                          height={184}
+                        />
+                      </StyledImageContainer>
+                      {activeCard === index && <ImageRectangle />}
+                    </StyledCard>
+                    <Typography variant="body1" sx={{
+                      textAlign: 'center', color: activeCard === index ? '#00B7FD' : 'var(--colour-title, #585858)', marginTop: '0.5rem', fontSize: '1.375rem',
+                      fontFamily: 'Inherit',
+                      fontStyle: 'normal',
+                      fontWeight: activeCard === index ? '700' : '400',
+                      lineHeight: '1.75rem'
+                    }}>
+                      {card.name}
+                    </Typography>
+                  </div>
+                </Grow>
+              </Grid>
+            ))}
           </Grid>
-        ))}
-      </Grid>
-    </StyledGrid>
-  ) : (<SignUp role={role}/>)} 
-    
-    
+        </StyledGrid>
+      ) : (<SignUp role={role} />)}
+
+
 
     </>
   );

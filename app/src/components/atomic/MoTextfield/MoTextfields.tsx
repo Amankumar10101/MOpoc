@@ -45,9 +45,8 @@ export const BootstrapInput = styled(InputBase)(({ theme }) => ({
   },
 }));
 export default function MoTextfields(props: ITextfieldInterface) {
-  const { label, width, multiline, inputType, placeholder, name, showErrorMessage, errorMessage, id } = props;
+  const { label, width, multiline, inputType, placeholder,required,showRequiredMessage, name, showErrorMessage, errorMessage, id } = props;
  
-
   return (
     <FormControl sx={{width:"100%"}} className='textfield' variant="standard">
       {label && <MoLabel>
@@ -57,7 +56,8 @@ export default function MoTextfields(props: ITextfieldInterface) {
       {multiline ? <BootstrapInput type={inputType ? inputType : 'text'} className={props.className} name={name} multiline rows={props.rows} placeholder={placeholder} id={id} onChange={(event) => props.onChange?.(name, event?.target?.value)} /> :
         <BootstrapInput type={inputType ? inputType : 'text'} className={props.className} onChange={(event) => props.onChange?.(name, event?.target?.value)} name={name} placeholder={placeholder} id={id} />
       }
-      {showErrorMessage && <span className='form-error-msg'><WarningIcon fontSize='small' />{errorMessage}</span>}
+      {required && (showRequiredMessage && <span className='form-error-msg'>*Required field</span>)}
+      {showErrorMessage && <span className='form-error-msg'><WarningIcon sx={{fontSize:"0.65rem"}} />{errorMessage}</span>}
     </FormControl>
 
   )

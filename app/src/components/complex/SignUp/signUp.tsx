@@ -2,7 +2,7 @@
 
 import "../../../styles/Pages/signUp/signup.scss";
 import MoFormBuilder from "../MoFormBuilder/MoFormBuilder";
-import {formData}  from "../../../metaData/formData/signUp";
+import { formData } from "../../../metaData/formData/signUp";
 import { useRouter } from 'next/navigation';
 import { postData } from "../../../services/api";
 import { Users } from "../../../services/endpoint";
@@ -11,17 +11,17 @@ import { useState } from "react";
 import CustomizedSnackbars from "../../shared/MoToaster/Alert";
 
 interface ISignUp {
-    role: string;
+  role: string;
 }
 
-function SignUp({role}:ISignUp) {
+function SignUp({ role }: ISignUp) {
   const [isBackClicked, setIsBackClicked] = useState<number>(0);
   const router = useRouter();
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [snackbarSeverity, setSnackbarSeverity] = useState("success");
 
 
- 
+console.log(router);
 
   const onContinueClick = (formData: IFormElements[]) => {
     const formPost: IFormElements[] = formData.reduce(
@@ -36,9 +36,9 @@ function SignUp({role}:ISignUp) {
 
     postData(Users.signUp, formPost)
       .then((response: any) => {
-        console.log(response.data);
+        // console.log(response.data);
         setOpenSnackbar(true); // Open the snackbar
-          setSnackbarSeverity("success");
+        setSnackbarSeverity("success");
         router.push('/signUp/optionalSignUp');
         // setItemInStorage("token", JSON.stringify(response.data.access_token));
         // decodeToken();
@@ -46,37 +46,46 @@ function SignUp({role}:ISignUp) {
       .catch((error: any) => {
         console.error(error);
         setOpenSnackbar(true); // Open the snackbar
-          setSnackbarSeverity("error");
+        setSnackbarSeverity("error");
       });
   };
 
   const onBackClick = () => {
     setIsBackClicked(1);
 
-}
+  }
 
   return (
     <div className="signup-page">
       <div>
-      <h3 className="signUp-heading">Create your account</h3>
+        <h3 className="signUp-heading">Create your account</h3>
       </div>
       <MoFormBuilder onContinueClick={onContinueClick} onBackClick={onBackClick} {...formData()} />
+      <h5 className="signUp-signIn">
+        Don’t have an account?{" "}
+        <span
+          onClick={() => router.push("/login")}
+          className="login-link"
+        >
+          SignIn!
+        </span>
+      </h5>
       {openSnackbar && (
-            <CustomizedSnackbars
-              open={openSnackbar}
-              severity={snackbarSeverity}
-              message={
-                snackbarSeverity === "success"
-                  ? "Login successful!"
-                  : snackbarSeverity === "error"
-                  ? "Email & Password is wrong"
-                  : snackbarSeverity === "warning"
+        <CustomizedSnackbars
+          open={openSnackbar}
+          severity={snackbarSeverity}
+          message={
+            snackbarSeverity === "success"
+              ? "Login successful!"
+              : snackbarSeverity === "error"
+                ? "Email & Password is wrong"
+                : snackbarSeverity === "warning"
                   ? "Warning occurred"
                   : "Operation failed!"
-              }
-              onClose={() => setOpenSnackbar(false)}
-            />
-          )}
+          }
+          onClose={() => setOpenSnackbar(false)}
+        />
+      )}
     </div>
   );
 }

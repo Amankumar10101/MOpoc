@@ -5,10 +5,12 @@ export interface ITextfieldInterface {
   name?: string;
   rows?: number;
   id?: string;
+  required?:boolean;
   inputType?: string;
   multiline?: boolean;
   showErrorMessage?: boolean;
   errorMessage?: string;
+  showRequiredMessage?:boolean
   className?: string;
   onChange?: (name: string, value: string) => void;
 }
