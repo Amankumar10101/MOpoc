@@ -1,0 +1,187 @@
+.createNewProjectCard {
+  width: 70%;
+  margin: 0 auto;
+  // margin-top: 20px;
+  // margin-left: 20px;
+  // margin-bottom: 20px;
+  // padding-bottom: 20px;
+  // margin-right: 110px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.project-details {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  // grid-gap: 20px;
+  padding: 15px;
+}
+
+.milestones-details {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  // grid-gap: 20px;
+  padding: 15px;
+}
+
+.provider-details {
+  width: 95%;
+  padding: 20px;
+  margin: 25px;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
+  // grid-gap: 20px;
+  padding: 15px;
+
+}
+
+//   .cell {
+//     display: flex;
+//     justify-items: stretch;
+//     gap: 5px;
+//   }
+
+//   .cell div {
+//     border: 3px solid black;
+//   }
+
+.large1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+}
+
+.large2 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+}
+
+.large3 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+}
+
+.large4 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+
+}
+
+.box1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+}
+
+.box2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+}
+
+.box3 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+}
+
+.box4 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+}
+
+.box5 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+}
+
+.box6 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+}
+
+.box7 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+
+}
+
+.box8 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+}
+
+.milestone {
+  width: 95%;
+  padding: 20px;
+  margin: 25px;
+}
+
+.button-container {
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  // align-items: center;
+  // justify-content: center;
+  font-size: 64px;
+  margin-left: 440px;
+  margin-top: 20px;
+  // width: 100%;
+  color: #74777A;
+}
+
+.milestone-button {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: flex-end;
+  width: 96%;
+  // margin-left: 285px;
+  margin-bottom: 20px;
+  // margin-right: 25px;
+}
+
+.milestones-header {
+  margin-left: 12px;
+  color: #60A3BA;
+  font-size: 40px;
+}
+
+.provider-header {
+  margin-left: 12px;
+  color: #60A3BA;
+  font-size: 40px;
+}
+
+.project-details {
+  width: 95%;
+  padding: 20px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top: 25px;
+}
+
+// .background {
+//   background-color: #ececec;
+// }
+
+.add {
+  margin-bottom: 20px;
+}

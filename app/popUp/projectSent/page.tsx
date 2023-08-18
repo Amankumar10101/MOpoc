@@ -27,8 +27,8 @@ export default function ProjectSent() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open alert dialog
+      <Button variant="contained" onClick={handleClickOpen}>
+        Send
       </Button>
       <Dialog
         open={open}
@@ -38,30 +38,27 @@ export default function ProjectSent() {
         className='project-sent-dailoguebox'
       >
         <Div className='outerCheckCircle'><CheckCircleIcon sx={{
-          color:"green",
-          width:"100px",
-          height:"100px",
-          padding:0,
+          color: "green",
+          width: "100px",
+          height: "100px",
+          padding: 0,
           // backgroundColor:"white"
         }} /></Div>
 
         <DialogTitle className='project-sent-heading' id="alert-dialog-title">
           {"Project Sent"}
         </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Your project has been sent to provider
-          </DialogContentText>
-          <Card sx={{
-            padding: "10px"
-            
-          }}>
-            <MoTitleDetails title='Project ID' description='Heathify App UX/UI' />
-            <MoTitleDetails title='Project ID' description='Heathify App UX/UI' />
-            <MoTitleDetails title='Project ID' description='Heathify App UX/UI' />
-          </Card>
-        </DialogContent>
-        <DialogActions>
+        <DialogContentText className='project-sent-content' id="alert-dialog-description">
+          Your project has been sent to provider
+        </DialogContentText>
+        <Card className="projectSent-card" >
+          <MoTitleDetails className="box1" title='Project' description='Heathify App UX/UI' />
+          <MoTitleDetails className="box2" title='Project ID' description='6541365' />
+          <MoTitleDetails className="box3" title='Provider' description='HCL Technologies' />
+          <MoTitleDetails className="box4" title='Royalties' description='10%' />
+          <MoTitleDetails className="box5" title='Duration' description='6 Months' />
+        </Card>
+        <DialogActions className='projectSent-buttons'>
           <MoButton onClick={handleClose} variant='contained' name='View Project Details'></MoButton>
         </DialogActions>
       </Dialog>

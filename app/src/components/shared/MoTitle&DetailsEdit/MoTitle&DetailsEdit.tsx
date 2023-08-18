@@ -1,6 +1,6 @@
 import { Div } from "../../atomic/MoMolecules/Molecules";
 import { ITitleDetails } from "@/app/src/interfaces/components/TitleDetails";
-import './MoTitle&Details.scss';
+import './MoTitle&DetailsEdit.scss';
 import { ClassNames } from "@emotion/react";
 
 export default function MoTitleDetails({title, description,className}:ITitleDetails) {

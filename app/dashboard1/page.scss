@@ -1,0 +1,52 @@
+.notification {
+    width: 735px;
+    height: 386px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: var(--colour-white-card, #FFF);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15), -1px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.notification-row {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+    border:1px solid #B4B4B4;
+}
+
+
+.arrow {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content:space-around;
+    // align-items: right;
+    width:10%;
+}
+.notification-data{
+    width:80%;
+}
+.notification-avatar{
+    // border
+    width:10%;
+    // text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.notification-table{
+
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: end;
+}
+.notification-table-body{
+    width:100%;
+}
+.create-escrow-button{
+    margin-right: 2%;
+    margin-top: 2%;
+}

@@ -1,22 +1,101 @@
-.outerCheckCircle{
-    width:80px;
-    height:80px;
+.outerCheckCircle {
+    width: 80px;
+    height: 80px;
     border-radius: 100%;
     // background-color: rgb(96, 149, 96);
     display: flex;
     flex-direction: column;
-    border: 20px solid rgb(96, 149, 96); ;
+    border: 20px solid rgb(96, 149, 96);
     justify-content: center;
     align-items: center;
     box-sizing: unset;
 }
-.attention-dailoguebox>div:nth-child(3)>div{
-    padding:20px;
+
+.attention-dailoguebox>div:nth-child(3)>div {
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
-.attention-heading{
-    color: green;
+
+// .attention-block {
+//     padding: 10px;
+// }
+
+.attention-heading {
+    color: #FBC02D;
+    // font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 44px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.attention-content {
+    color: var(--colour-text, #74777A);
+    // font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.attention-assign-provider {
+    color: var(--colour-title, #585858);
+    // font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.attention-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.attention-card {
+    padding: 20px;
+    width: 520px;
+    height: 125px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 17px;
+}
+
+.box1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+}
+
+.box2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: right;
+}
+
+.box3 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+
 }

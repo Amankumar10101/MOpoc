@@ -1,62 +1,32 @@
+'use client'
 
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import "./page.scss";
+import MoButton from '../src/components/shared/MoButton';
+import { Typography3 } from '../src/components/atomic/MoMolecules/Molecules';
 
-// 'use client'
+export default function BasicCard() {
+    const [open, setOpen] = React.useState(false);
 
-// import MoCard from "../../components/MoCard/MoCard";
-// import data from "../../data/purchaserDashboard.json";
-// import formData from "../../data/formBuilderData.json";
-// import MoTextfields from "../../components/MoTextfield/MoTextfields";
-// // import "./purchaserDashboard.scss";
-// import MoFormBuilder from "../../components/MoFormBuilder/MoFormBuilder";
-// import MoDoughnut from "../../components/MoDoghnut/MoDoughnut";
-// import MoAttachment from "../../components/MoAttachment/MoAttachment";
-// import MoDropdown from "../../components/MoDropdown/MoDropdown";
-// import Wallet from "../signUp/wallet/wallet";
+    const handleClose = () => {
+        setOpen(false);
+    };
 
-
-// function PurchaserDashboard() {
-
-//     const purchaserData = data.data;
-//     const pieValues = [2, 6, 3];
-//     const colors = [
-//         '#efbf31',
-//         '#4eab5b',
-//         '#377b85',
-//     ];
-//     const pieLabels = ["In Progress", "Completed", "Unassigned"];
-
-//     return (
-//         <div>
-//             <Wallet />
-//             {/* <MoFormBuilder {...formData} /> */}
-          
-//             {/* <MoDoughnut
-//                 values={pieValues}
-//                 colors={colors}
-//                 labels={pieLabels}
-//             ></MoDoughnut> */}
-            
-//             {/* <div className="mo-dashboard-main-section">
-//                 {purchaserData.map((d) => (
-//                     <MoCard
-//                         name={d.name}
-//                         status={d.status}
-//                         development={d.development}
-//                         tech={d.tech}
-//                         description={d.description}
-//                         funds={d.funds}
-//                         date={d.date}
-//                     ></MoCard>
-//                 ))}
-//             </div> */}
-
-
-
-// //         </div>
-// //     )
-
-
-// // }
-
-// // export default PurchaserDashboard;
-
+    return (
+        <div>
+    <Card className='escrow-creation'>
+      <CardContent className='escrow-content'>
+        <Typography className='escrow-title' >
+        “No ESCROW Created”
+        </Typography>
+        <Typography3 className='escrow-desc' >You do not have any active ESCROW transaction  at the moment.</Typography3>
+        <Typography3 className='escrow-desc' >Create an ESCROW to securely manage the funds for your project.</Typography3>
+      </CardContent>
+    </Card> 
+    <MoButton className="create-escrow-button" onClick={handleClose} variant='contained' name='Create Escrow'></MoButton>
+    </div>
+    );
+}

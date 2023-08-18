@@ -19,12 +19,12 @@ const MyButton = styled(Button)((props) => ({
 
 function MoButton(props: IButtonInterface){
    
-    const {variant,type,width,color, name, onClick}=props;
+    const {variant,type,width,color, name, className, onClick}=props;
     
 
 return (
     <ThemeProvider theme={theme}>
-    <MyButton 
+    <MyButton className={className}
     onClick={onClick}
      sx={{
         // width:width+"px"

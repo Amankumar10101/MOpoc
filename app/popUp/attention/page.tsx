@@ -27,8 +27,8 @@ export default function Attention() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open alert dialog
+      <Button variant="contained" onClick={handleClickOpen}>
+        Send
       </Button>
       <Dialog
         open={open}
@@ -43,23 +43,19 @@ export default function Attention() {
         }} />
 
         <DialogTitle className='attention-heading' id="alert-dialog-title">
-          {"Project Sent"}
+          {"Attention"}
         </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Your project has been sent to provider
+          <DialogContentText className= 'attention-content' id="alert-dialog-description">
+          Please <span className='attention-assign-provider'> Assign Provider </span> for this project
           </DialogContentText>
-          <Card sx={{
-            padding: "10px"
-            
-          }}>
-            <MoTitleDetails title='Project ID' description='Heathify App UX/UI' />
-            <MoTitleDetails title='Project ID' description='Heathify App UX/UI' />
-            <MoTitleDetails title='Project ID' description='Heathify App UX/UI' />
+          <Card className="attention-card">
+            <MoTitleDetails className="box1" title='Project ID' description='Heathify App UX/UI' />
+            <MoTitleDetails className="box2" title='Royalties' description='10%' />
+            <MoTitleDetails className="box3" title='Duration' description='6 Months' />
           </Card>
-        </DialogContent>
-        <DialogActions>
-          <MoButton onClick={handleClose} variant='contained' name='View Project Details'></MoButton>
+        <DialogActions className='attention-buttons'>
+          <MoButton onClick={handleClose} variant='outlined' name='Save Project'></MoButton>
+          <MoButton onClick={handleClose} variant='contained' name='Assign Provider'></MoButton>
         </DialogActions>
       </Dialog>
     </div>

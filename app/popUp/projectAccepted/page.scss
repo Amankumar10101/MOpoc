@@ -33,7 +33,7 @@
 .projectSent-card {
     padding: 20px;
     width: 520px;
-    height: 200px;
+    height: 150px;
     display: grid;
     grid-template-columns: auto auto;
     gap: 17px;
@@ -94,9 +94,9 @@
 .projectSent-buttons {
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content:space-between;
     align-items: end;
     width: 100%;
-    padding-left: 0px;
+    padding-left: 205px;
     padding-right: 0px;
 }

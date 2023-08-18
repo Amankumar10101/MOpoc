@@ -1,0 +1,45 @@
+.escrow-creation {
+    width: 616px;
+    height: 142px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background: var(--colour-white-card, #FFF);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15), -1px 0px 4px 0px rgba(0, 0, 0, 0.15);
+}
+
+.escrow-title {
+    color: var(--head-line-colour, #518B9F);
+    font-family: Roboto;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 44px;
+    text-align: center;
+    // padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.escrow-desc {
+    color: var(--colour-text, #74777A);
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+    // padding-bottom: 10px;
+}
+
+.escrow-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.create-escrow-button {
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+}
